@@ -1,8 +1,8 @@
 
 
--- installing ansible --
+Ansbile Commands:
 
-https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible
+ansible-galaxy collection list
 
 
 
