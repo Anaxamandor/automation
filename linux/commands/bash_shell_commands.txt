@@ -1,1 +1,8 @@
+networking commands:
+ip -4 address
+
+file management commands:
+cd (returns to home directory)
+pwd
+ls 
 
