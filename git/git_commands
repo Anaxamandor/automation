@@ -18,10 +18,31 @@ global configuration:
 git config --global user.name "ipvzero"
 git config --global user.email ipvzero@gmail.com
 git config -l  (verifies the above configured items)
+
+#################################################################
+>>> creating a repository (local method):
+
 mkdir Important-Files  
 cd Important-Files
 git init (initializes the empty directory)
 ls -la (shows the .git file has been created, meaning this is now a local repository)
+
+(this method is not preferred as it requires making configs to tell git where to send it.  It is better to use cloning instead)
+
+#################################################################
+>>> creating a repository (remote method/cloning)
+
+(this method is preferable to the local method because it pulls down the configs needed to reach the remote repository)
+
+cd
+mkdir Clone-Test
+cd Clone-Test
+ls -la (nothing there yet)
+
+
+
+
+
 
 ################################################################
 >>> committing files:
