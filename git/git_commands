@@ -38,6 +38,13 @@ cd
 mkdir Clone-Test
 cd Clone-Test
 ls -la (nothing there yet)
+go to github account repository
+copy the https url
+git clone https://github.com/moon-canyon/automation.git
+ls -la 
+The automation folder appears.  Note that the Clone-Test folder is not a git folder but the automation folder is. 
+
+
 
 
 
