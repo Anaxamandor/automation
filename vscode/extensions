@@ -12,3 +12,37 @@ remote ssh
  - Continue to accept fingerprint
  - Enter the user's password
  - Control + J to view terminal
+
+
+	Useful Extensions:
+		○ Cobalt2 theme
+		○ Docker
+		○ Jupyter
+		○ Kubernetes
+		○ Material Icon Them   #shows icons such as the python logo on python files, js logo on JS files, etc.
+		○ Pylance
+		○ Python
+		○ Remote - Containers
+		○ Remote - WSL
+		○ YAML
+		○ Prettier
+		○ Python Extension Pack
+		○ Better Comments
+		○ XML Tools
+		○ REST Client
+		○ Live Server
+		○ Advanced-New-File
+		○ Remote SSH (Microsoft) -> can run code on your remote server in the cloud
+		○ VSCode PDF
+  
+To search extensions:
+		-  In the search bar type @category for example to find a list of a categories of exensions, then can narrow it down from there by typing keywords 
+  after that in the search bar.  
+  - For  example: 
+			 @category:"linters" yaml
+    
+Click on the hamburger menu to view some options
+ 
+Sorting:
+		  @sort (then further refine such as:  @sort:installs)
+		
