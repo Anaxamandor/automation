@@ -1,0 +1,15 @@
+	• Tutorials and Documentation:
+		○ https://code.visualstudio.com/docs/editor/workspaces
+	
+	• Workspace concept:
+		○ A workspace is like a project level grouping, with folders and files below that in hierarchy
+		○ Think of a workspace as the root of a project that has extra VS Code knowledge and capabilities.
+		
+	• Workspace settings
+		○ In settings, you can toggle between user and workspace
+		○ The user settings are the global settings
+		○ Workspace settings enable you to configure settings in the context of the workspace you have opened and always override global user settings.
+		○ 
+
+	• Remove folders from workspace:
+ just go to command palate and type workspaces:remove and then remove them
