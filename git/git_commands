@@ -1,1 +1,64 @@
 
+################################################################
+>>> installing git on RHEL:
+
+It should be installed by default on RHEL, but if there are issues:
+
+sudo yum update
+sudo yum install git
+
+git --version 
+#################################################################
+>>> configuring git:
+
+you can create a global configuration which applies to all folders across the file system
+or, you can create a configuration for a particular folder 
+
+global configuration:
+git config --global user.name "ipvzero"
+git config --global user.email ipvzero@gmail.com
+git config -l  (verifies the above configured items)
+mkdir Important-Files  
+cd Important-Files
+git init (initializes the empty directory)
+ls -la (shows the .git file has been created, meaning this is now a local repository)
+
+################################################################
+>>> committing files:
+
+git status  (says no files to track)
+create a file to track: vim file1.txt
+git status  (now it says there is an untracked file, meaning git notices it's there but is not actually tracking it)
+git add file1.txt (staging changes)
+git status (now it says 1 file is tracked)
+git commit -m "This is the first version of this file" file1.txt
+git status (says working tree clean)
+
+now make a change to the file and save it.
+git status (now it says there is a modification)
+git add file1.txt
+git status
+git commit -m "made a change" file1.txt
+git status
+
+###################################################################
+>>> check the difference between the last committed state and the current state of a file:
+
+git diff file1.txt
+
+###################################################################
+>>> creating a repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
