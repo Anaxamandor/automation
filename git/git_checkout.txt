@@ -1,0 +1,9 @@
+#################################################################
+>>> how to use git checkout to go back in time and change a file
+
+git log
+git checkout <hash of earlier commit>
+git checkout HEAD
+make the changes to the file, stage, and commit them
+git log
+the old logs are wiped and you are starting over from the point you went back to.
