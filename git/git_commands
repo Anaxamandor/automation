@@ -45,14 +45,8 @@ ls -la
 The automation folder appears.  Note that the Clone-Test folder is not a git folder but the automation folder is. 
 
 
-
-
-
-
-
-
 ################################################################
->>> committing files:
+>>> git process:
 
 git status  (says no files to track)
 create a file to track: vim file1.txt
@@ -75,7 +69,35 @@ git status
 git diff file1.txt
 
 ###################################################################
->>> creating a repository
+>>> pushing changes to github:
+
+first, create repository, commit a file, and and clone the repository:
+
+create a repository (optionally with README.md file option selected)
+git clone HTTPS URL
+create a file
+git add the file
+git commit the file
+
+second, generate the token:
+profile picture -> settings
+scroll down -> developer settings -> personal access tokens
+generate new token -> enter password
+give token name, expiration
+choose what you will allow the token to do (if unsure just click repo and let it autoselect)
+click on generate token
+copy the token and paste it in a notepad
+
+third, configure git remember tokens you enter:
+
+git config --global credential.helper store
+
+finally, push the local changes up to the repository:
+
+git push -u origin main  (do this command directly from RHEL as VSCode does weird stuff)
+enter the username
+enter the token when it asks for the password
+
 
 
 
