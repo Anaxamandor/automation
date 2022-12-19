@@ -1,8 +1,24 @@
-networking commands:
+##############################################################
+bash networking commands:
+
 ip -4 address
 
-file management commands:
+##############################################################
+bash commands for working with files:
+
 cd (returns to home directory)
 pwd
 ls 
+ls -l > example.txt  (redirects command output to a file)
+cat example.txt (shows contents of a file)
+touch example.txt (creates a file)
+ls -l /path/path/path
+ls -l /path/path/path/ /path2/path2/path2 &> example.txt 
+cat doc1.txt > doc2.txt  (recirecting contents of one file to another.  If the new target file does not it exist is automatically created)
+cat doc1.txt >> doc2.txt (appends instead of overwriting)
+echo x.x.x.x/xx > router1.cfg
+echo "this is random" | tee -a file.txt (command output to file and also on screen)
+ping x.x.x.x > mypingoutput.txt (it will appear to hang, so use control z)
+ping x.x.x.x | tee -a file.txt  (puts command output on screen as well as sending it to a file)
+
 
