@@ -1,1 +1,4 @@
+nmap -F -oN website.com  path/file.txt (exports to regular text file)
+namp -F -oX website.com  path/file.txt (exports to xml file)
 
+-v is useful to see the results on screen intead of blinking cursor while it scans
