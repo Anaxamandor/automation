@@ -1,0 +1,11 @@
+example:
+
+dnf upgrade -y
+dnf search ngnix
+dnf info ngnix
+su -
+dnf install -y nginx
+dnf list installed nginx
+which nginx
+dnf remove -y nginx
+dnf autoremove
