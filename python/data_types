@@ -29,6 +29,10 @@ tuple:
   creating a tuple:
     my_tuple = ("1", "2", "3")
     
+strings:
+   string_variable[1] (to access a character at position 1)
+   
+    
     
   
     
