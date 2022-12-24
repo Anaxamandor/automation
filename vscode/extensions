@@ -1,20 +1,29 @@
 
-remote ssh
- - install the extensiont
- - get the IP address of the target machine
+remote ssh set up
+ - ssh server must be installed on the linux server 
+     - on ubuntu: sudo apt install openssh-server
+ - find the IP address of the Linux server
+ - install the VSCode remote ssh extension 
  - click on remote explorer icon
  - select SSH targets in drop down menu
  - click plus button to add new SSH target
- - type in the ssh command (ssh user@x.x.x.x)
+ - type in ssh user@x.x.x.x (where x's are the ip address)
  - select the ssh configuration file (C:\Users\username\.ssh\config)
  - right click the host that is added and open in new window
  - select the platform (Linux)
  - Continue to accept fingerprint
  - Enter the user's password
  - Control + J to view terminal
+ 
+ useful exentensions for network automation:
+  - remote ssh
+  - python
+  - pylance
+  - cisco ios syntax (for syntax highlighting, use .ios file extensions)
+  - better jinja (for syntax highlighting, use .j2 file extensions)
 
 
-	Useful Extensions:
+	Useful Extensions (older list):
 		○ Cobalt2 theme
 		○ Docker
 		○ Jupyter
