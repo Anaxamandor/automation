@@ -1,19 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<People>
-    <Person Id="1">
-        <FirstName>Benjamin</FirstName>
-        <LastName>Finkel</LastName>
-        <Email>ben.finkel@cbtnuggets.com</Email>
-    </Person>    
-    <Person Id="2">
-        <FirstName>Jane</FirstName>
-        <LastName>Doel</LastName>
-        <Email>jane.doe@cbtnuggets.com</Email>
-    </Person>
-    <Person Id="3">
-        <FirstName>Pat</FirstName>
-        <LastName>Smith</LastName>
-        <Email>pat.smith@cbtnuggets.com</Email>
-    </Person>
+#first need to install xmltodict:
+#pip install xmltodict
 
-</People>
+import xmltodict   
+
+#get the XML file data
+stream = open('sample.xml','r')
+
+#parse the XML file into an "OrderedDict"
+xml = xmltodict.parse(stream.read())
+
+#iterate through items in the XML object
+for e in xml["People"]["Person"]:
+    print(e)
