@@ -1,0 +1,16 @@
+install pip to RHEL (if not already installed by default on RHEL):
+  sudo dnf upgrade -y
+  sudo dnf install python3-pip  
+  pip3 --version
+  
+ install ipython in virtual environment:
+   cd .venv
+   source bin/activate
+   cd ..
+   pip3 install ipython
+   
+ turn on interactive ipython shell:
+   ipython
+   
+  
+  
