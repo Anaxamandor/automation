@@ -1,0 +1,35 @@
+lists:
+  create a list:
+    list_name = []
+  add an item to a list: 
+    list_name.append("new")
+  access an item in a list: 
+    list_name[0]
+  
+  
+dictionaries:
+  create a dictionary: 
+    my_credentials = {"hostname": "x.x.x.x, "port": "22", "username": "john", "password": "cisco"}
+  access an item in the dictionary:
+    my_credentials["hostname"]
+  add an item to a dictionary:
+    my_credentials["platform"] = "cisco_ios"
+    
+sets:
+  sets are mutable but can only have unique values
+  create a set:
+    set_of_vlan = {"vlan 5", "vlan 10", "vlan 20"}
+  add an item to a set:
+    set_of_vlans.add("vlan 60")
+  remove an item:
+    set_of_vlans.remove("vlan 5")
+    
+tuple:
+  tuples cannot be added to (they are immutable)
+  creating a tuple:
+    my_tuple = ("1", "2", "3")
+    
+    
+  
+    
+  
