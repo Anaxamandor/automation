@@ -24,6 +24,8 @@ use a decoy:
 there are also nmap scripts available:
   sudo nmap --script vuln x.x.x.x (vuln keyword uses all scripts in that category)
   
+show status as scanning: --stats-every 2s  (2s means 2 seconds, or m for minutes, h for hours)
+  
   
 resources:
 network chuck video: https://www.youtube.com/watch?v=4t4kBkMsDbQ
