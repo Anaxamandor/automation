@@ -4,7 +4,7 @@
 import xmltodict   
 
 #get the XML file data
-stream = open('sample.xml','r')
+stream = open('sample_xml_data.xml','r')
 
 #parse the XML file into an "OrderedDict"
 xml = xmltodict.parse(stream.read())
