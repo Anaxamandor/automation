@@ -1,4 +1,22 @@
-nmap -F -oN website.com  path/file.txt (exports to regular text file)
-namp -F -oX website.com  path/file.txt (exports to xml file)
+export to normal text file:
+  nmap -oN scan.txt x.x.x.x/xx
+  cat scan.txt
+
+export to XML file:
+  namp -oX scan.xml x.x.x.x/xx
+
+export to Grepable file:
+  nmap -oG scantron.txt x.x.x.x/xx
+  grep "microsoft" scantron.txt
+ 
+export to all types simulatenously:
+  nmap -oA scan2 x.x.x.x/xx
+  ls -l scan2*
 
 -v is useful to see the results on screen intead of blinking cursor while it scans
+
+--append-output will change the file name???
+
+resource:  https://www.youtube.com/watch?v=Qxa7QyiQvPE
+
+
