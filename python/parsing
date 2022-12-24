@@ -1,0 +1,3 @@
+Serialization = outputting to a file format such as XML
+deserialization = importing from a file format such XML
+
