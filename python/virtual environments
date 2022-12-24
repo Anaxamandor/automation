@@ -1,0 +1,29 @@
+
+create a folder (optional):
+  mkdir Python-Net-Eng
+  cd Python-Net-Eng
+  
+install venv:
+  sudo apt install python3-venv (ubuntu) 
+  it is installed by default on RHEL
+  
+create a virtual environment:
+  python3 -m venv .venv   (.venv is conventional hidden directory name but can be any name)
+  ls -la  
+  cd .venv
+  
+activate or deactivate the virtual environment:
+  source bin/activate
+  deactivate
+
+
+
+#############################################
+documentation:  
+
+https://docs.python.org/3/library/venv.html
+
+useful info:  https://www.infoworld.com/article/3239675/virtualenv-and-venv-python-virtual-environments-explained.html
+Activation makes the virtual environment the default Python interpreter for the duration of a shell session.
+/path/to/venv/bin/activate
+
