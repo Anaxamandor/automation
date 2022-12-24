@@ -1,0 +1,29 @@
+check if systems are alive (full connection scan):
+  sudo nmap -sP x.x.x.x/xx  (or just the host)
+  by default this scans the most popular 1000 ports
+  
+check for open ports:
+  sudo nmap -sT -p 80,443 x.x.x.x/xx
+  
+more stealthy (SYN /half-open) scan (may not avoid more advanced firewalls/IPS): 
+  sudo nmap -sS -p 80,443 x.x.x.x/xx
+  
+man nmap  (to see other switches)
+
+you can use a switch to lower the speed of the scan
+
+to see operating systems used:
+  sudo nmap -O x.x.x.x
+  
+combo search:
+  sudo nmap -A x.x.x.x
+  
+use a decoy:  
+  sudo nmap -sS -D x.x.x.x y.y.y.y (where x's are the decoy IP you want to appear as)
+  
+there are also nmap scripts available:
+  sudo nmap --script vuln x.x.x.x (vuln keyword uses all scripts in that category)
+  
+  
+resources:
+network chuck video: https://www.youtube.com/watch?v=4t4kBkMsDbQ
