@@ -21,6 +21,7 @@ remote ssh set up
   - pylance
   - cisco ios syntax (for syntax highlighting, use .ios file extensions)
   - better jinja (for syntax highlighting, use .j2 file extensions)
+  - monokai pro (theme)
 
 
 	Useful Extensions (older list):
