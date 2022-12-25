@@ -13,8 +13,51 @@ create a virtual environment:
   cd .venv
   
 activate or deactivate the virtual environment:
-  source bin/activate
+  source bin/activate  
   deactivate
+  
+#############################################
+example from devnet course:
+
+python3 -m venv devfun
+source devfun/bin/activate
+
+  
+#############################################
+  
+pip freeze (to see what is installed in this virtual environment)
+pip freeze | grep ansible
+
+create requirements.txt:
+pip freeze > requirements.txt
+
+Use this pip command: pip install -r requirements.txt whenever you need to install the packages required by the project.
+
+###############################################
+pipenv
+
+A newer way to keep up with dependencies and share them with collaborators is the pipenv tool. 
+It works similarly to packaging tools in Ruby (bundler, composer) and Node.js (npm, yarn).
+
+When you're switching environments, you can run commands to get a virtual environment when using pipenv. This means that pip and virtualenv 
+are working together within pipenv and you don't have to remember to create a virtual environment before installing packages.
+
+Rather than a requirements.txt file that you check into source code with your project, the tool creates a pair of files: Pipenv and Pipenv.lock. 
+The Pipenv file indicates what the intended packages are and the Pipenv.lock file shows the last tested listing of packages.
+
+Refer to the documentation for Installing pipenv and follow the steps for your local operating system. While the tool became quite popular in 2019, 
+it does not have a new release since 2018. Still, keep an eye on this tool since it is quite handy.
+
+https://pipenv.pypa.io/en/latest/install/#installing-pipenv
+  
+############################################
+Python2 used virtualvenv instead of venv
+
+#############################################
+Windows:
+create a virtual environment:
+py -m venv devfun
+.\devfun\Scripts\activate
 
 
 
