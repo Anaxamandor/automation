@@ -1,4 +1,11 @@
 Using the --global option will write to the global ~/.gitconfig file.
 
+git config --global core.pager cat
+Note: The additional configuration setting, core.pager cat, uses the cat command for git log 
+or similar commands rather than less which is the default. 
+When you use this setting, you always return to the command prompt rather than paging through results of long Git messages.
+
+
+
 
 
