@@ -1,3 +1,7 @@
+returns the directory where the python command runs.
+
+which python
+
 ##############################################################
 bash networking commands:
 
