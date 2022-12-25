@@ -2,6 +2,10 @@ returns the directory where the python command runs.
 
 which python
 
+You can also look for information about the Python installation in the PATH for the environment.
+
+echo $PATH
+
 ##############################################################
 bash networking commands:
 
