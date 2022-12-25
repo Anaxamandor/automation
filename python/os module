@@ -1,0 +1,9 @@
+import os
+
+path = 'user/Manda/file'
+If os.path.exists(path):
+    os.system('pwd')
+    os.system('cd path')
+    os.system('ls')
+
+os.system(f"cd {path}")
