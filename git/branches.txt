@@ -17,3 +17,15 @@ git checkout tesbranch (goes back to the test branch)
 you have to be on the main branch
 git checkout master
 git merge test (where test it he name of the experimental branch)
+
+During a merge, only the target branch is modified. The source branch is untouched and remains the same.
+
+###############################################
+delete a branch:
+
+git branch -d branch <branch name>
+
+###############################################
+get a list of all local branches:
+
+git branch --list
