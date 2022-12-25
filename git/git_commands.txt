@@ -98,6 +98,95 @@ git push -u origin main  (do this command directly from RHEL as VSCode does weir
 enter the username
 enter the token when it asks for the password
 
+##########################################################
+verify git is installed:
+git --version
+
+configure a global username and email:
+git config --global user.name "anaxamandor"
+git config --global user.email protector9000@gmail.com
+
+########################################################
+creating a repository (local method):
+
+mkdir foldername
+cd foldername
+git init
+ls -la
+
+########################################################
+making changes and committing files:
+
+git status
+(then edit a file)
+git add file1.txt
+git status
+git commit -m "first commit" file1.txt
+git status
+
+git diff file1.txt
+#########################################################
+creating a repository (preferred method -creating it on github and pulling it down):
+
+copy the HTTPS version of the clone link on a github repository
+create a new directory and cd into it
+git clone URL
+cd into the new folder that is pulled down
+ls -la
+git status
+
+this is the preferred method as all the remote info is created automatically
+#########################################################
+show history of the file you have been tracking:
+
+git log
+
+#########################################################
+Going back in time or experimental changes (option 1):
+
+
+Detached head is the less preferred method:
+
+go back to old version:
+git checkout <checksum>
+
+to move back to front of timeline:
+git checkout HEAD
+
+##########################################################
+Going back in time or experimental changes (option 2):
+
+Working with branches is the more preferred method because it doesn't affect the production branch/timeline:
+
+git checkout -b <new branch name>
+
+git checkout master (go back to the original branch)
+
+##########################################################
+
+Merging branches:
+
+first you must be on the master branch
+
+git merge <branch you want to pull in to main>
+
+
+
+
+
+
+########################################################
+
+
+
+
+
+
+
+
+
+
+
 
 
 
