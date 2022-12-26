@@ -1,0 +1,6 @@
+interface = input("what is the interface? ")
+
+if interface.startswith("Gig"):
+    print("thanks")
+else: 
+    print("that's wrong")
