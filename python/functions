@@ -1,0 +1,20 @@
+creating functions examples:
+
+def my_test_function():
+    print("welcome")
+
+# for num in range(0, 4):
+#     my_test_function()
+
+# def addr(a, b):
+#     print(a + b)
+
+# addr(3, 7)
+
+def create_email(username, provider):
+    """This function takes two arguments.  First pass in your username, then your provider"""
+    print(f"Your email address is {username}@{provider}.com")
+
+# create_email("john","gmail")
+
+help(create_email)   #this prints the docstring
