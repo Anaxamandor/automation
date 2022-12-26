@@ -1,3 +1,4 @@
+##################################################################
 creating functions examples:
 
 def my_test_function():
@@ -18,3 +19,56 @@ def create_email(username, provider):
 # create_email("john","gmail")
 
 help(create_email)   #this prints the docstring
+
+########################################################################
+using positional arguments:
+
+def device_login(username, hostname, platform="cisco"):
+    print(f"ssh {username}@{hostname}")
+    if platform == "cisco":
+        print("enable\nconfigure terminal\n")
+    elif platform == "junos":
+        print("cli\nedit\n")
+
+# device_login("john", "192.168.1.1", "cisco")
+
+# device_login("john", "192.168.1.1", "junos")
+
+# device_login("john", "192.168.1.1")  #this defaults to cisco for the third positional argument
+
+#This method the position doesn't matter:
+# device_login(platform="cisco", username="john", hostname="192.168.1.1")
+
+#can also mix keyword arguments and positional arguments:
+device_login("john", platform="cisco", hostname="192.168.0.1")
+# however, once a keyword argument is supplied, all others must be keyword after that
+
+##################################################################################
+the return statment:
+
+by default a function returns None
+
+return is used when we want to assign output to a new variable
+
+example:
+
+def generate_email(username, provider="gmail"):  #default is gmail unless another one is input 
+    email_addy = f"{username}@{provider}.com"
+    return email_addy
+
+# my_email = generate_email("ipvzero")
+# print(my_email)
+
+my_names = ["Trevor","Knox", "John", "Simona", "Bob"]
+my_email_list = []
+
+for name in my_names:
+    new_email = generate_email(name, "cbtnuggets")  #can assign to a variable because using return
+    my_email_list.append(new_email)
+
+for email in my_email_list:
+    print(f"New email account generated: {email}")
+
+
+
+
