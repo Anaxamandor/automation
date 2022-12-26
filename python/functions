@@ -68,6 +68,37 @@ for name in my_names:
 
 for email in my_email_list:
     print(f"New email account generated: {email}")
+    
+    
+########################################################
+xargs
+
+example:
+
+# def my_adder_function(my_list):
+#     total = 0
+#     for num in my_list:
+#         total = total + num
+
+#     print(total)
+
+# my_adder_function([1, 3, 5])
+
+#unpacking iterables:
+
+def my_better_adder_function(*args):  # *args is convention, could be *num or anything. * is the unpacking operator
+    total = 0
+    for n in args:
+        total = total + n
+    print(total)
+
+my_better_adder_function(1, 3, 5)  #in this case not needed to put in a list
+
+#############################################################################
+kwargs:
+
+
+
 
 
 
