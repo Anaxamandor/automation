@@ -1,0 +1,17 @@
+""" older ways of formatting strings"""
+
+name = input("what is your name? ")
+age = input("what is your age? ")
+
+
+# #fname and fage are used but can use any word here.
+# message1 = "Hell0 {fname}, your age is {fage}".format(fname=name, fage= age)
+# print(message1)
+
+#this variation uses the position of the variable
+# message2 = "Hello {0}, your age is {1}".format(name, age)
+# print(message2)
+
+#this variation infers the position automatically
+# message3 = "Hello {}, your age is {}".format(name, age)
+# print(message3)
