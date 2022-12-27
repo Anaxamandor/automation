@@ -1,0 +1,4 @@
+To look inside an object and see what names (attributes and methods) are defined inside it, just pass the object to the dir(<object>) function.
+
+Objects, in a simple explanation, are purpose-built groupings of variables (called attributes) and functions that work together to do something useful. 
+Functions (also called methods) are groups of statements that you can execute as a single unit.
