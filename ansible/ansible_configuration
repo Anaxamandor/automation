@@ -44,6 +44,10 @@ open ansible.cfg and put in this info:
 gathering = explicit
 inventory = ./hosts
 
+create group_vars and host_vars folders
+the yml files in group_vars and host_vars match the inventory group names and host names
+SSH into the target device first to save the host keys
+
 
  
 
