@@ -1,2 +1,6 @@
 If unable to ping devices in CML topology try bouncing the external connector.
 
+make sure device has trasnport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
+
+before using ansible run ssh on the device to save the keys
+
