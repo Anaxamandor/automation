@@ -2,7 +2,7 @@
 
 Ansbile Commands:
 
-ansible-galaxy collection list
+ansible-galaxy collection list (to see all the collections available to you)
 
 
 
