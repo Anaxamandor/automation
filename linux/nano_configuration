@@ -1,0 +1,6 @@
+configuring nano for YAML
+
+nano .nanorc
+set autoindent  (keeps it from starting at a new line and instead stays at same indentation level)
+set tabsize 2 (in case you hit tab it will give 2 spaces)
+set tabstospaces (even if you hit tab it will be transated as spaces)
