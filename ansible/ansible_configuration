@@ -1,0 +1,7 @@
+Where Anible looks for configuration file, in order:
+
+  ANSIBLE_CONFIG (environment variable if set)
+  ansible.cfg (in the current directory)
+  ~/.ansible.cfg (in the home directory)
+  /etc/ansible/ansible.cfg
+
