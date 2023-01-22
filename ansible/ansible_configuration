@@ -1,7 +1,50 @@
+Configuraiton file:
+
 Where Anible looks for configuration file, in order:
 
   ANSIBLE_CONFIG (environment variable if set)
   ansible.cfg (in the current directory)
   ~/.ansible.cfg (in the home directory)
   /etc/ansible/ansible.cfg
+  
+##########################################################################
+Inventory file:
+
+Where Ansible looks for inventory by default:
+
+/etc/ansible/hosts
+
+
+Here’s that same basic inventory file in YAML format:
+
+all:
+  hosts:
+    mail.example.com:
+  children:
+    webservers:
+      hosts:
+        foo.example.com:
+        bar.example.com:
+    dbservers:
+      hosts:
+        one.example.com:
+        two.example.com:
+        three.example.com:
+        
+##############################################################################
+example set up:
+ 
+ mkdir Automation-Stuff
+ touch ansible.cfg
+ touch hosts
+ 
+open ansible.cfg and put in this info:
+ 
+[defaults]
+gathering = explicit
+inventory = ./hosts
+
+
+ 
+
 
