@@ -4,6 +4,8 @@ Ansbile Commands:
 
 ansible-galaxy collection list (to see all the collections available to you)
 
+ansible-galaxy install <collection name>  (to install a collection you do not have)
+
 
 
 
