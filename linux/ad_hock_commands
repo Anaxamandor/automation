@@ -1,1 +1,1 @@
-ansible -m raw -c paramiko -a "show ip interface brief"
+ansible all -m raw -c paramiko -a "show ip interface brief"
