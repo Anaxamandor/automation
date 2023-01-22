@@ -1,0 +1,7 @@
+installation of Ansible to RHEL:
+
+sudo yum install python3.9
+pip3.9 install ansible
+pip3.9 install paramiko (Ansible uses paramiko to make SSH connections)
+ansible --help
+ansible --version
