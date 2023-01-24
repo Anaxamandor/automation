@@ -1,0 +1,25 @@
+---
+
+- name: "MY BANNER PLAYBOOK"
+  hosts: usa
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: "Configure MOTD bannder"  #list item zero 
+      cisco.ios.ios_banner:   #modula name
+        banner: motd  # a module parameter
+        text: |
+          THIS IS MY BANNER
+          FOR USA !!!!
+        state: present  #the module requires this
+
+      register: my_banner
+
+    - debug: var=my_banner   #says the variable you want to print
+
+
+        
+
+
+
