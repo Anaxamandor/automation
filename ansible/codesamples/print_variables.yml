@@ -1,0 +1,10 @@
+---  #playbook to print variables associated with hosts
+
+- name: PRINTING SOME VARIABLES
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "displaying variables"
+      debug:
+        msg: "{{ hostvars[ansible_host] }}"  #special Ansble keyword that prints variables for each host
