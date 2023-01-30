@@ -1,0 +1,10 @@
+you can define variables directly in an playbook play.  
+
+The scope of the variable will be the play itself only
+
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#defining-variables-in-inventory
+
+- hosts: webservers
+  vars:
+    http_port: 80
+
