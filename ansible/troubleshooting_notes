@@ -28,3 +28,11 @@ no longer functions the same as in this video and will only return very
 basic top-level information about the host (hostname, image, iostype, version, model, serialnum, etc).
 To gather the full amount of information available as seen in this video, it is required to 
 add 'gather subset: all' directly under 'gather_facts: true'
+
+example:
+
+- name: "Loop test"
+  hosts: usa
+  gather_facts: true  #this will invoke ios_facts, because we are running IOS devices
+  gather_subset: all
+  connection: network_cli
