@@ -1,0 +1,12 @@
+The older way to loops was with the with keyword but now it is loop
+
+- name: Add several users
+  ansible.builtin.user:
+    name: "{{ item }}"   #item is a special keyword.  It represents each iteration of the loop.
+    state: present
+    groups: "wheel"
+  loop:
+     - testuser1
+     - testuser2
+     
+ https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html
