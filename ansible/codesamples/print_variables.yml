@@ -9,3 +9,17 @@
       debug:
         msg: "{{ hostvars[ansible_host].ospf.networks.0 }}"  #special Ansble keyword that prints variables for each host.  In this example the variable file 
         contains ospf variable info.  The 0 accesses the first network in the list under ospf networks variables.
+        
+        
+#anther example:
+
+---
+
+- name: PARSING SOME VARIABLES
+  hosts: uk
+  gather_facts: false
+
+  tasks:
+    - name: "parse variables"
+      debug:
+        msg: "The device is redistributing ASN: {{ hostvars[ansible_host].ospf.redistributing.bgp }}"  #
