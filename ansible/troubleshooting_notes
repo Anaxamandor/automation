@@ -1,6 +1,12 @@
+###############################################################################################
+connectivity issues:
+
 If unable to ping devices in CML topology try bouncing the external connector.
 
 make sure device has trasnport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
+
+################################################################################################
+ssh issues:
 
 before using ansible run ssh on the device to save the keys
 
@@ -11,3 +17,14 @@ generated a new crypto key on the device. this resolved the error but now it say
 Permission denied (publickey,keyboard-interactive,password)
 ?
 
+
+
+
+#################################################################################################
+gather_facts issues:
+
+The module 'cisco.ios.ios_facts' that is called by 'gather_facts: true' 
+no longer functions the same as in this video and will only return very 
+basic top-level information about the host (hostname, image, iostype, version, model, serialnum, etc).
+To gather the full amount of information available as seen in this video, it is required to 
+add 'gather subset: all' directly under 'gather_facts: true'
