@@ -1,3 +1,7 @@
+# How to programmatically access data that you have defined within your variable files
+
+
+
 ---  #playbook to print variables associated with hosts
 
 - name: PRINTING SOME VARIABLES
