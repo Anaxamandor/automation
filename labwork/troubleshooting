@@ -23,6 +23,10 @@ Permission denied (publickey,keyboard-interactive,password)
 the only real way to know why sshd is pissed is to look at the sshd logs
 Run ssh with ´-v, it will show you which keys it tries (search for Will attempt key:`)
 
+I went to cd .ssh and deleted known_hosts
+
+This resolved the issue
+
 
 ###############################################################################################
 Unable to negotiate with 172.16.10.5 port 22: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1
