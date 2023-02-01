@@ -9,7 +9,7 @@ when pinging from a device be sure to ping inside the MGMT vrf
 ssh issues:
 
 
-make sure device has trasnport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
+make sure device has transport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
 
 before using ansible run ssh on the device to save the keys
 
