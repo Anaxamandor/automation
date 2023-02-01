@@ -3,3 +3,18 @@ connectivity issues:
 try bounding the external connector
 the external connector should be on bridge not nat mode
 when pinging from a device be sure to ping inside the MGMT vrf
+
+
+################################################################################################
+ssh issues:
+
+
+make sure device has trasnport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
+
+before using ansible run ssh on the device to save the keys
+
+if you get this error on Linux terminal when trying to SSH: Bad server host key: Invalid key length, 
+and on the Cisco device it says this error:  Unexpected message type has arrived. Terminating the connection from x.x.x.x,
+things I tried:
+generated a new crypto key on the device. this resolved the error but now it says:
+Permission denied (publickey,keyboard-interactive,password)
