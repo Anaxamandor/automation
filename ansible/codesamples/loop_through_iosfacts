@@ -1,0 +1,15 @@
+---
+
+- name: "Loop test"
+  hosts: usa
+  gather_facts: true  #this will invoke ios_facts, because we are running IOS devices
+  gather_subset: all   #this is for newer versions of ansible to get a longer list of facts
+  connection: network_cli
+
+  tasks: 
+    - name: "loop through IP info"
+      debug:
+        msg: "{{ ansible_facts.net_hostname }} has an IP address of {{ item }} configured."  
+        #the magic variable ansible_facts references info we get back from gather_facts
+        #the key used comes from the whole output when not using a key
+      loop: "{{ ansible_facts.net_all_ipv4_addresses }}"  #the list object with IP address that we want to loop through.
