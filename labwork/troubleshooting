@@ -1,0 +1,5 @@
+connectivity issues:
+
+try bounding the external connector
+the external connector should be on bridge not nat mode
+when pinging from a device be sure to ping inside the MGMT vrf
