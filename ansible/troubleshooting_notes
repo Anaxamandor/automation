@@ -2,8 +2,11 @@
 connectivity issues:
 
 If unable to ping devices in CML topology try bouncing the external connector.
+check that the external connector is in bridge mode (that's what's needed)
 
-make sure device has trasnport input ssh, login local, default route to gate of ISP, username and passwor with privilege 15, crypto key, domain name
+Can the device ping it's default gateway from the VRF?
+
+make sure device has trasnport input ssh, login local, default route to gate of ISP, username and password with privilege 15, crypto key, domain name
 
 ################################################################################################
 ssh issues:
