@@ -1,0 +1,15 @@
+---
+
+- name: "Playbook to test conditional logic"
+  hosts: usa
+  gather_facts: true
+  gather_subset: all
+  connection: network_cli
+
+  tasks: 
+    - name: "Task 1"
+      debug: 
+        msg: "Interface {{ item['key'] }} has an IP address of {{ item['value']['ipv4'][0]['address'] }}"  #the 'value' is actually a key, which is confusing
+      loop: "{{ ansible_facts['net_interfaces'] | dict2items }}"   #filter converts dictionary to a list so it can be iterated over
+      # when: item['value']['lineprotocol'] == "up"  #this is alternative logic to the following when statement
+      when: item['value']['ipv4'] != []   #this says don't run the module when there there is not an empty list object
