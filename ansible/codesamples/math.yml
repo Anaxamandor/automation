@@ -1,0 +1,45 @@
+---
+
+
+- name: "Playbook to test math"
+  hosts: usa
+  gather_facts: false
+  # gather_subset: all
+  connection: network_cli
+
+  tasks:
+    - name: "create a string variable and convert it to an int"
+      set_fact: 
+        var1: '{{ "1000000" }}'
+
+    # - name: "test variable type"  
+    #   assert:
+    #     that:
+    #       - var1 is integer
+    #     msg: "the variable is an integer"
+
+    - name: "multiply"
+      set_fact: 
+        var1_product: '{{ var1 | int * 0.50 }}'
+      
+    - debug:
+        msg: "your new value is {{ var1_product }}. Thank you"
+
+        
+####JINJA EXPRESSIONS:
+ https://jinja.palletsprojects.com/en/3.1.x/templates/#expressions
+
+
+
+# The result of a template is always a string, so if you want to use something that might have previously been templated you need to convert it at time of use.  `{{ var1 | int * 0.50 }}`
+# (Or enable Jinja native types.)
+
+# it would remain an int until it passed through the Jinja templating engine, and then it's just a string that happens to be built from an int
+# but Jinja native types changes that
+
+# (This isn't entirely true, but the weird processing Ansible does to turn some strings back into non-strings is irrelevant for ints.)
+# Native types is a newer feature that preserves more types, but it's disabled by default.
+
+# A safe thing to do is always apply the type filter to non-string variables, when they are used.
+
+#Aha, it will be an integer inside the same template. But outside that template it will be string, if you don't have jinja native enabled
