@@ -1,0 +1,31 @@
+---
+#must isntall netaddr library from pip
+- name: "IP filter test"
+  hosts: "192.168.8.101"
+
+  tasks:
+    - name: "ipaddr filter testing"
+      vars: 
+        myip: "192.168.555.1"
+      debug:
+        msg: "{{ myip | ipaddr }}"  #validates if it is a valid IPv4 or IPv6 address.  
+        #You can also use | ipvr or | ipv6 to be more specific
+
+    - name: "more ipaddr filter tests"
+      vars: 
+        myip: 
+          - "192.168.1.1"
+          - "10.0.0.1"
+          - "10.0.0.0.1"
+          - "2001:db8:aaa:bbbb::2"
+          - "192.168.333.1"
+          - "8.8.8.8"
+      debug:
+        msg: "{{ myip | ipaddr }}"  #will print out just the valid IPv4 and IPv6 addresses.  
+
+    - name: "more ipaddr filter tests"
+      vars: 
+        myip: "192.168.1.1/24"
+      debug:
+        msg: "{{ myip | ipaddr('network') }}"  #can calculate the network address!
+        #can strip away the mask portion by using | ipaddr('address')
