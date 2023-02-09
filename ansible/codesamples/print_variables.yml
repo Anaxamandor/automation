@@ -27,3 +27,15 @@
     - name: "parse variables"
       debug:
         msg: "The device is redistributing ASN: {{ hostvars[ansible_host].ospf.redistributing.bgp }}"  #
+
+
+another exaple:
+
+- name: PRINTING SOME VARIABLES
+  hosts: usa
+  gather_facts: false
+
+  tasks:
+    - name: "displaying variables"
+      debug:
+        msg: "{{ eigrp_style }}"  #you can also use a variable you created in a jinja template!
