@@ -29,13 +29,17 @@
         msg: "The device is redistributing ASN: {{ hostvars[ansible_host].ospf.redistributing.bgp }}"  #
 
 
-another exaple:
+another example:
 
-- name: PRINTING SOME VARIABLES
+---
+
+- name: "play to test some variable substitution"
   hosts: usa
   gather_facts: false
+  connection: network_cli
 
   tasks:
-    - name: "displaying variables"
-      debug:
-        msg: "{{ eigrp_style }}"  #you can also use a variable you created in a jinja template!
+    - name: "task 1"
+      cisco.ios.ios_config: 
+        src: "eigrp/{{ eigrp_style }}.j2"  #this references an eigrp_style variable that is in the host variable files, directing it to templates of the same name
+
