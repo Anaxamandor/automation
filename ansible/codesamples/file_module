@@ -1,0 +1,23 @@
+
+---
+- name: Write a configuration file
+  hosts: devenv
+  connection: local
+  tasks:
+
+    - name: "Create a new file"
+      file:
+        path: /home/developer/src/ansible/hello
+        state: touch
+    - name: "Update file permissions"  #The prior task set permissions to 700 and this task will tighten the file permissions to 644. That means it's user-writeable but not executable, and read-write for groups and everyone. Copy this snippet to the
+      file:
+        path: /home/developer/src/ansible/hello
+        mode: 700
+    - name: "Update file content from template"
+      template:
+        src: /home/developer/src/ansible/hello-template.j2
+        dest: /home/developer/src/ansible/hello
+        mode: 0644
+        
+        #Next, you'll create a template file named hello-template.j2, where {{you}} is the replacement you'll make when running the playbook. In an editor you would type Hello {{you}} and then save the file as hello-template.j2. In the command line environment you can run this echo and output redirection command to create a Jinja2 template file.
+        #Jinja2 is the templating mechanism that Ansible uses for dynamic expressions and access to variables in Ansible, hence the .j2 file type. In this case, the variable is {{you}}:
