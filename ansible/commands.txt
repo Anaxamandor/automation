@@ -9,6 +9,8 @@ ansible-galaxy collection install <collection name>  (to install a collection yo
 
 Use the command ansible-doc <modulename> to learn more about a module.
 
+use -i to specify which hosts are groups of hosts
+
 
 
 
