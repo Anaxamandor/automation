@@ -19,5 +19,15 @@
         dest: /home/developer/src/ansible/hello
         mode: 0644
         
-        #Next, you'll create a template file named hello-template.j2, where {{you}} is the replacement you'll make when running the playbook. In an editor you would type Hello {{you}} and then save the file as hello-template.j2. In the command line environment you can run this echo and output redirection command to create a Jinja2 template file.
-        #Jinja2 is the templating mechanism that Ansible uses for dynamic expressions and access to variables in Ansible, hence the .j2 file type. In this case, the variable is {{you}}:
+        # Next, you'll create a template file named hello-template.j2, where {{you}} is the 
+        # replacement you'll make when running the playbook. In an editor you would type Hello {{you}} 
+        # and then save the file as hello-template.j2. In the command line environment you can run this echo 
+        # and output redirection command to create a Jinja2 template file.
+        
+        #Jinja2 is the templating mechanism that Ansible uses for dynamic expressions and access to variables in Ansible, 
+        # hence the .j2 file type. In this case, the variable is {{you}}:
+        
+        # To run the playbook, you use the ansible-playbook CLI, pass in the hosts inventory file with 
+        # the -i parameter, and give it the name of the playbook file. In addition, 
+        # you pass in the value you want to insert for the {{you}} variable:
+        #  ansible-playbook -i hosts writefile.yml -e you=Cisco
