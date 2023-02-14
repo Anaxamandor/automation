@@ -4,3 +4,24 @@ translation:
 Handlers can run in multiple places, after pre_tasks, roles and tasks. This sentence is pretty much saying that after the roles are done, handlers will run.
 
 flushed, means "ran and removed from queue"
+
+example:
+
+- hosts: localhost
+  gather_facts: false
+  handlers:
+    - name: some handler
+      debug:
+        msg: "ran handler!"
+  pre_tasks:
+    - command: whoami
+      notify: some handler
+  # Handler will run here
+  tasks:
+    - command: whoami
+      notify: some handler
+  # And here
+  post_tasks:
+    - command: whoami
+      notify: some handler
+  # And here
