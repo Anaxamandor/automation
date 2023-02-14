@@ -25,3 +25,7 @@ example:
     - command: whoami
       notify: some handler
   # And here
+
+
+playbook always executes these blocks in the same order: pre_tasks, roles, tasks, post_tasks
+doens't matter which order you define them in
