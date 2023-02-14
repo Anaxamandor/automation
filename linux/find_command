@@ -1,0 +1,26 @@
+finding files in directories
+
+find [path..] [expression]
+-name pattern (finds files and directories that match that pattern)
+-iname patter (like -name but ignores case)
+-ls (runs ls -l)
+-mtime days  (find files that are days old)
+-size num (finds files by size)
+-newer file (finds files that are newer than file)
+-exec command {} \;  (run command against all the files that are found)
+
+examples:
+
+find / -type f -exec grep -H 'text-to-find-here' {} \;
+
+find /bin -name *v
+
+find . -mtime +10 -mtime -13  (find files more than 10 days old but less than 10 days old in current directory)
+
+find . -name s* -ls  (find anything that begins with s and perform an ls -l on it)
+
+find . -size +1M  (files over 1 Megabyte.  Can also use 1G or 1K)
+
+find . -type d -newer file.txt
+
+find . -exec file {} \;   (runs file command against all search results.  file command is 'best guess')
