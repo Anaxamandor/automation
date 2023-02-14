@@ -1,1 +1,13 @@
 https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tests.html
+
+
+assert accepts any valid jinja expression and evaluates it as a boolean, just like when: does
+Test are testing a variable, and returning a boolean depending on what the test is. variable is test_name is a jinja expression
+Second link lists all tests built into jinja
+ansible-doc -l -t test lists tests added by ansible, also available
+https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-tests
+
+
+https://docs.ansible.com/ansible/latest/collections/index_test.html
+
+https://jinja.palletsprojects.com/en/3.1.x/templates/#jinja-tests.sequence
