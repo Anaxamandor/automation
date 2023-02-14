@@ -11,3 +11,6 @@ https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-tests
 https://docs.ansible.com/ansible/latest/collections/index_test.html
 
 https://jinja.palletsprojects.com/en/3.1.x/templates/#jinja-tests.sequence
+
+
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tests.html#type-tests
