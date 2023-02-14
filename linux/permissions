@@ -1,0 +1,112 @@
+PERMISSIONS
+
+permissions - files vs directories:
+r 
+files: allows file to be read
+directory: allows file names in the directory to be read
+w
+files: file can be modified
+directories: entries within the directory can be modified
+x
+files: file can be executed
+directory: allows access to contents and metadata for entries
+
+
+
+chmod [ugoa] [+-=] rwx   (change permissions aka modes)
+example:
+chmod g+w file1.txt
+ls -l
+chmod g-w file1.txt   
+ls -l
+chmod g+ws file1.txt
+ls -l
+chmod u+rwx,g-x file1.txt
+ls -l
+chmod a=r file1.txt
+ls -l
+chmod u=rwx,g=rx,o=  file1.txt (removes all permissions for others)
+
+numeric based permissions:
+4 read
+2 write
+1 execute
+example:
+chmod 754 filename.txt
+avoid 777 as it gives everyone on system full access to that script or program, including malicious code
+avoid 666 permission mode
+
+
+groups:
+
+chgrp sales sales.data  (changes the group a file is in)
+
+every user belongs to a primary group, but can belong to others
+
+groups  (displays what groups you are in)
+groups <userID or username> shows groups that user is in
+id -Gn (alternative command does the same thing)
+
+directory permssions:
+
+see permssions of a directory:
+ls -ld /usr/local/sales
+
+you can create a file that any member of a group can edit.  
+Put in the shared location and change permissions of the group to write
+Permissions on a directory can affect the files in the directory.
+If the permissions on the file look correct, check the directory and work your way up to the root
+
+
+file creation mask:
+
+- determins default permissions when a file is created
+- if no mask were used permissions would be:
+    777 for directories
+    666 for files
+- sysadmins usually set a default permissions but it can be overriden on an indiviual bases using umask command
+
+
+umask command:
+
+umask [-S] [mode]
+-S if you want to use symbolic notation
+mode works opposite of chmod.  7 means all permissions off, for example
+chmod adds permissions, umask subtracts them
+
+special modes:
+setuid
+setgid
+sticky
+
+special modes are declared by prepending a character to the octal modes used with chmod or umask
+
+umask 022 = umask 0022
+chmod 644 = chmod 0644
+
+example:
+umask (shows original)
+umask 007
+umask  (shows change)
+ls -l
+shows file and directory permissions, subtracing 007 from 777 or 666.
+
+
+While every situation is different, the advantage of umask over chmod 
+is that it will affect all files and directories created by that user 
+system-wide. Using chmod you would have to change permissions individually 
+for each file specifically instead of them being made with proper permissions by default.
+
+The umask sets up the default permissions for new files and directories.  
+The chmod command changes the permissions on an existing file or directory.  
+
+
+umask:
+There is a file that stores the system default umask, but usually you'll only want to change it for your user specifically.  
+If you run the umask command or add a umask setting to your .bashrc file, then the change will only affect your user and not others on the system.
+
+Also, umask only affects new files and directories created after the umask change.  
+Existing files and directories won't be affected - their permissions were set when they were created, 
+and you can only change the permissions after that with a command like chmod.  
+
+The reason for that is that umask sets the default permissions for new files only.
