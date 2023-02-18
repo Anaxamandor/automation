@@ -1,0 +1,68 @@
+d999d  (deletes all)
+
+
+vi filename
+vim filename (same as vi but more features)
+on many distributions, typing vi actually means you a running vim
+
+
+view filename (can view file without editing)
+
+3 modes:
+command mode (for commands and navigation)
+insert mode  (for inserting text)
+line mode    (for navigation also)
+
+
+
+command mode: 
+to get to command mode: esc
+
+command mode navigation:
+
+k  up one line
+j  down one line
+h  left one character
+l  right one character
+
+w  right one word
+b  left one word
+^  go to the beginning of the line
+$  go to the end of the line
+
+
+insert mode:
+to get to insert mode: i or a or A
+i inserts text at the cursor position
+I inserts text at the beginning of the line
+a append after the current position
+A append at the end of the line
+
+
+line mode:
+to use this mode start with :
+:w  writes (saves) the file
+:w! forces the file to be saved
+:q  quit
+:q! quit without saving changes
+:wq!  write and quit
+:x  same as :wq
+
+:15 enter -> go to line 15 in a file
+:$  -> go to last line in a file
+
+:set nu  -> turn on line numbering
+:set nonu  -> turn off line numbering.
+
+:help [subcommand] -> get help
+
+
+Vi - repeating commands:
+5k = move up a line 5 times
+80i<Text><ESC> = Insert<Text>80 times
+
+(finish later from 4:25 in udemy course)
+
+
+
+
