@@ -1,0 +1,19 @@
+######################################################################
+to assign a variable:
+
+VAR_NAME="Value"
+
+to use a variable:
+echo "I like the $VAR_NAME shell
+
+alternate format:
+${VAR_NAME}
+
+used in cases like this:
+echo "I am ${MY_VAR}ing on my keyboard."
+
+######################################################################
+assign command output to a variable
+
+SERVER_NAME=$(hostname)
+echo "You are running this script on ${SERVER_NAME}.
