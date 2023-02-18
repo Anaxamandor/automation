@@ -1,0 +1,39 @@
+for VARIABLE_NAME in ITEM_1 iTEM_N
+do
+  command 1
+  command 2
+  command N
+done
+
+example:
+#!/bin/bash
+for COLOR in red green blue
+do
+  echo "COLOR: $COLOR"
+done
+
+Output:
+COLOR:red
+COLOR:green
+COLOR:blue
+
+#example with items stored in a variable
+#!/bin/bash
+COLORS="red green blue"
+
+for COLOR in $COLORS
+do
+  echo "COLOR" $COLOR"
+done
+
+#example script that ends all the files that end in .jpg by inserting today's date before original filename
+#!/bin/bash
+PICTURES=$(ls *jpg)
+DATE=$(date +%F)
+
+for PICTURE in $PICTURES
+do
+  echo "Renaming ${PICTURE} to ${DATE}
+-${PICTURE}"
+  mv ${PICTURE} {$DATE}-${PICTURE}
+done
