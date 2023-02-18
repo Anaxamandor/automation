@@ -1,0 +1,54 @@
+#################################################################
+test
+
+[ condition-to-test-for ]
+
+example:
+[ -e /etc/passwd ]  (checks if /etc/passwd exists)
+
+True = 0 exit status
+False = 1 exit status
+
+help test  (to see various tests you can perform)
+man test
+
+STRING1 = STRING2  (true if strings are equal)
+STRING1 != STRING2 (true if not equal)
+
+if [ test ]
+then
+  command 1
+  command 2
+  command N
+fi
+
+#test for condtion
+example:
+if [ "$MY_SHELL" = "bash" ]
+then
+  echo "you like bash shell"  
+fi
+
+#test for negative condition
+example:
+if [ "$MY_SHELL" = "bash" ]
+then
+  echo "you like bash shell"
+else
+ echo "you don't like bash shell" 
+fi
+
+#test for multiple conditions
+example:
+if [ "$MY_SHELL" = "bash" ]
+then
+  command N
+elif [ test ]
+then
+  command N
+else
+  command N
+fi
+
+
+
