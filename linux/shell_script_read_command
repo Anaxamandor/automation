@@ -1,0 +1,21 @@
+use read to accept input (STDIN)
+
+#STDIN can come from:
+1. user typing 
+2. other sources like output of a command in a command pipeline
+
+#syntax
+read -p "PROMPT" VARIABLE
+
+#example script:
+
+#!/bin/bash
+
+read -p "Enter a user name: " USER
+echo "Archiving user: $USER"
+
+# Lock the account
+passwd -l $USER
+
+# Create an archive of the home directory.
+tar cf /archives/${USER}.tar.gz /home/${USER}
