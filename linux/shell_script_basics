@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Scripting is fun!"
+
+chmod 755 script.sh
+./script.sh
+
+could just run it as script.sh if it is in PATH
+
+#####################################################################
+You don't have to use the shell as the interpreter, for example:
+#!/usr/bin/python3
+print("This is a Python script.")
+
+chmod 755 hi.py
+./hi.py
