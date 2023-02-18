@@ -1,0 +1,8 @@
+tail -f filename (used instead of cat if file is changing in real time, such as logs)
+
+head filename (shows top 10 lines)
+head -2 filename (shows last 2 lines)
+
+tail filename (shows last 10 lines in file)
+tail -1 filename (shows last line of file only)
+
