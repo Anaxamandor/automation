@@ -3,17 +3,12 @@ g -> top of page
 shift + g -> bottom of page
 man -k SEARCH_TERM
 
-environmental variables:
-see contents of variable using echo $VAR_NAME
+You can get more information from the manpage for find - run "man find",
+then search it by typing "/maxdepth".  Hit "n" to jump to the next search
+result and you should get to the entry for -maxdepth (it's a long manpage
+with a lot of details).
 
-PATH
-- an enviornmental variable that controls the command search path
-- contains a list of directories to be searched, in left to right order, separated by colon
-- echo $PATH to see the contents
 
-which
-- gives location of command you are executed
-- if multiple programs with same name exist, whichever is first in PATH will be executed
 
 tac
 - displays file contents in reverse line order
