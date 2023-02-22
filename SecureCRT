@@ -1,0 +1,79 @@
+How to copy a profile:
+
+open file explorer
+navigate to C:\Users\(username)\appdata\Roaming\VanDyke
+Rename the Confug folder Old Config
+Keep the File Explorer Window open
+Open a new File Explorer Window
+Navigate to NetAdmins\For Don on Vectrus share 
+Copy the Config folderaand paste it in the other open File Explorer window
+Close SecureCRT and reopen it
+It should populate 
+
+#####################################################################################
+
+Sending commands to multiple devices:
+view
+Command chat window
+Right click
+Send commands to all
+
+It is advised to not go beyond 5 at a time
+
+#####################################################################################
+If it asks for password instead of passcode
+
+options
+Edit default session
+SSH2
+Username:  (username)
+Authentication box - remove Password and GSSAPI check boxes
+
+#####################################################################################
+Setting up SecureCRT to work with RSA tokens
+
+options
+Global options
+Default session
+Edit default settings
+SSH2
+change to my switch login.rsa
+Ok
+Change all sessions
+Ok
+
+If you get a pop up say no always
+
+####################################################################################
+changing preferences:
+
+view
+themes
+Carbon
+Session manager
+Click on parent folder
+Right click on properties
+Appearance
+Yellow black
+Restart secure crt
+
+###################################################################################
+
+copy config from a device:
+
+terminal length 0
+
+Have a test file saved on desktop.
+
+Receive ASCII
+
+Show run
+
+Uncheck receive
+
+Open text documeNt
+
+Terminal length 24
+###################################################################################
+
+
