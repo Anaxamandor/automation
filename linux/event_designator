@@ -1,0 +1,18 @@
+#################################################################################
+#event designator
+
+!! references the most recent command)
+
+- if you forget to run a command with sudo, automatically re-run the command with sudo:
+
+sudo !!
+
+
+- run the previous command that starts with a letter:
+!u   (runs the previous command that starts with u, in this case uptime command)
+
+- can also use it with sudo or su:
+sudo !w  (runs the sudo whoami in this case)
+su -c "!!"  (runs sudo -c "useradd jim")
+
+##################################################################################
