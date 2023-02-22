@@ -1,0 +1,52 @@
+tail -f filename (used instead of cat if file is changing in real time, such as logs)
+
+head filename (shows top 10 lines)
+head -2 filename (shows last 2 lines)
+
+tail filename (shows last 10 lines in file)
+tail -1 filename (shows last line of file only)
+
+#################################################################################################
+tac
+- displays file contents in reverse line order
+
+
+
+cd - previous directory 
+
+
+echo $OLDPWD shows path of previous directory
+#################################################################################################
+
+executing commands
+- can specify a command with a full path
+- you can execute command not in $PATH
+- ./command means execute in this dir
+#################################################################################################
+mkdir [-p] 
+rmdir [-p] optional -p creates parent directories
+rm -rf directory - recursively removes directory
+
+ls -l output:
+permissions, number of links, user, group, size, last modified, file name
+
+ls -F reveals file types so you know if it is a directory /, link @, or executable *
+
+a symbolic link @ is a pointer (like a shorcut)
+- used for long file or directory names
+- used to indicate the current version of software
+
+ls -t files by time
+ls -r reverse order
+ls -latr long listing including all files reverse sorted by time  (helpful to see most recent files in case they scroll 
+off the screen)
+
+ls -R   list files recursively
+
+not installed by default:
+tree    visual output of recursive files
+tree -d   list directories only
+tree -C   colorize output
+
+ls -d <directory>  list directory name, not contents.  Makes more sense when combined with other options like ls -ld
+ls --color  colorize the output  (done by default on RHEL)
