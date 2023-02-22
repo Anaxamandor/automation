@@ -24,3 +24,7 @@ find . -size +1M  (files over 1 Megabyte.  Can also use 1G or 1K)
 find . -type d -newer file.txt
 
 find . -exec file {} \;   (runs file command against all search results.  file command is 'best guess')
+
+
+
+find . -maxdepth 1 -name 'test*' 
