@@ -1,0 +1,5 @@
+#finding previously entered commands:
+
+ans (+page up)
+
+history | grep "command"
