@@ -1,4 +1,10 @@
 
 https://docs.ansible.com/ansible/latest/collections/ansible/builtin/regex_findall_filter.html#parameter-multiline
 
-If you have a file which looks like "foo\nbar", then a regular expression for "o<space>b" won't match, unless it's "multiline" which treats the newline the same as other whitespace
+If you have a file which looks like "foo\nbar", then a regular expression for "o<space>b" won't match, unless it's "multiline"
+which treats the newline the same as other whitespace
+
+
+example:
+
+https://www.youtube.com/watch?v=UGrCBBljkKg
