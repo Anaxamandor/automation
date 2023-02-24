@@ -1,3 +1,12 @@
+#####################################################################################
+testing for a list:
+
+- assert:
+    that:
+      - (output.stdout is defined) and (output.stdout is not mapping) and (output.stdout is iterable) and (output.stdout is not string)
+#####################################################################################
+
+
 https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tests.html
 
 
