@@ -1,0 +1,16 @@
+---
+- name: print logging facts
+  hosts: csw*
+  connection: network_cli
+  gather_facts: false
+  vars:
+    ansible_network_cli_ssh_type: paramiko
+
+  tasks:
+    - name: IOS facts
+      cisco.ios.ios_facts:
+        gather_network_resources: logging_global
+
+    - name: output logging
+      debug:
+        msg: "{{ ansible_facts.network_resources.logging_global }}"
