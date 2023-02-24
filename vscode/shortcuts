@@ -1,15 +1,21 @@
-	General Shortcuts: 
+Shortcuts: 
   
    - cntrl + b    (allows you to toggle the sidebar when working on a script)
-	 - cntrl + shift + p  or F1  (access the command palette)
-	 - cntrl + /    (highlight the code first, then use this keyboard shortcut, to comment out code)
-	 - cntrl + f   (search for text from inside a file.  Drop down arrow makes replace box appear as well, with options to replace or replace all.) 
-	 - cntrl + c / cnrl + p  (can copy the whole line without selecting text if on that line)
-	 - cntrl + z   (undo)
-	 - cntrl + d  (selects the word you are on.  Can then do cnrtl+f to autopopulate find and replace)
+   - cntrl + shift + p  or F1  (access the command palette)
+   - cntrl + /    (highlight the code first, then use this keyboard shortcut, to comment out code)
+   - cntrl + f   (search for text from inside a file.  Drop down arrow makes replace box appear as well, with options to replace or replace all.) 
+   - cntrl + c / cnrl + p  (can copy the whole line without selecting text if on that line)
+   - cntrl + z   (undo)
+   - cntrl + d  (selects the word you are on.  Can then do cnrtl+f to autopopulate find and replace)
    - cntrl + / -   (adjusts zoom level)
 	 - F5 (start debugging)
    - cntrl + j (opens terminal)
+   - cntrl + ' (open settings)
+
+indent block of code:
+   - control + ]
+   - control + [
+
 
 File Management Shortcuts:
 	• cntrl + w   (close file)
