@@ -48,7 +48,12 @@ create group_vars and host_vars folders
 the yml files in group_vars and host_vars match the inventory group names and host names
 SSH into the target device first to save the host keys
 
+##############################################################
+to mute skipping (useful if lots of devices)
 
+add to ansible.cfg
+
+display_skipped_host: false
  
 
 
