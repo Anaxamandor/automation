@@ -28,3 +28,28 @@ ansible all -m setup  (gathers facts usuable as variables)
 	• ansible all -m raw -a "show version" -u username -k | grep 'SUCCESS\|Software'   
 		• This uses a regular expression to search for two keywords at the same time.  The | symbol means "or".  Note the use of the \ escape character as well.
 
+#############################################################################
+
+ansible -m raw -a "/usr/bin/uptime" linuxhosts
+ansible -m raw -a "/usr/bin/whoami" linuxhosts
+
+##############################################################################
+
+ansible routers -m ios_command -a "commands='show ip int b'"
+
+##############################################################################
+
+ansible -m shell -a "python3 --version" linuxhosts
+
+##############################################################################
+use sudo with command:
+	• ansible all -b -a "whoami"
+it should not prompt for password if set up visudo file
+##############################################################################
+
+	• You can make decisions based on facts that are returned.
+		○ for example, knowing which operating system might determine what module to use
+		○ these facts are useable as variables in your playbook
+	• example:
+ansible ubuntu -m setup
+
