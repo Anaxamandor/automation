@@ -1,0 +1,9 @@
+ansible -m raw -a '/usr/bin/uptime' linuxhosts
+
+ansible -m shell -a 'python3 -V' linuxhosts
+
+ansible all -a 'whoami'
+
+ansible all -b -a 'whomai'  (-b elevates priv, i.e becomes sudo user, requires visudo to be configured correctly)
+
+ansible all -m setup  (gathers facts usuable as variables)
