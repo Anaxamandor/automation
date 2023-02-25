@@ -4,6 +4,20 @@ testing for a list:
 - assert:
     that:
       - (output.stdout is defined) and (output.stdout is not mapping) and (output.stdout is iterable) and (output.stdout is not string)
+      
+      
+alternatively:
+
+  - name: Assert if list
+    assert:
+      that: >
+           ( mylist is defined ) and ( mylist is not mapping )
+           and ( mylist is iterable ) and ( mylist is not string )
+           
+           
+#####################################################################################
+for more good ideas on assert:
+https://stackoverflow.com/questions/60729009/ansible-check-if-a-variable-contains-a-list-or-dictionary
 #####################################################################################
 
 
