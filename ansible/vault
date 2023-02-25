@@ -1,0 +1,26 @@
+# get a list of positional arugments to use with vault
+ansible-vault --help
+
+# encrypt a file
+ansible-vault encrypt filename.yml  (encrypts file)
+
+# run a playbook that references a variable in the encrypted file
+ansible-playbook playbook.yml --ask-vault-pass
+
+#view file in memory but keep encrypted on disk
+ansible-vault view filename.yml
+
+
+#edit the encrypted file
+ansible-vault edit group_vars/filename.yml  (opens VIM)
+
+
+#create a file that will be encrypted from the start:
+ansible-vault create filename.yml
+
+#decrypt a file
+ansible-vault decrypt filename.yml
+
+
+#re-key a file (change password in a way that minimizes attack surface)
+ansible-vault rekey filename.yml 
