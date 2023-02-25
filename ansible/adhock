@@ -7,3 +7,24 @@ ansible all -a 'whoami'
 ansible all -b -a 'whomai'  (-b elevates priv, i.e becomes sudo user, requires visudo to be configured correctly)
 
 ansible all -m setup  (gathers facts usuable as variables)
+
+
+
+############################################################################
+	
+	• ansible S1 -m raw -a "show version" -u username -k    
+	• ansible gns3-ios -m raw -a "show ip int b" -u username -k 
+		• the group name it runs against is gns3-ios 
+	• you might need to specify the inventory file path:
+		•  such as with adding this switch and path: -i ./gns3hosts
+		
+		
+	• you can observe ansible retrieving the information from the network device:
+		• debug ip ssh command
+	• ansible all -m raw -a "show version" -u username -k   
+		• the all keyword runs the ansible command against all the hosts in the host file
+	• ansible all -m raw -a "show version" -u username -k | grep flash0    
+		• in this case we are using grep to get the system versions from all the switches
+	• ansible all -m raw -a "show version" -u username -k | grep 'SUCCESS\|Software'   
+		• This uses a regular expression to search for two keywords at the same time.  The | symbol means "or".  Note the use of the \ escape character as well.
+
