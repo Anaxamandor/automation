@@ -1,0 +1,4 @@
+state key/parameter:
+
+replaced - replaces entire configuration. good to prevent configuration drift or unapproved changes.  End state is defined, 
+and whatever is not in the playbook will automatically be removed from the device.
