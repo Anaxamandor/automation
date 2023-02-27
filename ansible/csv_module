@@ -1,0 +1,40 @@
+ou can use the Ansible module "csv_file" to output the information 
+collected from all devices to a single csv file. 
+Here's an example playbook that demonstrates how to do this:
+
+---
+- name: Collect information from devices
+  hosts: devices
+
+  tasks:
+    - name: Collect x, y, and z information
+      # your task to collect x, y, and z information goes here
+
+    - name: Append to CSV file
+      csv_file:
+        path: /path/to/csv/file.csv
+        delimiter: ','
+        mode: append
+        columns:
+          - device_name
+          - x
+          - y
+          - z
+        data:
+          - "{{ inventory_hostname }}"
+          - "{{ x }}"
+          - "{{ y }}"
+          - "{{ z }}"
+
+
+In this example, we're collecting information from all devices in the "devices" group. 
+The first task collects the x, y, and z information, but the details will depend on how 
+you are collecting this information. The second task uses the "csv_file" module to 
+append the collected information to a CSV file.
+
+In the "csv_file" task, we specify the path to the CSV file, the delimiter (in this case, a comma), 
+and the mode as "append" to ensure that we're adding to the file instead of overwriting it. We also 
+specify the columns that we want to include in the CSV file, which are the device name, x, y, and z information.
+
+Finally, we use Ansible variables ({{ inventory_hostname }}, {{ x }}, {{ y }}, and {{ z }}) to populate the data 
+for each row of the CSV file. This assumes that you've defined variables for the x, y, and z information earlier in the playbook.
