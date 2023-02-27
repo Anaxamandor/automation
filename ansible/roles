@@ -1,0 +1,3 @@
+#create a role 
+
+ansible-galaxy init role_name
