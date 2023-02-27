@@ -1,0 +1,18 @@
+---
+- name: Get status and write to desktop
+  hosts: linuxhosts
+  tasks:
+    - name: get system status and info
+      shell: uname -a > /home/knox/Desktop/output.txt
+    - name: print my username
+      shell: whoami >> /home/knox/Desktop/output.txt
+
+---
+- name: playbook with variables demo
+  hosts: linuxhosts
+  vars:
+    - var1: zig
+    - var2: zag
+  tasks:
+    - name: print data
+      shell: echo "{{var1}}" when you should {{var2}}" > /home/knox/Desktop/vars.txt
