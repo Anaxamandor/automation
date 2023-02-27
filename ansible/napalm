@@ -1,3 +1,5 @@
+Dependencies:
+
 To use the Ansible Napalm collection, there are a few dependencies that need to be installed:
 
 Ansible: Napalm is a collection of Ansible modules, so you need to have Ansible installed on your system. The minimum version required is Ansible 2.9.
@@ -11,3 +13,7 @@ Python: Napalm and the Napalm device drivers are written in Python, so you need 
 Optional dependencies: Some modules in the Napalm collection may have additional dependencies, depending on the specific functionality they provide. For example, the napalm_install_config module requires the jinja2 library to be installed. You can install these dependencies using pip.
 
 Overall, the installation process for the Ansible Napalm collection and its dependencies can vary depending on the specific use case and network environment. It's a good idea to consult the Napalm documentation and the documentation for the specific device driver you want to use for detailed installation instructions.
+
+
+install and use:
+https://www.youtube.com/watch?v=Rg0PtY-F7gI
