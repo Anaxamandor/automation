@@ -1,0 +1,14 @@
+List Comprehension:
+
+gig_list = [i for i in i_list if i.startswith("Gig")]
+
+means the same as:
+
+gig_list = []
+for i in i_list:
+    if interface.startswith("Gig"):
+        gig_list.append(i)
+
+
+create an upper case version of the above code:
+gig_list = [i.upper() for i in i_list if i.startswith("Gig")]
