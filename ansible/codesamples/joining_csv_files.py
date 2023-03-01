@@ -48,3 +48,26 @@ with open(output_file, 'w') as csvfile:
 # Next, we join the two dictionaries on the hostname key, and store the joined data in a list of lists called "output_data". 
 # We then use the csv.writer class to write the joined data to a new CSV file, with the appropriate headers. 
 # The output file will be located at /path/to/my/outputfile.csv.
+
+
+#breaking down this section of the code:
+for row in reader:
+    data1[row['column1']] = row['column2']
+    
+# This line of code is reading in the data from the first CSV file and storing it in a dictionary called "data1".
+# The "for row in reader" loop iterates over each row in the CSV file, one at a time. 
+# For each row, we create a new key-value pair in the "data1" dictionary.
+# The key for the dictionary is the value in the "column1" of the CSV file for that row. 
+# We use "row['column1']" to access the value in the "column1" field for that row.
+# The value for the dictionary is the value in the "column2" of the CSV file for that row.
+# We use "row['column2']" to access the value in the "column2" field for that row.
+# So, for each row in the CSV file, we're creating a new key-value pair in the "data1" dictionary, 
+# where the key is the value in the "column1" field, and the value is the value in the "column2" field. 
+# This allows us to easily look up the value in "column2" later on, using the hostname as the key.
+
+
+
+
+Regenerate response
+
+
