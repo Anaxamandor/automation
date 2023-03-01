@@ -1,0 +1,49 @@
+# read data in a csv file
+
+import csv
+
+with open('filepath/file.csv', 'r') as data:
+  var1 = csv.reader(data)
+  next(csv.reader) #generator to pop off headers
+  print(csv.reader)
+  for line in var1:
+      print(line[0]) #printing just the zeroth column of data to retrieve that item (but better to use dicts method below)
+
+##########################################################################
+# write data to a csv file
+
+import csv
+
+with open('filepath/file.csv', 'w') as data:
+  var1 = var1.writer(data)
+  var1.writerow(['header1','header2','header3'])
+  var1.writerow(['item', 'item', 'item'])
+  #can keep adding it data manually by repeating above line 
+
+##########################################################################
+# open one data file, change the delimiter, and write result to new file:
+
+import csv
+
+with open('filepath/file.csv', 'r') as csv_data:
+  csv_reader = csv.reader(csv_data)
+
+  with open('filepath/newfile.csv', 'w') as new_data:
+      csv_writer = csv.writer(new_data, delimiter='\t')
+      for line in csv_reader:
+          csv_writer.writerow(line)
+
+
+##########################################################################
+# manipulate data as python dictionary
+
+
+with open('spreadsheet1.csv', 'r') as csv_data:
+    csv_reader = csv.DictReader(csv_data)
+    # print(csv_reader) #prints out an iteratable csv_reader object
+    for row in csv_reader:
+        print(row)  #prints out the python dicts
+        print(row["email"])  #if get a KeyError, may need to add a space before the word email if you are not using comma delimiters
+
+##########################################################################
+
