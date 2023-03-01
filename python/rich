@@ -1,0 +1,16 @@
+rprint can print structured data more neatly than print
+
+to use it:
+
+from rich import print as rprint
+
+then use rprint isntead of print within the script.
+
+
+example
+
+(scrapli code ommitted - see Storing Network Data section of CBT Python NetEng)
+structured_result = response.textfsm_parse_ouput[0]
+version = strucutred_result["version"]
+serial = structured_result["serial"][0]
+rprint(f"{hostname} - {version} - {serial}")
