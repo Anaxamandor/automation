@@ -1,0 +1,22 @@
+You can use the Ansible module "lineinfile" to append a line to a CSV file with the values you want to export. 
+Here's an example of how you can modify your playbook to accomplish this:
+
+- name: Example playbook
+  hosts: all
+  tasks:
+    - name: Create list variable
+      set_fact:
+        my_list: ['item1', 'item2', 'item3']
+
+    - name: Export variable to CSV
+      lineinfile:
+        path: /path/to/my/file.csv
+        line: "{{ inventory_hostname }},{{ my_list | join(',') }}"
+        
+In this example, we first create the variable "my_list" using the "set_fact" module. 
+Next, we use the "lineinfile" module to append a line to the CSV file. 
+The "path" parameter specifies the path to the CSV file, while the "line" parameter contains the values we want to export. 
+We use the "join" filter to concatenate the items in the "my_list" variable into a comma-separated string.
+Each time this playbook runs against a host, it will append a new line to the CSV file with the values for that host. 
+The first column will contain the value of "inventory_hostname" for that host, 
+while the second column will contain the comma-separated list of items in the "my_list" variable.
