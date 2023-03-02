@@ -40,3 +40,27 @@ Finally, the debug module is used to display the  configuration as extracted fro
 
 You can adjust the hosts and vars parameters as needed to target your specific devices and customize 
 the regular expression to match the output of your command.
+
+
+
+Here's an explanation of that part of the code:
+
+{{ output.stdout[0] | regex_findall(regex) | map(attribute='0.ss') | first }}
+
+This code extracts the ss from the show _____ output using the regex_findall filter and a regular expression stored in the regex variable. 
+The resulting output is a list of one or more dictionaries, with each dictionary containing the named groups matched by the regular expression. 
+In this case, we're interested in the ss named group, which contains the current status of s.
+
+The map(attribute='0.ss') part of the code applies the map filter to the list of dictionaries, 
+and tells it to extract the value of the ss key from each dictionary. 
+
+The attribute='0.ss' parameter tells map to look for this key in the first (and only) dictionary in the list (which has index 0).
+
+Finally, the first filter is used to extract the first (and only) element of the resulting list of syslog_status values. 
+
+This is necessary because map returns a list of values, even though in this case we know that there is only one element in the list. 
+
+By using first, we extract this single element and assign it to the ss variable.
+
+This same logic is used for the sl and st variables as well, with the only difference being the named group that is extracted from the regular expression. 
+
