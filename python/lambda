@@ -1,0 +1,1 @@
+high_low = lambda x: "The number is greater than 10" if x > 10 else "The number is not greater than 10"
