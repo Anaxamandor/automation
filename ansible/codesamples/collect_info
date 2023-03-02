@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     command: show _____
-    regex: '^Logging\sserver:\s(?P<syslog_status>enabled|disabled)\s*(?:Traps:\s*(?P<syslog_level>\S+).*\s*(?P<syslog_traps>.+))?$'
+    regex: '^Logging\sserver:\s(?P<ss>enabled|disabled)\s*(?:Traps:\s*(?P<sl>\S+).*\s*(?P<syst>.+))?$'
   tasks:
     - name: Run show logging command
       ios_command:
