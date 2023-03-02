@@ -1,0 +1,42 @@
+---
+- name: Collect configuration from IOS and IOS-XE devices
+  hosts: ios_devices
+  gather_facts: no
+  vars:
+    command: show _____
+    regex: '^Logging\sserver:\s(?P<syslog_status>enabled|disabled)\s*(?:Traps:\s*(?P<syslog_level>\S+).*\s*(?P<syslog_traps>.+))?$'
+  tasks:
+    - name: Run show logging command
+      ios_command:
+        commands:
+          - "{{ command }}"
+      register: output
+
+    - name: Extract syslog configuration using regex
+      set_fact:
+        ss: "{{ output.stdout[0] | regex_findall(syslog_regex) | map(attribute='0.ss') | first }}"
+        sl: "{{ output.stdout[0] | regex_findall(syslog_regex) | map(attribute='0.sl') | first }}"
+        st: "{{ output.stdout[0] | regex_findall(syslog_regex) | map(attribute='0.st') | first }}"
+
+    - name: Display syslog configuration
+      debug:
+        msg: |
+          s s: {{ ss }}
+          s l: {{ sl }}
+          s t: {{ st }}
+
+In this example playbook, we define a variable command that contains the IOS command to retrieve ____ configuration, 
+and another variable regex that defines a regular expression to extract the desired information.
+
+We then use the ios_command module to run the command on the IOS devices and register the output to the output variable.
+
+The next task uses the set_fact module to extract the configuration from the output using the regular expression defined in regex. 
+
+The regex_findall filter is used to match the regular expression against the output and capture the relevant information in the named groups. 
+
+The resulting facts are stored in the variables ss, sl, and st.
+
+Finally, the debug module is used to display the  configuration as extracted from the devices. 
+
+You can adjust the hosts and vars parameters as needed to target your specific devices and customize 
+the regular expression to match the output of your command.
