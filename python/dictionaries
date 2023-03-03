@@ -1,8 +1,6 @@
 DICTIONARIES:
-
-python 3.7 and up are ordered. (does this mean I can access elements via [0] or [1] indexes?)
-
-dictionaries are mutable
+################################################################################
+# General info:
 
 keys must be hashable -> immutable object.  So strings, ints, tuples can serve as keys, but not lists
 ################################################################################
@@ -23,6 +21,7 @@ my_dict["platform"] = "cisco_ios"   (adds a new k/v pair)
 
 method 1:
 my_dict["hostname"]
+
 method 2:
 my_dict.get("hostname")  (returns None instead of error for keys not found; can added in a second argument to give a message when keys not found)
 
