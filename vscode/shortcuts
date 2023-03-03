@@ -25,3 +25,21 @@ File Management Shortcuts:
 
 Page Navigation shortcuts:
 	• cntrl + arrow key  (jump from word to word)
+	
+	
+	
+##################################################################################################################################	
+# multi-cursor editing 
+Yes, in VSCode you can use multi-cursor editing to edit multiple lines of code simultaneously. Here's how to do it:
+
+To add a new cursor, place your cursor on the first line you want to edit and press Alt + Shift + Down Arrow (Windows, Linux) or Option + Shift + Down Arrow (Mac). This will create a new cursor on the next line.
+
+Repeat the previous step to add as many cursors as you need.
+
+Once you have multiple cursors, you can type in text and it will be added to all the lines at once.
+
+To move all the cursors up or down, press Alt + Up Arrow/Down Arrow (Windows, Linux) or Option + Up Arrow/Down Arrow (Mac).
+
+To remove a cursor, simply move it to a different location using the arrow keys or mouse.
+
+With multi-cursor editing, you can quickly make changes to multiple lines of code at once, which can be a huge time-saver.
