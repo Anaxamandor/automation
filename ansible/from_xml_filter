@@ -1,0 +1,84 @@
+https://docs.ansible.com/ansible/devel/collections/ansible/utils/from_xml_filter.html
+
+Example: 
+- name: Parse XML data
+  hosts: localhost
+  tasks:
+    - name: Get XML data
+      uri:
+        url: https://example.com/api/data.xml
+        return_content: yes
+      register: result
+
+    - name: Convert XML to JSON
+      set_fact:
+        data: "{{ result.content | from_xml }}"
+
+    - name: Use extracted data
+      debug:
+        var: data
+
+
+Example:
+
+- name: Extract syslog and logging trap info from Cisco IOS and IOS-XE devices
+  hosts: cisco_devices
+  gather_facts: no
+
+  tasks:
+    - name: Get logging configuration in XML format
+      ios_command:
+        commands:
+          - show logging xml
+      register: logging_output
+
+    - name: Parse syslog and logging trap info
+      set_fact:
+        syslog_enabled: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`syslog`].enabled') | first | default(false) }}"
+        logging_trap_severity: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`snmptrap`].severity') | first }}"
+        logging_trap_destinations: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`snmptrap`].destination') | list }}"
+
+    - name: Create CSV file
+      lineinfile:
+        path: /tmp/cisco_logs.csv
+        create: yes
+        line: "{{ inventory_hostname }},{{ syslog_enabled }},{{ logging_trap_severity }},{{ logging_trap_destinations | join(';') }}"
+
+Sure, here's an updated version of the playbook that uses the show logging xml command to extract logging configuration information from Cisco IOS and IOS-XE devices:
+
+yaml
+Copy code
+- name: Extract syslog and logging trap info from Cisco IOS and IOS-XE devices
+  hosts: cisco_devices
+  gather_facts: no
+
+  tasks:
+    - name: Get logging configuration in XML format
+      ios_command:
+        commands:
+          - show logging xml
+      register: logging_output
+
+    - name: Parse syslog and logging trap info
+      set_fact:
+        syslog_enabled: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`syslog`].enabled') | first | default(false) }}"
+        logging_trap_severity: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`snmptrap`].severity') | first }}"
+        logging_trap_destinations: "{{ logging_output.stdout | from_xml | json_query('outputs.output[?type==`snmptrap`].destination') | list }}"
+
+    - name: Create CSV file
+      lineinfile:
+        path: /tmp/cisco_logs.csv
+        create: yes
+        line: "{{ inventory_hostname }},{{ syslog_enabled }},{{ logging_trap_severity }},{{ logging_trap_destinations | join(';') }}"
+
+This playbook first uses the ios_command module to fetch the logging configuration in XML format using the show logging xml command. 
+The output is then parsed using the from_xml filter to convert it to a Python data structure that can be easily queried and manipulated.
+
+The json_query filter is used to extract specific pieces of information from the XML output. 
+For example, the syslog_enabled variable is set to the value of the enabled element in the XML output for the syslog type.
+
+Similarly, the logging_trap_severity variable is set to the value of the severity element in the XML output for the snmptrap type, 
+and the logging_trap_destinations variable is set to a list of the destination elements in the XML output for the snmptrap type.
+
+Finally, the extracted information is written to a CSV file using the lineinfile module, with each line containing the hostname of the device, 
+the status of syslog logging, the severity level of the logging traps, and the IP address, protocol, and port number of the trap destinations.
