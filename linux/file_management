@@ -49,7 +49,11 @@ tree -d   list directories only
 tree -C   colorize output
 
 ls -d <directory>  list directory name, not contents.  Makes more sense when combined with other options like ls -ld
+Ls -d */  lists just the directories
+
 ls --color  colorize the output  (done by default on RHEL)
 
 
 ping x.x.x.x | tee -a file.txt  (puts command output on screen as well as sending it to a file)
+
+
