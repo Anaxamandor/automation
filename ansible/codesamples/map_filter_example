@@ -1,0 +1,35 @@
+- name: Transform CPU usage
+  hosts: localhost
+  vars:
+    servers:
+      - name: server1
+        ip: 192.168.1.1
+        cpu: 50
+      - name: server2
+        ip: 192.168.1.2
+        cpu: 75
+      - name: server3
+        ip: 192.168.1.3
+        cpu: 90
+  tasks:
+    - name: Extract CPU usage and transform
+      debug:
+        msg: "Transformed CPU usage for {{ item.name }} is {{ item.cpu | attribute('cpu') | multiply(2) }}"
+      loop: "{{ servers | map(attribute='cpu') }}"
+
+
+#explanation:
+
+In the example, let's say you have a list of dictionaries representing servers in a data center, 
+with each dictionary containing attributes such as the server's name, IP address, and CPU usage. 
+You can use the map filter to iterate over this list and extract a specific attribute, such as the CPU usage, and transform it using a specific formula.
+
+The example playbook above demonstrates the use of the map filter with the attribute parameter.
+
+In this playbook, we define a list of dictionaries called servers, each containing a name, IP address, and CPU usage attribute. 
+We then use the map filter with the attribute parameter to iterate over the servers list and extract the cpu attribute from each dictionary. 
+We then apply the multiply filter to each extracted value to double the CPU usage, and print out the 
+transformed value for each server using the debug module.
+
+The attribute parameter can be used with list elements in Ansible to extract a specific attribute from each 
+element and perform transformations based on that attribute.
