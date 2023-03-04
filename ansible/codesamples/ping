@@ -1,0 +1,35 @@
+- name: retry ping 10 times with exponential backoff delay
+  ping:
+  retries: 10
+  delay: '{{item|int}}'
+  loop: '{{ range(1, 10)|map("pow", 2) }}'
+  
+  
+This Ansible playbook snippet shows an example of how to use the ping module to ping a remote host with a specific number of retries 
+and a delay between each retry. Specifically, the playbook will ping the host 10 times with an exponential backoff delay between each retry.
+
+Here's how the code works:
+
+The name line is used to give a descriptive name to the task. In this case, the task is called "retry ping 10 times with exponential backoff delay".
+
+The ping line specifies the ping module, which is used to ping a remote host and check if it is responding.
+
+The retries line specifies the number of times to retry the ping if it fails. In this case, the playbook will retry the ping 10 times.
+
+The delay line specifies the delay between each retry, which is set to {{item|int}}. 
+The item variable is used to loop over a list of delay values, and the int filter is used to ensure that the delay value is an integer.
+
+The loop line specifies the list of delay values to loop over. 
+In this case, the list is generated using the range function to generate a sequence of numbers from 1 to 10, 
+and then using the map filter to raise each number to the power of 2 (i.e., pow(2)).
+
+So, the delay line will use the delay values 1, 4, 9, 16, 25, 36, 49, 64, 81 between each retry, with the delay increasing exponentially after each retry.
+
+Overall, this playbook is a simple example of how to use the ping module with retry logic and a delay to ensure that a 
+remote host is reachable before continuing with other tasks.
+
+(note this comes from this ansible documentation page:  https://docs.ansible.com/ansible/latest/playbook_guide/complex_data_manipulation.html
+"Use a loop to create exponential backoff for retries/until."
+
+# additional notes on this:
+
