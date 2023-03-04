@@ -32,4 +32,6 @@ remote host is reachable before continuing with other tasks.
 "Use a loop to create exponential backoff for retries/until."
 
 # additional notes on this:
+the 'pow' filter comes from the Ansible filters documentation:
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_filters.html
 
