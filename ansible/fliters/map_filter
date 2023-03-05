@@ -49,4 +49,31 @@ In this case, it takes the first attribute (indicated by '0') and returns it.
 
 So the map filter is not treating the string as a list of characters, but rather as a list of attributes (or words in this specific case).
 
+When the attribute function is used in the map filter, 
+it tells the filter to treat each character in the string as an attribute of an object, 
+rather than treating the string as a list of characters. 
+
+This allows you to extract a specific attribute from each character in the string, 
+rather than operating on each character individually.
+
+In programming, an attribute is a characteristic or property of an object. 
+For example, in Python, a variable can be defined as an object, and that object 
+can have various attributes such as its data type, value, length, etc.
+
+
+
+############################################3333
+example:
+
+Here's an example of how map would work on the string 'hello':
+Python:
+{{ 'hello' | map('upper') }}
+Output:
+[u'H', u'E', u'L', u'L', u'O']
+
+As you can see, the map filter has treated the string 'hello' as a list of characters 
+and applied the upper function to each character in the string, resulting in a list of uppercase characters.
+
+The 'u' that appears before each element in the list is a Python 2.x notation indicating that the string is a Unicode string. 
+In Python 3.x, Unicode strings are the default, and so the 'u' notation is not used.
 
