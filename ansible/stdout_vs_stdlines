@@ -25,3 +25,7 @@ The .stdlines attribute, on the other hand, always returns the output of a comma
 module as a list of strings, where each string corresponds to a single line of output. 
 If the command generates a single line of output, then .stdlines will return a list with a single string. 
 If the command generates multiple lines of output, then .stdlines will return a list of strings, with one string per line of output.
+
+
+ the ios_command module which returns a dictionary with several keys including stdout and stdlines. stdout contains the standard output of the command, 
+ while stdlines is a list of strings, each of which is a line of output.
