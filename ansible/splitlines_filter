@@ -10,3 +10,6 @@ example:
 {{ show_output.stdout | splitlines | map('regex_findall', 'GigabitEthernet\\d+') | list }}
 
 
+The list filter is used to convert the output of the previous filter, 
+map('regex_findall', 'GigabitEthernet\\d+'), which returns a list of lists, into a single flat list.
+
