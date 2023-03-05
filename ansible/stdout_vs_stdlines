@@ -1,0 +1,27 @@
+Both .stdout and .stdlines are used to retrieve the output of a command as a list of strings in Ansible, 
+but they are used in slightly different contexts.
+
+.stdout is an attribute that is used to retrieve the output of a command as a single string. 
+When you use .stdout, Ansible concatenates all of the lines of output into a single string, 
+with each line separated by a newline character (\n). 
+This can be useful when you want to perform string operations on the output, 
+such as searching for a particular pattern or extracting specific fields from the output.
+
+.stdlines, on the other hand, is an attribute that is specifically designed to return the output 
+of a command as a list of strings, where each element of the list corresponds to a line of the output. 
+This can be useful when you want to process the output line by line, 
+such as when you want to filter or transform the output using the various filters available in Ansible (e.g., the regex_search or map filters).
+
+In general, if you just need to retrieve the output of a command and don't need to perform any special processing on the output, 
+you can use either .stdout or .stdlines. However, if you need to process the output in a more structured way, 
+such as by filtering or transforming it using the various Ansible filters, then it is often more convenient to use .stdlines 
+to retrieve the output as a list of strings, since this allows you to process the output line by line.
+
+
+The .stdout attribute always returns the output of a command or module as a string, 
+regardless of whether the command generates a single line or multiple lines of output.
+
+The .stdlines attribute, on the other hand, always returns the output of a command or 
+module as a list of strings, where each string corresponds to a single line of output. 
+If the command generates a single line of output, then .stdlines will return a list with a single string. 
+If the command generates multiple lines of output, then .stdlines will return a list of strings, with one string per line of output.
