@@ -174,6 +174,23 @@ Input string: "hello"
         ^                       ^
         |         attribute     |
 
+when we say "the attribute at index 0" in the context of this discussion, 
+we are referring to the first character of the string, 
+because we are treating the string as a list of attributes, 
+where each attribute corresponds to a character in the string. 
+
+Therefore, when the attribute function is called with an argument of 0, 
+it returns the first character of the string, which is equivalent to the attribute at index 0.
+
+The data type passed to the attribute filter depends on the input to the map filter. 
+If the map filter is given a string, then each character of the string is passed as a string to the attribute filter. 
+If the map filter is given a list, then each item in the list is passed as an object to the attribute filter.
+The attribute filter can be applied to any object that has attributes or methods. 
+However, it may not work with certain data types that do not have attributes or methods. 
+For example, trying to apply the attribute filter to an integer or a boolean value would 
+result in an error because these data types do not have any attributes or methods.
+
+
 
 ################################################################################################
 example:
