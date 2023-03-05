@@ -1,0 +1,11 @@
+The map filter in Ansible can take a variety of data types,
+including lists, dictionaries, and strings. 
+
+When the map filter is applied to a list, it returns a new list where each element is 
+transformed according to the given transformation function. 
+
+When applied to a dictionary, it returns a new dictionary with the same keys 
+as the original but with the values transformed by the given transformation function. 
+
+When applied to a string, it treats the string as a list of characters 
+and applies the transformation function to each character in the string.
