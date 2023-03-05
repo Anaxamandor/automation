@@ -2,6 +2,9 @@ The | splitlines filter in Ansible is used to split a string into a list of stri
 It works by splitting the input string on the newline (\n) character and returning a list of the resulting lines. 
 This is useful when working with command output that contains multiple lines, as it allows you to easily process each line individually.
 
+Since regex_findall filter expects a string as input, not a list. 
+To make this work, you could apply the regex_findall filter to each line of the output using the map filter. Here is an example:
+
 example:
 
 {{ show_output.stdout | splitlines | map('regex_findall', 'GigabitEthernet\\d+') | list }}
