@@ -1,0 +1,23 @@
+---
+- name: "test"
+  hosts: usa
+  gather_facts: true
+  gather_subset: all
+  connection: network_cli
+
+  tasks:
+    - name: Extract interfaces from show ip interface brief
+      ios_command:
+        commands:
+          - show ip interface brief
+      register: show_interface_output
+
+    - name: Parse interface output with regex
+      set_fact:
+        interface_output: "{{ show_interface_output.stdout | regex_findall('^([a-zA-Z]+\\d+\\/\\d+)\\s+.*', multiline=True) }}"
+
+    - name: Debug interface output as CSV format
+      debug:
+        msg: |
+          Hostname,Interfaces
+          {{ inventory_hostname }},{{ interface_output | join(', ') }}
