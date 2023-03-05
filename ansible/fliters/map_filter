@@ -103,6 +103,42 @@ which represents the first attribute in the string.
 Therefore, the map filter does not directly process the output of the regex_findall filter. 
 Instead, it processes the selected string that was output by the first filter.
 
+In Ansible, the attribute is a filter function that is used with the map filter to extract an 
+attribute or value from a list of objects or dictionaries. It is not a built-in Python function 
+but a filter function specific to Ansible. In general, a filter function is a callable object that
+transforms the data passed to it according to a specified rule or logic. 
+Therefore, the attribute filter can be thought of as a function that performs a specific data transformation task.
+
+The attribute filter is a Jinja2 filter, not a Python function. 
+It is a built-in filter provided by Jinja2 to perform operations on variables or the output of other filters
+
+Here is how the same pipeline would work with the string 'dog':
+
+- name: Extract first character
+  hosts: localhost
+  gather_facts: false
+  vars:
+    my_string: "dog"
+  tasks:
+    - debug:
+        var: my_string | map('attribute', '0') | list
+
+In this case, the output would be:
+
+TASK [debug] ******************************************************************************************************************************************************************************************
+ok: [localhost] => {
+    "my_string | map('attribute', '0') | list": [
+        "d",
+        "o",
+        "g"
+    ]
+}
+
+Here, the map filter applies the attribute('0') function to each character in the string 'dog', 
+which results in a list of characters ['d', 'o', 'g']. 
+
+The list filter is used to convert this output into a list.
+
 ############################################3
 example:
 
