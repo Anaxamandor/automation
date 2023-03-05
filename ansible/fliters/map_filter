@@ -35,4 +35,18 @@ It will split my_string into a list of words and iterate over each word, returni
 The split function splits a string into a list of substrings based on a specified separator (which is by default a whitespace character). 
 The resulting list consists of the words in the original string.
 
+#####################################################
+# using the map filter with the attribute function on a string:
+
+{{ show_command_output.stdout | regex_findall(regex) | first | map('attribute', '0') | first }}
+
+The regex_findall filter returns a list of strings that match the provided regular expression. 
+The first filter then returns the first element of that list. 
+The map filter is then applied to that single string, 
+and it treats the string as a list of attributes. 
+
+In this case, it takes the first attribute (indicated by '0') and returns it. 
+
+So the map filter is not treating the string as a list of characters, but rather as a list of attributes (or words in this specific case).
+
 
