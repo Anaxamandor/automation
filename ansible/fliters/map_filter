@@ -90,6 +90,19 @@ and the index of the element in the list.
 So map('attribute', '0') is extracting the value of the first attribute (index 0) 
 from each element in the list (which in this case is just one element).
 
+The map filter with the attribute function is applied to the selected string. 
+The attribute function takes an index as its argument 
+and returns the value at that index for each element in the input. 
+
+In this case, the input to the map filter is a single string, 
+which is treated as a list of characters. 
+
+So, the map filter with the attribute('0') function extracts the first character of the string, 
+which represents the first attribute in the string.
+
+Therefore, the map filter does not directly process the output of the regex_findall filter. 
+Instead, it processes the selected string that was output by the first filter.
+
 ############################################3
 example:
 
