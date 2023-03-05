@@ -64,7 +64,13 @@ The map filter, when used with the attribute function, does not treat a string a
 It is used to extract a specific attribute from a list of dictionaries, where each dictionary represents an object with attributes.
 
 In the given code, the map filter with the attribute function is used to extract the value of the first attribute (index 0) 
-from the first item in the list returned by the regex_findall filter.  HOW?
+from the first item in the list returned by the regex_findall filter.  
+
+The |first filter in this example takes the first item from the list returned by the regex_findall filter, 
+and returns it as a single string. However, it's important to note that the |map filter is still operating on a list, not a string.
+
+So while the |first filter converts the output from the regex_findall filter to a single string, 
+the |map filter still operates on a list (in this case, a list with one element), and extracts the attribute value from that element.
 
 The regex_findall filter returns a list of matches for the given regular expression, 
 and the first filter returns the first item from that list. 
@@ -76,8 +82,15 @@ So, in this case, the map filter is not treating a single string as a list of at
 but is extracting a specific attribute from a list of dictionaries 
 (where each dictionary represents an object with attributes) by using the attribute function.
 
+The map filter applies the attribute function to each element in the list. 
+In this case, the attribute function takes two arguments: 
+the name of the attribute to extract, 
+and the index of the element in the list. 
 
-############################################3333
+So map('attribute', '0') is extracting the value of the first attribute (index 0) 
+from each element in the list (which in this case is just one element).
+
+############################################3
 example:
 
 Here's an example of how map would work on the string 'hello':
