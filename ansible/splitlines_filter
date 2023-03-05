@@ -8,3 +8,5 @@ To make this work, you could apply the regex_findall filter to each line of the 
 example:
 
 {{ show_output.stdout | splitlines | map('regex_findall', 'GigabitEthernet\\d+') | list }}
+
+
