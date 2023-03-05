@@ -9,3 +9,30 @@ as the original but with the values transformed by the given transformation func
 
 When applied to a string, it treats the string as a list of characters 
 and applies the transformation function to each character in the string.
+
+The map filter can be used to iterate over a string character by character, 
+or it can be used to split a string into a list of words. 
+The behavior of the filter depends on the transformation function that is passed to it.
+
+By default, if no transformation function is specified, the map filter 
+will treat the input as a list of characters and iterate over each character. 
+For example, if you use the map filter like this:
+
+{{ my_string | map }}
+
+It will split my_string into a list of characters and iterate over each character, returning a list like this:
+
+['c', 'a', 't']
+
+However, if you specify a transformation function, like this:
+
+{{ my_string | map('split') }}
+
+It will split my_string into a list of words and iterate over each word, returning a list like this:
+
+[["Hello"], ["world,"], ["how"], ["are"], ["you"], ["doing?"]]
+
+The split function splits a string into a list of substrings based on a specified separator (which is by default a whitespace character). 
+The resulting list consists of the words in the original string.
+
+
