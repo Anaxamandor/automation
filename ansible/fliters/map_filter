@@ -143,6 +143,38 @@ since the output from the map filter is already a list.
 
 The list filter is used to convert other data types to a list, but in this case, it simply returns the input as a list.
 
+Let's take the example of the string "hello" being passed to the map filter, 
+with the transformation function being the Jinja2 attribute filter with index 0. 
+
+Here are the steps that take place:
+
+1. The input string "hello" is passed to the map filter.
+
+2. The map filter treats the string as a list of characters, with each character as an individual element in the list.
+
+3. The first element in the list is "h".
+
+4. The Jinja2 attribute filter with index 0 is applied to "h".
+
+5. The attribute filter extracts the first attribute (index 0) from "h", which is the character "h" itself.
+
+6. The map filter replaces "h" with the result of the attribute filter, which is "h".
+
+7. Steps 3-6 are repeated for each subsequent element in the list, resulting in a new list of ["h", "e", "l", "l", "o"].
+
+8. The resulting list is returned as the output of the map filter.
+
+Here is a visual representation of the process:
+
+Input string: "hello"
+
+        | map('attribute', '0') |
+        v                       v
+    ["h", "e", "l", "l", "o"] -> ["h", "e", "l", "l", "o"]
+        ^                       ^
+        |         attribute     |
+
+
 ################################################################################################
 example:
 
