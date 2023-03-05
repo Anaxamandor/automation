@@ -138,8 +138,12 @@ Here, the map filter applies the attribute('0') function to each character in th
 which results in a list of characters ['d', 'o', 'g']. 
 
 The list filter is used to convert this output into a list.
+The | list filter used in this case doesn't change the output, 
+since the output from the map filter is already a list. 
 
-############################################3
+The list filter is used to convert other data types to a list, but in this case, it simply returns the input as a list.
+
+################################################################################################
 example:
 
 Here's an example of how map would work on the string 'hello':
