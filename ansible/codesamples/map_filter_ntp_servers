@@ -23,3 +23,5 @@
 
  if your mission was to filter ntp lines, there is a bit simplet way as well, 
  to filter out the stdout_lines: output.stdout_lines[0] | select('match', 'ntp server') | join('\n')
+ 
+ match test accepts regex filter and is already bound to string start
