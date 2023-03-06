@@ -1,0 +1,21 @@
+- name: "test"
+  hosts: usa
+  gather_facts: true
+  gather_subset: all
+  connection: network_cli
+
+  tasks:
+    - name: run show command
+      ios_command:
+        commands:
+          - show run | include ntp
+      register: output
+
+    - name: Parse output with regex
+      set_fact:
+        servers: "{{ output.stdout[0] | regex_findall(regex, multiline=True) | map('join', ' ') | join('/') }}"  
+      vars:
+        regex: '^(ntp)\s(server)\s(\d+\.\d+\.\d+\.\d+)'   
+
+    - debug:
+        var: servers
