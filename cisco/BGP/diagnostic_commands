@@ -1,0 +1,18 @@
+useful diagnostic commands:
+
+
+show ip bgp vpnv4 all 
+show ip bgp vpnv4 all neighbors
+show ip bgp vpnv4 all summary
+show bgp vpnv4 neighbors x.x.x.x advertised-routes 
+show ip route vrf <VRF>
+
+
+
+
+debug vpnv4
+
+
+ping x.x.x.x source Loopback X  #does it need the VRF?
+
+show ip route
