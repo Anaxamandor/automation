@@ -1,0 +1,7 @@
+it's better to use loobacks as the source IP instead of using the physical interface, in case the link goes down.
+by default BGP will use the physical interface and it won't work unless you tell it to use the loopback
+this is the reason for the update-source command, which changes the source IP to what you want it to be.
+
+
+update-source is typically used on iBGP sessions, that are generally multihop and between router's loopback addresses. 
+I often see people configuring update-source on directly connected eBGP session but this is by no mean needed.
