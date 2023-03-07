@@ -1,0 +1,12 @@
+no bgp default ipv4 (keeps it from automatically putting bgp config into ipv4 address-family)
+
+on newer devices you have to it this way:
+
+router bgp XXX
+address-family ipv4 unicast
+neighbor x.x.x.x activate  (address families must be activated for neighbor relationships to come to life. Otherwise they stay in idle)
+network x.x.x.x mask x.x.x.x
+
+
+BUT if the route exists in a vrf:
+address-family ipv4 unicast vrf VRF
