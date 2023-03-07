@@ -1,0 +1,10 @@
+with eBGP, if not getting a peering but you can ping, might need to enable multihop
+enable it on the neighbor
+
+can use either disable-connected-check
+or 
+ebgph-multip
+
+example:
+router bgp xxx
+neighbor x.x.x.x disable-connected-check (or ebgp-multihop)
