@@ -1,0 +1,19 @@
+concepts:
+
+- NLRI includes prefix and PAs
+- Path is the only PA that changes by default
+- no bgp default ipv4 unicast, if configured, stops automatic default to ipv4 family and unicast subfamily
+
+
+###########################################################################################################
+
+number of BGP sessions:
+n(n-1)/2  where n is the number of routers
+example: 4 routers = 6 BGP sessions
+
+###########################################################################################################
+inbout route polices can be:
+route maps
+distribution lists
+prefix lists
+AS ACLs
