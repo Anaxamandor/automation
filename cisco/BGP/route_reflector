@@ -1,0 +1,14 @@
+In iBGP, internally learned routes are not forwarded
+
+route reflectors are configured for each address family
+
+RR solve the problem of needing a full mesh which helps scalability in larger toplogies
+
+reflectors bounce the info unchanged.  To fix this need to use a route map inbound to fix next hop
+
+
+with RR, routes learned (received) behave as follows:
+1. advertisements from non-clients -> RR ->  clients only
+2. advertisements from clients -> RR -> clients and non-clients
+3. advertisements from eBGP -> goes to all iBGP neighbors
+4. adveristements from iBGP -> goes to all eBGP neighbors
