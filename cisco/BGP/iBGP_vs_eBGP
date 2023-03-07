@@ -1,0 +1,30 @@
+############################################################################################################
+iBGP 
+
+Next Hop Behavior: 
+routes forwarded through iBGP never change the next hop address, 
+whether or not they came from eBGP neighbor or iBGP neighbor.
+
+Route Sharing Behavior:
+1. network
+2. only sends out on eBGP links for valid NLRIs (unless using route reflector)
+
+Multi-hop Behavior:
+TTL is set to 255
+multi-hop is allowed
+
+
+############################################################################################################
+
+eBGP 
+
+Next Hop Behavior: 
+eBGP advertised routes change the next hop to be it's own source IP address.
+
+Route Sharing Behavior:
+1. network
+2. received valid NLRI
+
+ulti-hop Behavior:
+TTL is set to 0
+multi-hop NOT allowed (must be directly connected)
