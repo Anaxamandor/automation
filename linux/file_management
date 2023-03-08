@@ -56,4 +56,8 @@ ls --color  colorize the output  (done by default on RHEL)
 
 ping x.x.x.x | tee -a file.txt  (puts command output on screen as well as sending it to a file)
 
+######################################################################################################
+To see stdout on terminal and send to file:  foo | tee output.file
+If want to include stderr, do: program [arguments]  2>&1 | tee outfile
+
 
