@@ -1,0 +1,12 @@
+reload at 
+	• specify a specific time, up to 24 days in the future
+	• must set clock first
+reload cancel  
+	• aborts the schedule
+reload in 5 
+	• can specify minutes or hours and minutes   
+	• this is useful if making changes on a remote switch, and you have a concern that changes you make might cause a loss of connection to that switch, assuming not saved, and it will come up with the last saved config.
+
+if you reload it and no NTP server, it won't know what time it is, and you have to change the clock on it manually.
+
+It might also not be able to reach the NTP server if it has an old battery that resets the clock, and a routing protocol authentication that won't let NTP pass.  SO you have to go out and fix it by console.
