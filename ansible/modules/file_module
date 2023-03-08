@@ -1,0 +1,37 @@
+source: https://www.youtube.com/watch?v=hpZugt3S0SQ
+
+
+tasks
+  - name: Created directory
+    file:
+      path: /somedir/NewDirectory
+      state: directory
+    delegate_to: localhost
+
+  - name: Created file
+    file:
+      path: /somedir/file.txt
+      state: touch
+    delegate_to: localhost
+
+  - name: Created file inside directory
+    file:
+      path: /somedir/NewDirectory/file2.txt 
+    delegate_to: localhost
+
+state parameter:
+directory - creates a directory
+touch - creates a file
+file - checks that the file at the path actually exists
+link - creates a symbolic link (soft link) to the file on the target machine.  Change path: to src. and dest: for the link
+hard - creates a hard link (even if delete original file it still has the data, it is a mirror copy)
+absent - deletes files or directories recursively. may need to escalate privileges
+
+become: yes
+tasks: 
+  - name: deleted files with the absent state
+    file: 
+      path: /somedir/NewDirectory
+      state: absent
+    delegate_to: localhost
+    
