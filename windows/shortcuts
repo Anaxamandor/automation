@@ -1,2 +1,5 @@
 change password on one screen of dual monitor:
 cntrl + alt + del
+
+force reboot:
+control + alt + power 15 seconds to force reboot
