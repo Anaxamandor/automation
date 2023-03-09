@@ -38,3 +38,31 @@ specify the columns that we want to include in the CSV file, which are the devic
 
 Finally, we use Ansible variables ({{ inventory_hostname }}, {{ x }}, {{ y }}, and {{ z }}) to populate the data 
 for each row of the CSV file. This assumes that you've defined variables for the x, y, and z information earlier in the playbook.
+
+################################3
+
+---
+- name: Gather s facts from network devices
+  hosts: ios_devices
+  gather_facts: no
+
+
+#part of code ommitted that gathers and set facts ss, sl, and st
+ 
+    - name: Write  facts to CSV file
+      csv_file:
+        path: "/path/to/report.csv"
+        headers: ["hostname", "ss", "sl", "st"]
+        data:
+          - ["{{ inventory_hostname }}", "{{ ss }}", "{{ sl }}", "{{ st }}"]
+
+
+This version of the script uses the csv_file module to write the facts to a CSV file with the specified headers. 
+The data parameter is used to specify the data to be written to the file, which includes the hostname (inventory_hostname) and the facts. 
+Note that the data is wrapped in double-quotes to ensure that any commas or special characters in the data don't interfere with the CSV format.
+
+When you run this updated playbook, it will gather facts from all devices in the ios_devices group, and write the results to a single CSV file at 
+the specified path (/path/to/report.csv). 
+
+Each row in the file will correspond to a single device, with the hostname in the first column and the facts in the subsequent columns. 
+
