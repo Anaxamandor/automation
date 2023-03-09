@@ -1,1 +1,9 @@
 ansible-playbook playbook.yml --extra-vars "ansible_python_interpreter=/usr/bin/python3" -e "ansible_version=2.9"
+
+
+using -C option:  
+- use it to check regularly whether hosts are still "in sync" with ansible without making changes. 
+- Can be useful to know that e.g. some of your production servers aren't configured how you expect them to be.
+- it can test if some devices might fail due to connectivity issues, or authentication issues, before making actual changes, and you can see the error output. 
+- say someone's gone in and made a change to a config file by hand to fix an issue, and forgotten to update the ansible to reflect it. 
+You can see that it'd revert the config with --check.
