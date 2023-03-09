@@ -1,0 +1,51 @@
+############################################################################
+#purposely fail a module on condition
+
+tasks:
+  - name: Install wrong package
+     yum: wrongpackage
+     state: present
+    ignore_errors: true  #will move to next task if failed
+    register: error_message
+ 
+  - name: fail if there is a failed status
+    fail:
+      msg: "the state is failed"
+    when: error_message == True
+
+############################################################################
+# control when changed message is reported and fail task on condition
+
+tasks:
+  - name: Uptime
+    shell: uptime
+    register: uptime_message
+    changed_when: "'Success' in uptime_message"  # change reported only when success
+
+
+  - name: Print message
+    debug:
+      msg: "{{ uptime_message }}"
+    failed_when: not myvariable is defined   #if variable is not defined fail this task
+###############################################################################
+# force handlers to execute even if tasks fail, or if subsequent tasks fail:
+
+- name:
+  hosts:
+  force_handlers: true
+  tasks:
+############################################################################
+# decide when task fails or doesn't fail
+
+- name: delete test databases
+    shell: /path/to/script.sh
+    register: output
+    failed_when: "'permission denied' in output stderr"
+    ingore_error: yes
+
+############################################################################
+
+# tutorials:
+
+https://www.youtube.com/watch?v=To-wn0l-mQo
+https://www.youtube.com/watch?v=RffdmOJLTyM
