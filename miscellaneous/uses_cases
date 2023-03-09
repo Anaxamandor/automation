@@ -1,0 +1,28 @@
+Network automation is used for various common tasks in an organization:
+
+ Device provisioning: Device provisioning is likely one of the first things that comes mind
+when thinking about network automation. Device provisioning is simply configuring
+network devices more efficiently, faster, and with fewer errors because human
+interaction with each network device is decreased.
+
+ Device software management: Controlling the download and deployment of software
+updates is a relatively simple task, but it can be time-consuming and may fall prey to
+human error. Many automated tools have been created to address this issue, but they
+can lag behind customer requirements. A simple network programmability solution for
+device software management is beneficial in many environments.
+
+ Compliance checks: Network automation methods allow the unique ability to quickly
+audit large groups of network devices for configuration errors and automatically make
+the appropriate corrections with built-in regression tests.
+ Reporting: Automation decreases the manual effort that is needed to extract information
+and coordinate data from disparate information sources to create meaningful and
+human-readable reports.
+
+ Troubleshooting: Network automation makes troubleshooting easier by making
+configuration analysis and real-time error checking fast and simple, even with many
+network devices.
+
+ Data collection and telemetry: A common part of effectively maintaining a network is
+collecting data from network devices and telemetry on network behavior. Even the way
+data is collected is changing as now many devices can push data (and stream) off box,
+in real-time, in contrast to being polled in regular time intervals.
