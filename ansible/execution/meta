@@ -23,27 +23,57 @@ Overall, the meta module provides a way to perform various high-level operations
 and can be used in a variety of situations to make playbook execution more efficient and effective.
 
 
+# meta: clear_host_errors
+
+
+When Ansible attempts to connect to a host using a specific connection method (such as SSH or WinRM), it expects to receive a response from the target 
+host indicating that the connection was successful. However, there may be situations where Ansible is unable to establish a connection with a target host. 
+This could happen due to various reasons such as the target host being down, network connectivity issues, or incorrect login credentials.
+
+In such cases, Ansible marks the host as "UNREACHABLE" and removes it from the list of active hosts for the current play run. 
+This means that any subsequent tasks that were meant to run on that host will not be executed.
+
+To reactivate the unreachable hosts, you can use the meta: clear_host_errors module. 
+his module clears the error state for all hosts that were marked as "UNREACHABLE" during the current play run, 
+allowing subsequent tasks to try to reach them again. 
+
+By doing so, you can attempt to establish a connection with those hosts once again and continue executing tasks on them.
+
+It's important to note that simply clearing the error state does not guarantee that Ansible will be able to connect to the hosts. 
+You may need to address the root cause of the connection issue, such as resolving network connectivity issues or ensuring that the correct
+login credentials are being used, in order to successfully connect to the target hosts.
+
+Here is an example playbook that uses the meta: clear_host_errors module to reactivate any hosts that were marked as "UNREACHABLE" during a play run:
+
+---
+- name: Example playbook to demonstrate clearing host errors
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Attempt to connect to target host
+      ping:
+
+    - name: Attempt to connect to another target host
+      ping:
+      vars:
+        ansible_ssh_user: "{{ some_other_user }}"  # incorrect login credentials
+
+  post_tasks:
+    - name: Clear host errors
+      meta: clear_host_errors
+      
+      
+In this example playbook, we have two tasks that attempt to ping two different target hosts. 
+The first task should be successful in connecting to the host, while the second task intentionally 
+uses incorrect login credentials to simulate a connection error.
+
+After these tasks complete, we have a post-task that uses the meta: clear_host_errors module to clear any host errors 
+that occurred during the play run. 
+This ensures that any hosts that were marked as "UNREACHABLE" due to the connection error are reactivated and can be targeted by subsequent tasks.
+
+Note that the gather_facts: true line is included to ensure that Ansible gathers the necessary facts about the target 
+hosts before attempting to execute tasks. This can help to avoid potential issues related to host connectivity and authentication.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_error_handling.html#resetting-unreachable-hosts
-
-If Ansible cannot connect to a host, it marks that host as ‘UNREACHABLE’ and removes it from the list of active hosts for the run. 
-You can use meta: clear_host_errors to reactivate all hosts, so subsequent tasks can try to reach them again.
-
-Ansible will keep track of failed/unreachable hosts and will exclude them from further tasks. 
-clear_host_errors resets the state so the host will be tried again for further tasks
-
-and example would be using a rescue module after that
