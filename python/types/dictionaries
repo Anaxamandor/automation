@@ -1,9 +1,9 @@
 DICTIONARIES:
-################################################################################
+##############################################################################################################
 # General info:
 
 keys must be hashable -> immutable object.  So strings, ints, tuples can serve as keys, but not lists
-################################################################################
+##############################################################################################################
 # creating a dictionary
 
 my_dict = {"name": "John", "age": 35, "name": "McGovern", "hobbies": "Drums"}
@@ -11,12 +11,12 @@ my_dict = {"name": "John", "age": 35, "name": "McGovern", "hobbies": "Drums"}
 in this example above, the second value McGovern overwrites John in the dictionary because keys cannot duplicate.
 
 
-################################################################################
+##############################################################################################################
 # adding keys:
 
 my_dict["platform"] = "cisco_ios"   (adds a new k/v pair)
 
-################################################################################
+##############################################################################################################
 # accessing keys:
 
 method 1:
@@ -25,7 +25,7 @@ my_dict["hostname"]
 method 2:
 my_dict.get("hostname")  (returns None instead of error for keys not found; can added in a second argument to give a message when keys not found)
 
-#################################################################################
+##############################################################################################################
 # removing keys:
 
 method1
@@ -38,39 +38,46 @@ deleted_password = device.pop("password")
 can add in a message if key is not found:
 device.pop("version, "Key not found")
 
-###################################################################################
-# dict methods:
+##############################################################################################################
+# accessing dictionary keys using keys() method:
 
-access only the keys:
+device_info.keys()
 list_of_keys = list(device_info.keys())
 
-access only the values:
-list_of_values = device_info.values()
+##############################################################################################################
+# accessing dictionary values:
 
-puts together k/v pairs as tuples:
+device_info.values()
+list_of_values = list(device_info.values())
+
+##############################################################################################################
+# accessing key value pairs as tuples using items() method:
+
 device_info.items()
-list_of_items = list(device_info.items())  (this creates a list of tuples)
+list_of_items = list(device_info.items()
+(this creates a tuple not a list, but tuples are iterable)
+##############################################################################################################
+# iterate through list or tuple:
 
-
-could iterate through these using for loop:
 for value in device_info.values():
-for key in device_info.keys():
-for k, v in device_info.items():
 
-can sort alphabetically:
+for key in device_info.keys():
+
+for k, v in device_info.items():
+##############################################################################################################
+# iterate and sort alphabetically:
 for key in sorted(device_info.keys()):
 
-###################################################################################
-# unpacking:
 
-take the contents of two dictionaries and add them to a new dictionary:
+##############################################################################################################
+# auto-combine / unpacking the dictionaries:
 
-food_prices = {**chocolate_price, **pizz_prices}
+chocolate_prices = {"dairy milk": 70, "mars: 65, "galaxy": 75}
+chocolate_prices["mars"]
 
+pizza_prices = {"pepperoni": 7, "spicy chicken": 8}
 
-
-
-
+food_prices = {**chocolate_prices, **pizz_prices}
 
 
 
