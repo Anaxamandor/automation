@@ -1,0 +1,9 @@
+netstat (open tcp connections)
+netstat -a  (all tcp and udp ports listening on and all open connections) TIP: use port numbers and ip addresses to know what protocol is being run
+netstat -r (displays the routing table)
+netstat -s (statistics of packets sent by protocol)
+netstat -n (puts in numerical order)
+netstat -p (specific protocol stats)
+	example:	netstatp -p tcp
+
+netstat /? (for more info on netstat)
