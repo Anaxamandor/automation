@@ -1,0 +1,17 @@
+# registring a vM to Red Hat
+
+First I renewed the subscription (not sure, how apparently by just logging in again)
+
+
+Not sure if this helped but followed this guidance first and entered the commands in this document:
+https://developers.redhat.com/articles/renew-your-red-hat-developer-program-subscription#troubleshooting
+
+It still didn't work.  
+
+Then I created a new system under the subscription page with the same parameters, and called it robot which is the same name as the VM hostname, gave it 1 vpcu, other details filled in.
+
+
+Then I put this command into the command line and it worked:
+
+
+subscription-manager register --username ****** --password ****** --auto-attach
