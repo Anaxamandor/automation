@@ -1,0 +1,94 @@
+An approach to speeding up playbook execution on a large network is to use the async and poll keywords in conjunction 
+with the delegate_to keyword. This allows you to run tasks in parallel on multiple hosts, which can significantly 
+reduce the amount of time it takes to complete the playbook.  
+
+example:
+
+- name: Run task in parallel
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Example task
+      command: sleep 10
+      async: 300
+      poll: 0
+      delegate_to: "{{ item }}"
+      with_items: "{{ ansible_play_hosts }}"
+
+
+In this example, we're using the command module as an example task that we want to run in parallel. 
+
+The async parameter specifies the maximum number of seconds to wait for each task to complete.
+
+The poll parameter specifies the number of seconds between task status checks. 
+
+The delegate_to parameter specifies the host on which to run the task.
+
+The with_items parameter specifies the list of hosts to target.
+
+The async, poll, and delegate_to keywords can be used with other modules besides the command module. 
+
+These keywords are part of Ansible's task control mechanism, and they can be used with any module that supports async task execution.
+
+For example, you can use these keywords with modules like shell, raw, script, and win_command, to name a few. 
+
+Here's an example of how you could use async, poll, and delegate_to with the shell module:
+
+- name: Run shell command in parallel
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Example shell command
+      shell: "echo hello from {{ inventory_hostname }}"
+      async: 300
+      poll: 0
+      delegate_to: "{{ item }}"
+      with_items: "{{ ansible_play_hosts }}"
+
+
+In this example, we're using the shell module to run a simple shell command (echo hello from {{ inventory_hostname }}) 
+on each host in the play. 
+
+We've set the async parameter to 300 seconds, which specifies the maximum amount of time to 
+wait for each task to complete. 
+
+We've set the poll parameter to 0, which specifies that we should not wait between 
+task status checks.
+
+Finally, we've used the delegate_to parameter to specify that we want to run the task on each 
+host in the play, as specified by the with_items parameter.
+
+By using the async, poll, and delegate_to keywords with the shell module (or any other async-capable module), 
+you can run tasks in parallel on multiple hosts, which can significantly reduce the amount of time it takes 
+to complete a playbook on a large network.
+
+###############################################################################################################
+# parallel execution with ios_config
+
+example:
+
+- name: Configure Cisco IOS devices in parallel
+  hosts: ios_devices
+  gather_facts: false
+  vars:
+    config_snippet: |
+      interface GigabitEthernet0/0
+        ip address 10.0.0.1 255.255.255.0
+  tasks:
+    - name: Configure device
+      ios_config:
+        lines: "{{ config_snippet }}"
+        provider: "{{ my_ios_provider }}"
+      async: 300
+      poll: 0
+      delegate_to: "{{ item }}"
+      with_items: "{{ ansible_play_hosts }}"
+
+
+In this example, we're using the ios_config module to configure the GigabitEthernet0/0 
+interface on multiple Cisco IOS devices in parallel. We've set the async parameter to 300 seconds, 
+which specifies the maximum amount of time to wait for each task to complete. 
+
+We've set the poll parameter to 0, which specifies that we should not wait between task status checks. 
+
+Finally, we've used the delegate_to parameter to specify that we want to run the task on each host in the play, as specified by the with_items parameter.
