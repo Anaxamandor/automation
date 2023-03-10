@@ -27,6 +27,9 @@
  This strategy can be useful in scenarios where you want to limit the number of hosts that are targeted simultaneously to avoid overloading
  the network or the targeted hosts.  It can also be useful in situations where you want to control the order in which hosts are targeted.
  
+ You can adjust the number of hosts targeted at a time to fit your specific needs. However, keep in mind that targeting too many hosts at
+ once can result in network congestion and may cause issues with the targeted hosts.
+ 
  you can use the max_fail_percentage parameter of the serial strategy to retry failed hosts or groups of hosts. 
  This will allow you to specify the maximum percentage of failed hosts before the playbook stops retrying.
  
