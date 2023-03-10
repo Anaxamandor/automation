@@ -1,0 +1,49 @@
+
+# use cases of meta module:
+
+The meta module in Ansible is a powerful module that performs various high-level operations on the target hosts. 
+Some common uses of the meta module in Ansible are:
+
+refresh_inventory: This option refreshes the inventory on the control node by re-reading the inventory sources. 
+It can be useful when you have added or removed hosts from your inventory and want to update Ansible's internal representation of your infrastructure.
+
+clear_facts: This option clears the cached facts for the target hosts. Facts are information about the target hosts that Ansible gathers and caches 
+during play execution. Clearing facts can be useful when you want to ensure that the facts are up-to-date or when you want to free up memory.
+
+end_play: This option immediately ends the current play, skipping any remaining tasks in the play. This can be useful in situations where you want 
+to abort a play early, such as when a critical error occurs.
+
+noop: This option is a no-operation that does not execute any tasks but reports what would have happened. 
+It can be useful for testing and debugging playbooks without actually making changes to the target hosts.
+
+validate: This option validates the syntax of the playbook without actually executing any tasks. 
+This can be useful for catching syntax errors before running a playbook on the target hosts.
+
+Overall, the meta module provides a way to perform various high-level operations on the target hosts 
+and can be used in a variety of situations to make playbook execution more efficient and effective.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_error_handling.html#resetting-unreachable-hosts
+
+If Ansible cannot connect to a host, it marks that host as ‘UNREACHABLE’ and removes it from the list of active hosts for the run. 
+You can use meta: clear_host_errors to reactivate all hosts, so subsequent tasks can try to reach them again.
+
+Ansible will keep track of failed/unreachable hosts and will exclude them from further tasks. 
+clear_host_errors resets the state so the host will be tried again for further tasks
+
+and example would be using a rescue module after that
