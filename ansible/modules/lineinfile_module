@@ -20,3 +20,22 @@ We use the "join" filter to concatenate the items in the "my_list" variable into
 Each time this playbook runs against a host, it will append a new line to the CSV file with the values for that host. 
 The first column will contain the value of "inventory_hostname" for that host, 
 while the second column will contain the comma-separated list of items in the "my_list" variable.
+
+######################################################################################################################
+# add a CSV header line to a file:
+
+- name: ADD FILE HEADER LINE
+  lineinefile:
+    insertafter: EOF
+    dest: "{path}"
+    line: lastname,firstname,birthday
+  delegate_to: localhost
+  
+######################################################################################################################
+# add date to a CSV file:
+
+- name: ADD DATA
+  lineinfile:
+    insertafter: EOF
+    dest: "{path}"
+    line: "{{ var1 }}, {{ var2 }}, {{ var3 }}"
