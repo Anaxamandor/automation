@@ -26,3 +26,25 @@ network devices.
 collecting data from network devices and telemetry on network behavior. Even the way
 data is collected is changing as now many devices can push data (and stream) off box,
 in real-time, in contrast to being polled in regular time intervals.
+
+
+# Example project ideas:
+
+There’s a lot of licensed software that can do this, but if you don’t have them in your environment, 
+a tool for standardization could be useful. Make sure any required ACLs are present, VLAN numbers are correct. 
+
+You could also utilize EEM on Cisco devices to do some logic for you. Automatically bounce ports or reconfigure routing protocols based on some test.
+Scripts for bulk configuration could be useful (and sometimes dangerous). 
+
+If you have ACI in a data center environment, having some Ansible playbooks on hand is incredibly useful. 
+
+Using Genie to learn all and do a diff before and after configs are changed is also handy. 
+Best advice though, ask around your department for tasks people find tedious and reoccurring. Build a tool for whatever that is.
+
+Mac Addressess, IP Addresses,Applications with Port numbers real time reporting and API controller to enable/disable/isolate/remove from database functionality
+
+Config Backups
+
+Code upgrade
+
+A program similar to Intermapper where you have a live map of equipment with their topologies. Then use an API to integrate it with monitoring tools and backups.
