@@ -1,3 +1,4 @@
+
 source: https://www.youtube.com/watch?v=hpZugt3S0SQ
 
 
@@ -27,11 +28,18 @@ link - creates a symbolic link (soft link) to the file on the target machine.  C
 hard - creates a hard link (even if delete original file it still has the data, it is a mirror copy)
 absent - deletes files or directories recursively. may need to escalate privileges
 
-become: yes
+#######################################################################################################################################
+# deleting a file:
+become: yes    #may be necessary depending on the system.
 tasks: 
   - name: deleted files with the absent state
     file: 
       path: /somedir/NewDirectory
       state: absent
     delegate_to: localhost
+    
+
+
+
+
     
