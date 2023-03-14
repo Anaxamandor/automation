@@ -27,6 +27,7 @@ This means that the task will be executed once on each host in the play, but onl
   run_once: true
   loop: '{{ ansible_play_hosts_all }}'
 
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_delegation.html#delegation-and-parallel-execution
 
   
   
