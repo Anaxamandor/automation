@@ -1,0 +1,34 @@
+By using run_once and delegate_to together, you can ensure that the task is only executed once, 
+and that it is executed on a specific host, rather than the first host in the batch.
+
+- command: /opt/application/upgrade_db.py
+  run_once: true
+  delegate_to: web01.example.org
+  
+  
+########################################################################################################
+ 
+#  how Ansible handles delegation and parallel execution of tasks
+
+By default Ansible tasks are executed in parallel. 
+Delegating a task does not change this and does not handle concurrency issues (multiple forks writing to the same file).
+
+To handle concurrency issues, the documentation suggests using a loop on the hosts with run_once: true. 
+This will ensure that the task is only executed once, rather than in parallel forks.
+
+The lineinfile module is given as an example of a module that can be used with this approach.
+
+The loop variable is set to {{ ansible_play_hosts_all }}, which is a list of all the hosts in the current play. 
+
+This means that the task will be executed once on each host in the play, but only one at a time.
+
+- name: "handle concurrency with a loop on the hosts with `run_once: true`"
+  lineinfile: "<options here>"
+  run_once: true
+  loop: '{{ ansible_play_hosts_all }}'
+
+
+  
+  
+  
+  
