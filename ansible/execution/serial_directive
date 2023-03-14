@@ -1,4 +1,4 @@
-# serial strategy and max_fail_percentage:
+# serial direction and max_fail_percentage:
 
 - name: Example playbook
   hosts: all
@@ -38,4 +38,3 @@
  
  
  
- https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_strategies.html
