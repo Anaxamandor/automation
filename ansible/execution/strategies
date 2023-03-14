@@ -31,7 +31,10 @@
  once can result in network congestion and may cause issues with the targeted hosts.
  
  you can use the max_fail_percentage parameter of the serial strategy to retry failed hosts or groups of hosts. 
- This will allow you to specify the maximum percentage of failed hosts before the playbook stops retrying.
+ This will allow you to specify the maximum percentage of failed hosts before the playbook stops retrying.  
+ To retry failed hosts or groups of hosts using the max_fail_percentage parameter of the serial strategy, 
+ you would need to set the value to a lower percentage, such as 50, which would allow the playbook to retry failed hosts up to 50% of 
+ the total number of hosts before stopping the playbook execution.
  
  
  
