@@ -55,6 +55,19 @@ The inventory_hostname variable used in the line parameter will be replaced with
 that the task is running on. So, for example, if your inventory has three devices with hostnames "device1", "device2", and "device3", 
 then the resulting CSV file will have three rows, one for each device, with the device hostname and the values of the my_list variable.
 
+
+If this task were using a free strategy, then the revision to use run_once: true would still be necessary to prevent overwriting of the CSV file.
+
+The free strategy allows you to control the number of forks that are created when running tasks, but it does not eliminate the possibility of concurrency issues when multiple forks write to the same file.
+
+Therefore, even with a free strategy, it's still a good practice to use the run_once: true option when necessary to ensure that the task is only executed once, regardless of the number of forks that are created.
+
+
+
+
+
+
+
 ######################################################################################################################
 # add a CSV header line to a file:
 
