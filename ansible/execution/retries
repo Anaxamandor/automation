@@ -1,0 +1,11 @@
+- name: Retry playbook against failed hosts
+  hosts: all
+  tasks:
+    - name: Example task
+      debug:
+        msg: "This task will be retried if it fails on any device."
+      ignore_errors: yes
+      register: task_result
+      until: task_result is succeeded or task_result.failed >= max_failures
+      retries: 5
+      delay: 60
