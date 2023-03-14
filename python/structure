@@ -1,0 +1,16 @@
+#IMPORTS
+
+
+#CONSTANTS
+DNS_SERVER = "x.x.x.x"
+
+#functions/classes
+def
+
+
+def
+
+def(main():
+  
+if __name__ == "__main__":
+    main()
