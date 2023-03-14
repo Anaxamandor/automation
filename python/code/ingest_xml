@@ -1,3 +1,15 @@
+main.py is one file:
+
+from run_nmap import nmapscan
+from ingest_xml import inxml
+
+nmapscan()
+inxml()
+
+###############################################33
+here is another file:
+
+
 #first need to install xmltodict:
 #pip3 install xmltodict
 
