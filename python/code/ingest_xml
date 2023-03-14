@@ -6,7 +6,14 @@ from ingest_xml import inxml
 nmapscan()
 inxml()
 
-###############################################33
+
+###################################################
+import subprocess
+
+def nmapscan():
+    subprocess.run('nmap -sP -v -oX scan.xml 192.168.8.0/24', shell=True)
+    
+####################################################
 here is another file:
 
 
