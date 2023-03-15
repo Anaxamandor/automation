@@ -1,0 +1,2 @@
+1.  try runnng free strategy at the task level. Probably won't work
+2.  change localhost to 127.0.0.1 in delegate_to statements, and see if it stops outputting an unknown IP in the task output.
