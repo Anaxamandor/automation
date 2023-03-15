@@ -1,0 +1,4 @@
+pre_tasks -> roles -> tasks -> post_tasks
+
+you should probably use import_role or include_role instead and do away with the pre_tasks, roles, tasks, post_tasks construct. 
+Then you just have a list of tasks
