@@ -1,0 +1,24 @@
+
+ #######################################################################################################################################
+ 
+ # print out the total number of hosts in the inventory file that the playbook was run against:
+ 
+ - name: Playbook example
+  hosts: all
+  tasks:
+    # Your tasks here
+
+  # Print the total number of hosts in the inventory file
+  post_tasks:
+    - name: Print total number of hosts
+      debug:
+        msg: "Total number of hosts in inventory file: {{ groups['all'] | length }}"
+
+
+############################################################################################################################################
+
+
+
+
+
+
