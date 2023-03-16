@@ -1,0 +1,25 @@
+- name: Insert line in file with throttle
+  lineinfile:
+    insertafter: EOF
+    dest: "{{ path }}"
+    line: "{{ inventory_hostname }},{{ var1 }}, {{ var2 }}"
+  throttle: 1
+
+
+In the above example, the throttle directive is set to 1, which means that only one task will be executed at a time. You can increase or decrease this value as per your requirements.
+
+This modification will ensure that the task is executed serially, thus eliminating the possibility of a race condition.
+
+Notes:
+
+The race condition is that two update tasks can read the same initial state, add their line, then one of them "wins" the write and overwrites the other's update. So the loser's line is lost, and you end up with fewer overall lines.
+
+serial does not work at task level, use thorttle
+serial and thorttle are similar in that they limit parallel execution, serial has many more implications (batch size, max error percentage, etc)
+
+only time you get 'race' condition is when you edit same resource in parallel, use throttle/serial for those cases
+
+can also use run_once ?
+
+
+
