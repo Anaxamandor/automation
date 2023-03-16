@@ -86,3 +86,16 @@ Therefore, even with a free strategy, it's still a good practice to use the run_
     insertafter: EOF
     dest: "{path}"
     line: "{{ var1 }}, {{ var2 }}, {{ var3 }}"
+
+
+
+
+########################
+experimental:
+
+- name: Append line to file
+  lineinfile:
+    path: "{{ path }}"
+    line: "{{ inventory_hostname }},{{ var1 }},{{ var2 }}"
+    state: append
+  throttle: 1
