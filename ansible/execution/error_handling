@@ -49,3 +49,11 @@ tasks:
 
 https://www.youtube.com/watch?v=To-wn0l-mQo
 https://www.youtube.com/watch?v=RffdmOJLTyM
+
+
+###########################################################################
+To clarify, if the "lineinfile" task is set to "ignore_errors: false", the playbook will fail for the host where the task encounters an error, but it will continue executing for the remaining hosts. In this case, the "{{ansible_play_hosts | length}}" variable in the final debug task will be updated to exclude the failed host, and the output will show the number of hosts for which the playbook completed successfully.
+
+On the other hand, if the "lineinfile" task is set to "ignore_errors: true", the playbook will not fail for the host where the task encounters an error, and it will continue executing for all the hosts. In this case, the "{{ansible_play_hosts | length}}" variable in the final debug task will include all the hosts, even if some of them failed the "lineinfile" task.
+
+In general, it's important to carefully consider the use of "ignore_errors" and "failed_when" flags to ensure that the playbook executes as intended and all errors are properly handled.
