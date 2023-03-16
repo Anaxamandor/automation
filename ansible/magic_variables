@@ -1,0 +1,45 @@
+here's an example of how you can use the omit variable with ios_config in Ansible:
+
+- name: Configure interface
+  ios_config:
+    lines:
+      - interface GigabitEthernet1/0/1
+      - description "Connected to switch A"
+      - switchport mode access
+      - switchport access vlan 10
+    parents: interface GigabitEthernet1/0/1
+    omit: "{{ omit_config | default(false) }}"
+
+Let me explain what each line does:
+
+The name line is just a human-readable name for this Ansible task. You can use any name you like.
+The ios_config module is used to send configuration commands to Cisco IOS devices.
+The lines parameter contains a list of configuration lines that we want to apply to the interface. In this example, we want to configure GigabitEthernet1/0/1 with a description, access mode, and VLAN assignment.
+The parents parameter specifies the parent configuration block in which the lines should be applied. In this case, we want to apply the lines to the interface GigabitEthernet1/0/1 block.
+
+The omit parameter is a Boolean variable that specifies whether to omit the configuration commands specified in lines. 
+In this example, we're using a variable called omit_config to control this behavior. If omit_config is not defined or is set to false, 
+the configuration commands will be sent to the device. If omit_config is set to true, the configuration commands will be omitted.
+
+So, in summary, this Ansible task sends configuration commands to a Cisco IOS device to configure the 
+interface GigabitEthernet1/0/1 with a description, access mode, and VLAN assignment, and it allows you to control 
+whether those commands are sent or omitted by using the omit variable.
+
+
+The omit parameter in the ios_config module is used to control whether to send the specified configuration commands to the device or not. In this example, the value of the omit parameter is dynamically set based on the value of the omit_config variable.
+
+Here's how the line works:
+
+omit_config is a variable defined elsewhere in the playbook that controls whether to omit the configuration commands or not. 
+If the variable is not defined or is set to false, the configuration commands will be sent to the device. 
+
+If the variable is set to true, the configuration commands will be omitted.
+The default filter is used to set a default value for the omit_config variable in case it is not defined elsewhere in the playbook. 
+In this case, the default value is false.
+
+The | character is used to chain filters together, so the output of the default filter is passed as input to the omit parameter.
+
+So the end result is that if the omit_config variable is not defined or is set to false, 
+the omit parameter will be set to false and the configuration commands will be sent to the device. 
+If the omit_config variable is set to true, the omit parameter will also be set to true and the configuration commands will be omitted. 
+This provides a flexible way to control the behavior of the playbook based on variables defined elsewhere.
