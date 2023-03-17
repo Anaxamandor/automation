@@ -19,7 +19,9 @@ serial and thorttle are similar in that they limit parallel execution, serial ha
 
 only time you get 'race' condition is when you edit same resource in parallel, use throttle/serial for those cases
 
-can also use run_once ?
+The throttle directive limits the number of hosts that are acted upon at any given time during the playbook execution, which can be useful for tasks that require significant resources or may cause a high load on the target hosts. The throttle directive allows the playbook to act on a subset of hosts at a time, which helps to prevent resource exhaustion and improve overall performance.
+
+On the other hand, the run_once directive is used to ensure that a task is executed only once, regardless of the number of hosts in the inventory. This can be useful for tasks that need to be executed on a single host, such as creating a directory or installing a package.
 
 
 
