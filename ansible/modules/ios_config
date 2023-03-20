@@ -1,0 +1,11 @@
+example using ios_config with parents:
+
+- name:
+  ios_config:
+    lines:
+      - "{{ command }}"
+    parents:
+      - "{{ item }}"
+    when: item.find("text_to_search") != -1
+    loop: "{{ cli_output.stdout_lines | flatten(levels=1) }}"
+    
