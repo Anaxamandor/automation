@@ -12,3 +12,6 @@ You can see that it'd revert the config with --check.
 ansible-playbook -i localhost, -c local test.yml
 - The comma after the localhost inventory item ells Ansible we are listing inventory hosts on the command line rather 
 than having to create a local inventory file, usuful shortcut when testing code
+
+
+use -i to specify which hosts are groups of hosts
