@@ -7,3 +7,8 @@ using -C option:
 - it can test if some devices might fail due to connectivity issues, or authentication issues, before making actual changes, and you can see the error output. 
 - say someone's gone in and made a change to a config file by hand to fix an issue, and forgotten to update the ansible to reflect it. 
 You can see that it'd revert the config with --check.
+
+
+ansible-playbook -i localhost, -c local test.yml
+- The comma after the localhost inventory item ells Ansible we are listing inventory hosts on the command line rather 
+than having to create a local inventory file, usuful shortcut when testing code
