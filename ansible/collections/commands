@@ -1,0 +1,7 @@
+# ansible-galaxy commands
+ansible-galaxy collection list (to see all the collections available to you)
+
+ansible-galaxy collection install <collection name>  (to install a collection you do not have)
+
+# to list all the modules contained in the cisco.ios collection
+ansible-doc -l cisco.ios
