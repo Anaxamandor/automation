@@ -1,10 +1,6 @@
 
 
-Ansbile Commands:
 
-ansible-galaxy collection list (to see all the collections available to you)
-
-ansible-galaxy collection install <collection name>  (to install a collection you do not have)
 
 
 Use the command ansible-doc <modulename> to learn more about a module.
