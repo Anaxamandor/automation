@@ -12,3 +12,21 @@
       debug:
         msg: "Gathering facts failed: {{ facts_result.msg }}"
       when: facts_result.failed
+      
+      
+      
+- name: Example playbook
+  hosts: ios_devices
+  gather_facts: true
+
+  tasks:
+    - name: Gathering facts
+      ios_facts:
+      register: facts_result
+      ignore_errors: true
+
+    - name: Display error message if gathering facts fails
+      debug:
+        msg: "Gathering facts failed: {{ facts_result.msg }}"
+      when: facts_result.failed
+
