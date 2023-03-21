@@ -133,6 +133,33 @@ By checking that the current host being managed is the last one in the ios_devic
 Therefore, by checking that the current host being managed is the last one in the ios_devices group, we can ensure that the log file is generated only once, after all the IOS devices have been processed, and that the log file contains all the error messages from all the devices.
 
 
+*** modified code for csv files ***:
+
+- name: Example playbook
+  hosts: ios_devices
+  gather_facts: true
+
+  tasks:
+    - name: Gathering facts
+      ios_facts:
+      register: facts_result
+      ignore_errors: true
+
+    - name: Collect error messages
+      set_fact:
+        error_messages: "{{ error_messages | default([]) + [{'host': inventory_hostname, 'msg': facts_result.msg}] }}"
+      when: facts_result.failed
+
+    - name: Generate error message CSV
+      template:
+        src: error_message_template.j2
+        dest: "/var/log/ios_facts_errors.csv"
+      when: inventory_hostname == groups['ios_devices'][-1]
+
+
+{% for error in error_messages %}
+{{ error.host }},{{ error.msg }}
+{% endfor %}
 
 
 
