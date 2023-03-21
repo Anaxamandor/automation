@@ -13,7 +13,7 @@
         msg: "Gathering facts failed: {{ facts_result.msg }}"
       when: facts_result.failed
       
-      
+ #########################################################################################     
       
 - name: Example playbook
   hosts: ios_devices
@@ -29,4 +29,45 @@
       debug:
         msg: "Gathering facts failed: {{ facts_result.msg }}"
       when: facts_result.failed
+############################################################################################
+you can use the template module to generate a single file that contains the IOS ios_facts failure message from each device. Here's an updated example playbook that demonstrates how to do this:
 
+- name: Example playbook
+  hosts: ios_devices
+  gather_facts: true
+
+  tasks:
+    - name: Gathering facts
+      ios_facts:
+      register: facts_result
+      ignore_errors: true
+
+    - name: Collect error messages
+      set_fact:
+        error_messages: "{{ error_messages | default([]) + [{'host': inventory_hostname, 'msg': facts_result.msg}] }}"
+      when: facts_result.failed
+
+    - name: Generate error message file
+      template:
+        src: error_message_template.j2
+        dest: "/var/log/ios_facts_errors.log"
+      when: inventory_hostname == groups['ios_devices'][-1]
+
+In this updated example, the ios_facts module is used to gather facts for IOS devices, and the register option is used to save the result of the task into the facts_result variable. The ignore_errors option is used to prevent Ansible from stopping the playbook execution if the ios_facts task fails.
+
+Then, the set_fact module is used to append the error message to a list called error_messages if the ios_facts task fails. The error_messages list contains a dictionary with two keys: host (the hostname of the device) and msg (the error message from the ios_facts task). The when condition is used to check if the failed attribute of the facts_result variable is true, indicating that the task has failed.
+
+After that, the template module is used to generate a log file that contains the error messages from all devices. The src option specifies the path to a Jinja2 template file that will be used to generate the log file. The dest option specifies the path and filename of the output file. The when condition is used to ensure that the template task is only executed on the last host in the ios_devices group.
+
+Here's an example Jinja2 template file named error_message_template.j2:
+
+{% for message in error_messages %}
+Gathering facts failed on {{ message.host }}:
+{{ message.msg }}
+
+{% endfor %}
+
+
+This template will generate an error message for each device that has a failed ios_facts task, and append it to the log file.
+
+When this playbook is run, the error messages will be collected from all devices and then used to generate a log file that contains the error messages from all devices in a single file.
