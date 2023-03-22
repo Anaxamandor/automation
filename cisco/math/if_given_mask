@@ -1,0 +1,24 @@
+Example: If they give you a subnet mask
+
+Enter the first valid host on the network that the host 172.30.148.200 255.255.252.0 is a part of:
+ 
+**Steps to Solve:**
+1. 252 is bit value 6 (from memory)
+ 
+2. x.x.11111100.0000000 is where the line is drawn.
+ 
+3. Determine the increment value of the 2nd octet by using the bit value table 1,2,4,8,16,32,64,128 (from memory). Since the 1 is 3 steps in, it has an increment value of 4.
+ 
+4. Determine the first subnet ID based on the increment value of 4.  The subnet ID is x.x.4.0 and it increments by 4 also.
+ 
+5.  Now increment out all the subnet IDs until we get to the one that 172.30.148.200 is part of.
+ 
+x.x.4.0
+x.x.8.0
+x.x.12.0
+etc...
+x.x.148.0  (148 divides into 4 evenly, so we know we can use this)
+ 
+6.  Now find the first valid host:
+172.30.148.1
+
