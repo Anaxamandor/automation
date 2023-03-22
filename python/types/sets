@@ -1,0 +1,48 @@
+#characteristics of sets:
+
+unordered
+unique (duplicates are automatically removed)
+mutable
+
+{x,y,z}
+
+use case: comparing contrasting device info
+
+#############################################################
+# creating a set:
+my_set = {"cat", "dog", "tiger"}
+#############################################################
+#adding to sets
+my_set.add("kangaroo")
+#############################################################
+#removing from sets:
+my_set.remove("dog")
+#############################################################
+#remove random element from set and display it
+removed_animal = my_set.pop()
+#############################################################
+# subtracting
+
+var1 = {"A", "B", "C"}
+var1 = {"A", "B", "D"}
+
+var1 - var2
+(returns "C")
+
+var2 - var1
+(returns "D")
+
+#############################################################
+# difference method
+var1.difference(var2)
+(returns C)
+
+#############################################################
+#union method
+var1.union(var2)
+(combines all but discards repetition)
+
+#############################################################
+# intersection method
+var1.intersection(var2)
+(shows the common items, discards ones not shared)
