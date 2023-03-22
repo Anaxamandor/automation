@@ -1,0 +1,13 @@
+Take the hex value:
+
+
+0-9, a=10, b=11, c=12...f=15
+
+
+Multiply times the place value
+
+
+256, 16, 1
+
+
+Add together the totals
