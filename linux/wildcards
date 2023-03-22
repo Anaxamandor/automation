@@ -1,0 +1,28 @@
+* matches zero or more characters:
+*.txt
+a*.txt
+a*
+
+
+? matches exactly one character
+?.txt
+?? (matches all two character files)
+
+[] matches any of the characters included
+
+[!] matches not any of the characters included
+
+
+[a-g] matches a range
+
+
+predefined name character classes:
+[[:alpha:]]  both lower and uppercase alphabetic
+[[:alnum:]]  alpha and digits
+[[:digit:]]
+[[:lower:]]
+[[:space:]]  whitespaces including spaces, tabs, and newline
+[[:upper:]]
+
+
+\  escape chacter
