@@ -1,0 +1,34 @@
+BGP (Border Gateway Protocol) templates on Cisco devices are used to simplify the configuration and management of BGP peering sessions. BGP templates allow 
+network administrators to define a standard set of configuration parameters for BGP peering sessions and apply them to multiple peers simultaneously.
+
+BGP templates consist of a set of predefined configuration parameters that are applied to BGP sessions. These parameters include things like the local AS 
+number, the neighbor IP address, the peer group, and the route map.
+
+Using BGP templates on Cisco devices has several benefits. Firstly, it reduces the chance of errors in the configuration of BGP peering sessions, since the 
+template can be applied to multiple peers at once, rather than configuring each peer individually. Secondly, it saves time by simplifying the process of 
+configuring BGP peering sessions. Finally, it provides a consistent configuration across all BGP peers, making troubleshooting and maintenance easier.
+
+To create a BGP template on a Cisco device, you need to define the standard set of configuration parameters you want to apply to your BGP peering sessions. 
+You can then create a template that includes these parameters, and apply the template to each BGP peer or peer group as needed.
+
+To create a BGP template on a Cisco device, you need to define the standard set of configuration parameters you want to apply to your BGP peering sessions. 
+You can then create a template that includes these parameters, and apply the template to each BGP peer or peer group as needed.
+
+Here is an example of how to configure a BGP template on a Cisco device:
+
+router bgp 65001
+ template peer-template
+  remote-as 65002
+  description BGP Peer Template
+  route-map rm-in in
+  route-map rm-out out
+ neighbor 10.1.1.1
+  use neighbor peer-template
+ neighbor 10.1.1.2
+  use neighbor peer-template
+!
+
+
+In this example, the template named "peer-template" is defined with the remote AS number, description, and route maps. The template is then applied to two BGP 
+neighbors with the "use neighbor" command. This configuration simplifies the configuration process for multiple peers by applying the template 
+with a single command, rather than configuring each neighbor individually.
