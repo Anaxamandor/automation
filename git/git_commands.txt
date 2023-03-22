@@ -15,8 +15,8 @@ you can create a global configuration which applies to all folders across the fi
 or, you can create a configuration for a particular folder 
 
 global configuration:
-git config --global user.name "ipvzero"
-git config --global user.email ipvzero@gmail.com
+git config --global user.name "username"
+git config --global user.email name@mail.com
 git config -l  (verifies the above configured items)
 
 #################################################################
@@ -103,8 +103,8 @@ verify git is installed:
 git --version
 
 configure a global username and email:
-git config --global user.name "anaxamandor"
-git config --global user.email protector9000@gmail.com
+git config --global user.name "user"
+git config --global user.email user@mail.com
 
 ########################################################
 creating a repository (local method):
