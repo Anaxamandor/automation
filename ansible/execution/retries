@@ -9,3 +9,7 @@
       until: task_result is succeeded or task_result.failed >= max_failures
       retries: 5
       delay: 60
+      
+      
+      You can also combine the "retries" feature with Ansible's "failed_when" feature to customize the conditions under which a task is considered to have failed. 
+      For example, you can specify that a task should be retried only if a specific error message is encountered.
