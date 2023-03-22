@@ -1,0 +1,9 @@
+CIDR to MASK Conversion:
+
+Given:
+ /19
+
+24-19=5 (use 24 instead of 32 since it's in the third octet)
+2 to the power of 5 is 32
+256-32=224
+255.255.224.0
