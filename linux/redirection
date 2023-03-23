@@ -1,0 +1,53 @@
+# I/O Types:
+abbreviation/file descripter number
+stdin  0
+stdout 1
+stderr 2 
+##################################################################
+# Redirection:
+> redirects stdout to a file (overwrites)
+>> redirects stdout to a file (appends)
+< redirects input from a file to a command 
+
+& used with redirection to signal that a file descripter is being used.
+2>&1 combine stderr and stdout
+2>file redirect stderr to a file
+##################################################################
+# The Null Device:
+>/dev/null redirect output to nowhere (bitbucket)
+
+$ ls here not-here 2> /dev/null
+here
+$ ls here not-here > /dev/null 2>&1
+$
+
+##################################################################
+example of redirection to file and then to a command:
+ls > file.txt  (redirects ls output to a file)
+sort < file.txt  (sorts the ls output from the file, equivalant to sort files.txt)
+
+example of redirection to a file (2 methods):
+ls -l > files.txt is the same as ls -l 1> files.txt becasue 1 is assumed for stdout redirection
+
+example of combining redirection:
+ls -l > files.txt
+sort < files.txt > sorted_files.txt
+
+example of redirecting stderr:
+ls files.txt not-here 2> out.err
+cat out.err  (shows the errore message which would have printed to the console)
+
+example of redirecting stdout and stderr to different files:
+ls files.txt not-here 1>out 2>out.err
+
+example of combining stderr and stdout:
+ls files.txt not-here > out.both 2>&1  (takes stderr and appends it to stdout in out.both)
+
+example of ignoring errors by sending them to bitbucket:
+ls files.txt not-here 2>/dev/null
+
+example of sending stdout to bitbucket:
+ls files.txt not-here >/dev/null
+
+example of sending both stdout and stderr to bitbucket:
+ls files.txt not-here >/dev/null 2>&1
