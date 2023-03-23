@@ -1,0 +1,48 @@
+diff file1 file2       compare two files
+sdiff file1 file2      side-by-side comparison
+vimdiff file1 file2    highlights differences in VIM
+#############################################################################################
+#diff output:
+
+3c3   
+< this is a line in a file.
+---
+> This is a Line in a File!
+
+
+first number is line numbers from first file
+second number is line numbers from second file
+c = change
+d = deletion
+a = addition
+--- is just a separator
+
+In the example 3c3 means the 3rd line in the first file is changed from the 3rd line in the second file
+< output from first file
+> output from second file
+#############################################################################################
+#sdiff output
+
+sdiff file1 file2
+line in file1    |    line in file2
+                 >    more in file2
+
+
+| text differs in the files on that line (displays the line that has a difference)
+< line only exists in the first file
+> line only exists in the second file
+
+#############################################################################################
+vimdiff
+
+files will be pulled up in separate windows
+to toggle between windows:  ctrl-w w
+:q    quit(close current window)
+:qa   quit(close both files)
+:qa!  force quit all (if made changes you dont' want to save)
+
+
+
+
+
+
