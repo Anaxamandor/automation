@@ -1,0 +1,25 @@
+import paramiko
+
+# Prompt the user for their username and password
+username = input("Enter your username: ")
+password = input("Enter your password: ")
+
+# Create a new SSH client
+ssh = paramiko.SSHClient()
+
+# Automatically add the target device's SSH key to the list of known hosts
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+# Connect to the target device
+ssh.connect('192.0.2.1', username=username, password=password)
+
+# Send a command to the target device
+stdin, stdout, stderr = ssh.exec_command('show version')
+
+# Print the output of the command
+print(stdout.read().decode())
+
+# Close the SSH connection
+ssh.close()
+
+
