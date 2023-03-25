@@ -1,0 +1,12 @@
+easy way:
+
+from getpass import getpass
+
+username = input("enter username: ")
+password = getpass("enter password: ")
+
+print(f"Connecting with username {username} and password {password}")
+
+https://www.youtube.com/watch?v=nqkkW0fZRWM
+
+more fancy way begins at 4:50
