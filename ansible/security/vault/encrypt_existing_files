@@ -1,0 +1,18 @@
+### encrypting existing files ###
+ansible-vault encrypt --help
+
+given a file already exists:
+whatever.yml
+
+encrypt with prompt for passsword:
+ansible-vault encrypt whatever.yml
+
+encrypt using a password script:
+ansible-vault encrypt --vault-password-file password.sh whatever.yml
+
+# encrypte multipke files
+ansible-vault encrypt whatever.yml another_file.yml third_file.yml
+
+#notes
+create cannot encrypt multiple files
+if you try to encrypt an encrpyted file you will get an error.
