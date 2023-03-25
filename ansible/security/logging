@@ -1,0 +1,34 @@
+Ansible may write transmitted data out in clear form to the filesystem. 
+This can happen if:
+1.  pipelining is not in use. Without pipelining, Ansible writes out the module code and arguments 
+to a temporary directory that is deleted after execution.  Losing connectivity could interrupt this and leave the file
+on the device.
+2.  if Ansible has been instructed to leave remote files in place via the ANSIBLE_KEEP_REMOTE_FILES environment variable. 
+
+
+###########################################################################################
+
+Ansible by default tries to log actions to syslog (f verbosity level 3 or more is used)
+The module name and arguments, which could include secrets, will be passed to that command
+To prevent this use the key no_log: true (can be used in play, role, block, or task)
+
+the no_log setting applies to onscreen display as well. 
+if you use -v when running the play you can see the words "censored" for this task output.
+
+###########################################################################################
+
+How to controll where ansible logs to:
+
+method 1:
+log_path in the Ansible confige file
+
+
+
+by default logging is off, but turning on logging in the config file causes Ansible to log to the file defined 
+in the logpath config setting
+
+###########################################################################################
+How to control where ansible logs to:
+
+method 2:
+environemntal variable called ANSIBLE_LOG_PATH
