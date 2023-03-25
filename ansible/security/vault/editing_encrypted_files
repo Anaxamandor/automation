@@ -1,0 +1,5 @@
+### editing_encrypted_files ###
+ansible-vault edit --help
+
+# edit a file that was previously encrypted:
+ansible-vault edit --vault-password-file password.sh secret.yml
