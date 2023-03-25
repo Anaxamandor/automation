@@ -1,1 +1,28 @@
+# To change the value of an environment variable in your inventory file:
+
+untested!
+
+[my_hosts]
+my_host ansible_host=192.0.2.1 ansible_port=22 ansible_user=my_user ansible_password=my_password
+
+[my_hosts:vars]
+ANSIBLE_KEEP_REMOTE_FILES="1"
+
+# To change the value of an environment variable in your playbook:
+
+- name: Example playbook
+  hosts: all
+  gather_facts: no
+  environment:
+    ANSIBLE_KEEP_REMOTE_FILES: "1"
+  tasks:
+    - name: Example task
+      debug:
+        msg: "Hello, world!"
+        
+ #  To change the value of an environment variable in command line:
+ 
+ ansible-playbook my_playbook.yml -e "ANSIBLE_KEEP_REMOTE_FILES=1"
+
+
 
