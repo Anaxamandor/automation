@@ -1,21 +1,30 @@
+
+# adding extra variables
+
 ansible-playbook playbook.yml --extra-vars "ansible_python_interpreter=/usr/bin/python3" -e "ansible_version=2.9"
 
-
+#####################################################################################################################
 using -C option:  
 - use it to check regularly whether hosts are still "in sync" with ansible without making changes. 
 - Can be useful to know that e.g. some of your production servers aren't configured how you expect them to be.
 - it can test if some devices might fail due to connectivity issues, or authentication issues, before making actual changes, and you can see the error output. 
 - say someone's gone in and made a change to a config file by hand to fix an issue, and forgotten to update the ansible to reflect it. 
 You can see that it'd revert the config with --check.
-
+##################################################################################################################
+# example: 
 
 ansible-playbook -i localhost, -c local test.yml
-- The comma after the localhost inventory item ells Ansible we are listing inventory hosts on the command line rather 
-than having to create a local inventory file, usuful shortcut when testing code
 
+The comma after the localhost inventory item tells Ansible we are listing inventory hosts on the command line rather 
+than having to create a local inventory file, usuful shortcut when testing code.  The comma after localhost is used 
+to indicate that the inventory file is in the form of a list of hosts, and since we
+only have one host (localhost), the comma is used to separate it from any additional hosts.
 
-use -i to specify which hosts are groups of hosts
+use -i to specify which hosts are groups of hosts, n this case, it's set to localhost (which is a shorthand for specifying
+an inventory file with just one host, in this case, the local machine).
 
+-c local: specifies the connection type to use for the target host, which in this case is local. 
+This means Ansible will use the local connection plugin, which allows it to execute the playbook on the local machine.
 
 ##################################################################################################################
 # run the playbook in check mode:
