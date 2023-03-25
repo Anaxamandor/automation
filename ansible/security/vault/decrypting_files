@@ -1,0 +1,5 @@
+### decrypting encrypted files ###
+ansible-vault decrypt --help
+
+# decrypte a file:
+ansible-vault decrypt secret.yml
