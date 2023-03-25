@@ -11,6 +11,9 @@ Shortcuts:
 	 - F5 (start debugging)
    - cntrl + j (opens terminal)
    - cntrl + ' (open settings)
+   
+Turn full screen on/off:
+alt
 
 indent block of code:
    - control + ]
