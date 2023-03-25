@@ -1,0 +1,25 @@
+** Mixing encrypted data with plain YAML **
+
+ansible-vault encrypt_string --help
+
+
+ansible-vault encrypt_string --vault-password-file "password.sh" --name my_secret
+(type into the terminal)
+once it says encyption successful, copy and paste the output to a playbook
+
+---
+- name: inline secret variable demo
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    my_secret: !vault |.....(paste in the cipher text)
+
+  task:
+    - name: print the secure variable
+      debug:
+        var: my_secret
+
+
+Now run the play using the password:
+ansible-playbook -i localhost --vault-password-file "password.sh" test.yml
