@@ -1,0 +1,19 @@
+### creating encrypted files ###
+ansible-vault create --help
+
+# password prompt method
+ansible-vault create secrets.yml
+(ansible will prompt for a password to use to encrypt the file it creates for you)
+
+# password file method
+first create a password file that can be referenced:
+echo "my long password" > password_file
+ansible-vault create --vault-password-file password_file secrets.yml
+
+# password script method
+This is useful if wanting to store a password on a cetnral system for storing credentials
+create a file to output to STDOUT with a password:
+#!/bin/sh
+echo "password"
+chod +x password.sh
+ansible-vault create --vault-password-file secrets.yml
