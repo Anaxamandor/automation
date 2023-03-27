@@ -1,0 +1,26 @@
+import paramiko
+
+# create an SSH client instance
+client = paramiko.SSHClient()
+
+# set the client to automatically add the host key to the known_hosts file
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+# connect to the IOS device
+client.connect('192.168.1.1', username='username', password='password')
+
+# open a channel to the device
+channel = client.invoke_shell()
+
+# send a command to the device
+channel.send('show interfaces\n')
+
+# receive the output of the command
+output = channel.recv(65535)
+
+# close the channel and the client
+channel.close()
+client.close()
+
+# print the output of the command
+print(output.decode())
