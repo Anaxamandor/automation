@@ -1,0 +1,16 @@
+In Ansible, the pause module is used to pause a playbook or task for a specified amount of time. The echo parameter of the pause module is used to 
+display a message to the user while the playbook or task is paused.
+
+The echo parameter is an optional parameter that takes a string value. When this parameter is used, the message specified in the string value will be
+displayed to the user on the console or terminal while the playbook or task is paused.
+
+Here is an example of how to use the pause module with the echo parameter:
+
+- name: Pause for user input
+  pause:
+    seconds: 5
+    prompt: "Please press any key to continue..."
+    echo: "Pausing for 5 seconds..."
+    
+In the example above, the pause module is used to pause the playbook for 5 seconds and display a message to the user saying "Pausing for 5 seconds...". 
+The prompt parameter is also used to prompt the user to press any key to continue after the pause.
