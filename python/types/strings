@@ -1,1 +1,3 @@
+# use fstring to create graphics:
 
+print(f"{'#*10} Executing {command} {'#'*10})
