@@ -1,0 +1,10 @@
+#searching for a host in ssh_known_hosts
+
+ssh-keygen -f x.x.x.x  (searches ssh_known_hosts file for the hostname)
+
+it's possible that it's listed under a different name or format, such as the host name or an alias. 
+You can try using ssh-keygen -F hostname or ssh-keygen -F alias instead, where hostname is the actual host name of x.x.x.x,
+or alias is any alias you may have configured for the host.
+
+Alternatively, you can also try using the grep command to search for the host's public key in the known_hosts file. For example, 
+grep x.x.x.x ~/.ssh/known_hosts will search for any line that contains the string "x.x.x.x" in the known_hosts file.
