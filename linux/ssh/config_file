@@ -1,0 +1,4 @@
+# turn off hasing in ssh_known_hosts file:
+HashKnownHosts no
+
+To make this change, you can edit the SSH configuration file located at /etc/ssh/ssh_config or ~/.ssh/config (if you only want to apply the change for a specific user). Simply add the line above to the end of the file and save the changes.
