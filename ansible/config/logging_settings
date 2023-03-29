@@ -1,0 +1,2 @@
+Additionally, you can configure the logging settings in your ansible.cfg file to control the level of verbosity. 
+For example, you can set the stdout_callback option to yaml or minimal to reduce the amount of output that is displayed on the terminal.
