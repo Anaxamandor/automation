@@ -1,3 +1,6 @@
 rpm -q --whatprovides redhat-release
 
 uname displays kernel version and system architecture, which does not directly tell you the distro version
+
+Although the RHEL and CentOS kernels are a known list, and people tack all kinds of nonsense in the kernel version string.
+So uname can identify rebuilds, custom kernels,  and even not-Linux POSIX like AIX.
