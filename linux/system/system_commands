@@ -1,0 +1,3 @@
+rpm -q --whatprovides redhat-release
+
+uname displays kernel version and system architecture, which does not directly tell you the distro version
