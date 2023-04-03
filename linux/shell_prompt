@@ -1,0 +1,28 @@
+# Customizing Bash Shell Prompt with PS1
+
+\d   date
+\h   hostname up to the first period
+\H   hostname (FQDN of the server)
+\n   newline
+\t   time in 24 hour format
+\T   time in 12 hour format
+\@   time in 12-hour am/pm format
+\A   time in 24 hour HH:MM format
+\u   username of current user
+\w   current working diretory
+\W   basename of current working directory (meaning just log instead of /var/log will be displayed, for example)
+\$   if the effective UID is 0, a#, otherwise a $
+
+
+
+# To make changes persistent
+- add the PS1 value to your personal initialization files (i.e., dot files such as .bash_profile)
+example:
+
+export PS1="  "
+
+# To see the current $PS1 
+echo $PS1
+
+# To change the PS1 values:
+PS1="<\t \u@\h \w>$"  (the < is just decorative)
