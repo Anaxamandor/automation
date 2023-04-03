@@ -1,0 +1,29 @@
+# SCP - Secure Copy
+
+need to know what files you want to transfer before issuing the command, source and destinaton
+
+transferring a file:
+scp z.txt linuxsvr:/tmp/  
+
+transferring a file as a different user:
+scp z.txt adminuser@linuxsvr:/home/adminuser/
+
+
+
+####################################################################################
+# SFTP - SSH file transfer protocol 
+
+start a secure file transfer sessionw ith host
+
+sftp jason@host
+
+preceding commands with l means local:
+lpwd provides the local working directory
+lls shows files on local box
+put z.txt to /home/jason/z.txt  transfers local file to remote server
+quit  quits the sftp client
+
+####################################################################################
+# graphical clients
+FileZilla 
+Host: sftp://linuxsvr  Username: adminusr  Password: xxxxx
