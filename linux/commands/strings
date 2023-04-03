@@ -1,0 +1,5 @@
+searching for text in binary files:
+
+strings (displays printable strings in text that is in binary format)
+
+grep will not display the text, so use this command
