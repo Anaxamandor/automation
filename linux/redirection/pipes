@@ -1,0 +1,13 @@
+The pipe itself is a type of redirect.  Using the pipe "|", you tell the shell to redirect the standard output of the command to the left of the | to the standard input of the command to the right of the |.
+
+For example:
+
+echo "Reverse me." | rev
+
+The output of the echo command is "Reverse me.", and that will be used as input to the rev command (which will reverse the text sent to it as input).
+
+You could use 2>&1 with a pipe, but you would only do that if you want to pass standard error as well as standard output to the input of the next command.  For example:
+
+ls notafile 2>&1 | rev
+
+That would output an ls error message in reverse.
