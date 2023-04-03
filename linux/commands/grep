@@ -1,0 +1,5 @@
+grep options
+-i (ignore case)
+-c (count number of occurrences)
+-n (precede output with line number the match occurs on)
+-v (invert match - print lines that don't match)
