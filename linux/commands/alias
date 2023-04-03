@@ -1,0 +1,30 @@
+# display aliases already set:
+
+alias
+
+####################################################################################################
+
+# create alias
+
+alias mycls='clear'
+####################################################################################################
+
+
+# remove alias
+
+unalias <name>
+
+unalias -a  (removes ALL aliases)
+
+####################################################################################################
+
+# persisting aliases
+
+add to dot files (aka personal itialization files 
+
+vi .bash_profile
+
+#My aliases
+alias mycls='clear'
+
+log out and in if not set at first
