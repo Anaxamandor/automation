@@ -1,0 +1,20 @@
+#SSH notes
+
+# ssh_known_hosts file
+
+cd /etc/ssh/ssh_known_hosts
+less ssh_known_hosts
+(info may be hashed in this file)
+may be a way to turn off hasing of known hosts in the ssh config files - need to research further for RHEL
+
+# searching for a host
+cd /etc/ssh/
+ssh-keygen -F <hostname>  --doesn't seem to work, needs more research
+
+#creating keys
+cd /etc/ssh
+ssh-keygen  (this will create a key pair in this folder, there are some options to change the default name and encryption, check man pages)
+
+
+review and lab this video:
+https://www.youtube.com/watch?v=KFlivuVj7-8&list=PLOocymQm7YWYc73phqzbZ1S3ANrVVpUFN&index=3
