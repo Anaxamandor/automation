@@ -11,3 +11,47 @@ You could use 2>&1 with a pipe, but you would only do that if you want to pass s
 ls notafile 2>&1 | rev
 
 That would output an ls error message in reverse.
+
+#############################################################################################################
+Pipes
+
+command-output | command-input
+
+errors are not passed by default
+#############################################################################################################
+# these are the same:
+grep pattern file
+cat file | grep pattern
+
+if you don't supply a file name the command will use stdin, as grep is doing in the second example above
+
+##############################################################################################################
+# The cut command
+cuts out select portions of a file
+if file is omitted it used stdin
+-d deliminter
+-f N  display Nth field
+-f1,5 gives first and fifh fields
+example:
+cut -d' ' -f2 
+(gives the second field with space as delimiter for the fields)
+
+##############################################################################################################
+# example of pipes and using strings command
+first grep the file:
+Grep will find it but say it's binary file and it not human readable
+file command confirms it's not text type of file
+strings music.mps | grep -i john
+now it will grep on the file as converted to human readible
+
+
+##############################################################################################################
+# searching and pip example
+Find all users named "bob" in /etc/passwd
+print account name and real name
+print in alphabetical order by account name
+print in a tabular format
+
+
+grep bob /etc/passwd | cut -d: -f1,5 | sort | tr ":" " " | column -t
+##############################################################################################################
