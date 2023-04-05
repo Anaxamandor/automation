@@ -1,0 +1,87 @@
+##############################################################################################
+# sending command to background
+the command still runs but won't preven entering more on the command line
+
+command &   Starts command in background
+
+
+##############################################################################################
+#  Kill the foreground process
+ctrl + c
+
+##############################################################################################
+# Suspend the foreground process.
+This actually stops the process.  It is no longer running in the background.
+ctrl + z
+
+##############################################################################################
+# Send a suspended process to the background:
+
+bg [%num]
+
+- If a job number is not supplied using %num, then bg will operate on the current job.
+- The current job is defined as the last job that was stopped while it was in the foreground,
+or the last job that was started in the background.
+
+##############################################################################################
+# Send a background process to the foreground:
+
+fg [%num]
+
+- like bg, it will operate on the current job unless you give it a specific job number
+
+example:
+fg %2 (send job 2 to the foreground)
+
+##############################################################################################
+# kill a job
+
+kill %num (job number or process ID number is required)
+
+##############################################################################################
+# list your jobs
+
+jobs [%num]
+
+The + sign in the output represents the current job
+The - sign represents the previous job
+
+current job is considered to be:
+1. last job stopped while in foreground, or
+2. last job started in the bakcground
+
+current job can be referred to as && or &+
+previous job can be referred to as %-
+
+To look at current job:
+jobs %+
+
+To look at previous job:
+jobs %-
+
+##############################################################################################
+# killing processes
+
+There are two ways to kill a process.
+
+ctrl-c    Kills foreground processes (or more precisely interrupts by sending SIGINT) 
+kill [-sig] pid   
+
+The default signal sent by kill is 'termination' referred to as sigterm or term for short
+
+kill -l    Display a list of signals
+
+All these are equivalent:
+kill 123
+kill -15 123 
+kill -TERM 123
+
+If a hard to kill process that does not terminate when the term signal is sent, use 9 or -KILL:
+kill -9 123
+kill -KILL 123
+
+##############################################################################################
+# suspending a foreground process
+cntl + Z
+
+##############################################################################################
