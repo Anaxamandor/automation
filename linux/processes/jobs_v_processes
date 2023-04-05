@@ -1,0 +1,33 @@
+# what is a job and what is a process:
+
+The short answer is that a job is a process that's been moved to the background.  
+It's associated with your current shell session, which is what makes it a job 
+(as opposed to a standalone process started by the system, like a service).
+
+When a program runs on Linux, it becomes a process.  For example, when you launch a web server, 
+there's a process that represents the web server (or mutliple processes, depending on the web server).  
+When you run "ls" to get a directory listing, that creates a process briefly while the ls program 
+gets the directory contents then displays them.
+
+Jobs refer to processes that are associated with the current shell and running in the background, 
+basically.  
+
+If you run some long-running program then, say, hit ctrl-Z and type "bg", then the program will 
+keep running in the background.  Typing "jobs" will list that program and any others that are 
+associated with the current shell.  Running "fg" will bring that process back to the foreground.
+
+Because a job is associated with the current shell, if the current shell terminates 
+(by logging out, or disconnecting the remote connection to the server), that job will end too 
+and its program will stop running.  
+
+That's not the case for programs with scripts created with running perpetually in mind 
+- when you run the script to start a web server, it disassociates the web server from your current 
+process, so it isn't a job - logging off won't affect the web server.
+
+Processes are the most important concept to understand, then, out of those two.  Running "ps -ef" 
+will show you all processes running on the system, or running "pgrep httpd" will run a search of 
+the current list of processes for anything named "httpd" (which is the name of the apache web 
+server process on CentOS or Red Hat).  
+
+The "top" command lets you check which processes are using the most resources on the system, 
+and "kill" is a command you can use to terminate a process.
