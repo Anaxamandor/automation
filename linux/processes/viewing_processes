@@ -1,0 +1,30 @@
+### ps command - view processes ####
+
+# ps  options
+-e          Everything
+-f          Full format listing
+-p pid      Display information for PID
+-ef         Display all processes, full
+
+# Display specific user's processes
+ps -u  unsername   
+
+# display ps as a tree (couple of ways to do it)
+ps -eH   Display a process tree
+ps -ef --forest   Display a process tree
+
+# pipe to less 
+ps -ef | less
+
+
+### other ways to view processes ####
+# pstree   Display processes in a tree format
+
+# top      Interactive process viewer
+displays processes using most CPU at top of the list
+type ? for help
+
+# htop     Interactive process viewer
+same info as top but different format, not on RHEL
+
+
