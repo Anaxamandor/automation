@@ -1,0 +1,45 @@
+--- 
+
+- name: "Play 1 - target Cisco devices"
+  hosts: cisco
+  connection: network_cli
+
+  tasks:
+    - name: Apply the provided configuration
+      cisco.ios.ios_logging_global:
+        config:
+          hosts:
+            - hostname: "{{ item.ip }}"          
+        state: merged
+      loop: "{{ syslog.hosts }}"
+      when: item.port is not defined
+      register: task1_output
+
+    - name:
+      cisco.ios.ios_logging_global:
+        config:
+          hosts:
+            - hostname: "{{ item.ip }}"
+              transport:
+                tcp: 
+                  port: "{{ item.port }}"        
+        state: merged
+      loop: "{{ syslog.hosts }}"
+      when: item.port is defined
+      register: task2_output
+
+    - name: print task 1 task1_output
+      debug:
+        msg: "{{ item.commands }}"
+      loop: "{{ task1_output.results }}"
+      loop_control:
+        label: none
+      when: item.commands is defined
+    
+    - name: print task 2 task1_output
+      debug:
+        msg: "{{ item.commands }}"
+      loop: "{{ task2_output.results }}"
+      loop_control:
+        label: none
+      when: item.commands is defined
