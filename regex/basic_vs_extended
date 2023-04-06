@@ -1,0 +1,9 @@
+
+Basic Regular Expressions (BRE) and Extended Regular Expressions (ERE) are two types of regex that differ in their syntax and features. 
+Historically, there were differences between them, but over time the features have merged until the functionality is mostly the same. 
+
+BREs are simpler and have fewer features than EREs2. 
+The characters ‘?’, ‘+’, ‘{’, ‘|’, ‘(’, and ‘)’ lose their special meaning in BREs; 
+instead use the backslashed versions ‘?’, ‘+’, ‘{’, ‘|’, ‘(’, and ‘)’2. 
+
+EREs were extended and had more power1.
