@@ -1,0 +1,128 @@
+#####################################################################################################################
+# objects 
+
+have attributes and methods
+
+example: 
+object - person
+attributes - name, dob, eye color
+methods - walk, stand, run, laugh
+
+#####################################################################################################################
+# classes
+
+creating a new classes creates a new type of object
+
+built in classes in python
+
+my_var  = "John"  
+(python invoked built-in string class to create 
+this object which is referenced by the variable)
+
+#####################################################################################################################
+# class definition syntax:
+
+class Person():
+    pass          #pass creates the class without any attributes or methods
+
+john = Person()   #creates a new instance (object) of the class Person
+
+type(john)  returns __main__.Person
+
+paul = Person()   #create another instance of the class Person
+
+both john and paul would have access to attributes and methods of Person
+
+#####################################################################################################################
+# class attribues:
+
+class Drummer():
+    member_type = "Percussionist"   #this creates a class-wide attribute 
+
+john = Drummer()
+
+type(john)
+__main__.Drummer
+
+dir(john)   #lists the attributes, including member_type
+
+john.member_type
+'Percussionist'
+
+paul = Drummer()
+
+pual.member_type
+'Percussionist'
+#######################################################################################################################
+# instance attributes:
+
+To create attributes unique to each object/isntance, must use the initializer, which has a magic method in Python:  __init__
+
+class Drummer:
+    member_type = "Percussionist"                             #class attribute
+    def __init__(self, style, lead_hand, brand):              #self is first argument, and it is a reference to the instance that is going to be created.
+        self.style = style                                    #attaching argument to the object to be created.
+        self.lead_hand = lead_hand                            #attaching argument to the object to be created.  
+        self.brand = brand                                    #attaching argument to the object to be created.
+
+john = Drummer("rock", "right-handed", "Pearl")   #when instantiating object, required to enter three arguments for initialziation to happen.
+
+john.style
+'rock'
+
+john.lead-hand
+'right-handed'
+
+john.brand
+'Pearl'
+
+john.member_type
+'Percussionist'
+
+lauren = Drummer("jazz", "lef-handed", "DW")  #creating another instance that shares class attribute, but has unique instance attributes.
+
+lauren.style
+'jazz'
+
+lauren.lead_hand
+'left-handed'
+
+laurn.brand
+'DW'
+
+lauren.member_type
+'Percussionist'
+
+** think of self as "my new instance" ***
+#######################################################################################################################
+
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+###########################################################################
