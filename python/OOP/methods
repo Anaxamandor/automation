@@ -1,0 +1,101 @@
+##################################################################################
+# creating methods:
+
+
+class Drummer:
+    member_type = "Percussionsit"
+    def __init__(self, style, lead_hand, brand):
+        self.style = style
+        self.lead_hand = lead_hand
+        self.brand = brand
+
+    def paradiddle(self):                  #creates a method; self gives access attributes, and is necessary even method does not use arguments
+        if self.lead_hand == "Left":
+            print("L! R! L! L!")
+        else:
+            print("R! L! R! R!")
+
+
+buddy_rich = Drummer("jazz", "right", "Slingerland")   #create an instance of a Drummer
+buddy_rich.paradidle()                                 #() calls the method
+
+
+buddy_rich.style                                         #attributes do not require () to access
+buddy_rich.lead_hand
+buddy_rich.brand
+
+##################################################################################
+# creatin methods, example 2: 
+
+class Drummer:
+    member_type = "Percussionsit"
+    def __init__(self, style, lead_hand, brand):
+        self.style = style
+        self.lead_hand = lead_hand
+        self.brand = brand
+
+    def drum_lessons(self, grip):
+        if grip == "traditional":
+            print("Sure I can teach you!")
+        else:
+            print("Sorry I only teach traditional grip!")
+
+buddy_rich = Drummer("jazz", "right", "Slingerland")
+
+budy_rich.drum_lessons("traditional")
+
+buddy_rich.drum_lessons("matched")
+
+##################################################################################
+# magic methods:
+
+my_list = ["John", "Trevor", "Bob", "Simona"]
+
+dir(my_list)     #note that __len__ is included in the output among others
+
+my_list.__len__()   #prints the length of 4 
+len(my_list)        #prints the length of 4 also (same result)
+
+**anything using double underscores is a magic method.**
+
+##################################################################################
+# implement a magic method to a class:
+
+class Friends:
+    members = ["Ross", "Rachel", "Joey", "Phoebe", "Chandler", "Monica"]
+
+my_friends = Friends()
+
+my_friends.members
+
+dir(my_friends)    #note that __len__ is not available in this class
+
+
+
+
+#now we will implement the __len__ magic method into the class:
+
+class Friends:
+    members = ["Ross", "Rachel", "Joey", "Phoebe", "Chandler", "Monica"]
+    def = __len__(self):
+        return len(self.members)
+
+my_friends = Friends()
+
+len(my_friends)    #now we can see it calculates the amount of friends, which is 6
+
+##################################################################################
+# another example of magic method:  (resume at 4:51 in the magic methods lesson)
+
+my_different_list_of_friends = ["Trevor", "Simona", "knox"]
+
+if "
+
+
+
+
+
+
+
+
+
