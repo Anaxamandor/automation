@@ -56,3 +56,23 @@ example:
 man date
 
 read up on TZ environment variable
+
+
+
+################################################################################################################################################################
+
+The EDITOR variable will work if you use the "export" command with it.  If a variable isn't exported, then subshells and commands won't have access to its value.
+
+This should work:
+
+EDITOR=nano
+export EDITOR
+You can also do it all on one line:
+
+export EDITOR=nano
+
+Whenever you change an environment variable that commands will probably need to access (like $EDITOR), you should export it.
+
+
+to test it changed:
+chrontab -e
