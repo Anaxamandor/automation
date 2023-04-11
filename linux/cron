@@ -1,0 +1,41 @@
+# chron overview:
+-cron is a time based job scehduing service that starts when the system boots
+-use chron to schedule and automate tasks, such as routing maitnenance
+
+# crontab overview:
+-crontab is a program to create, read, update, and delete job schedules
+-It is a configuration file that specifies when commands are to be executed by chron
+-each line is a job
+-the fields are:
+Minute (0-59), Hour(0-23), Day of the Month(1-31), Month of the Year(1-12), Day of the Week(0-6)
+
+# crontab example:
+0 7 * * 1 /opt/sales/bin/weekly-report
+means run every Monday at 07:00
+
+Asterisk means any (? every?)?????
+
+weekly-report is a shell script (I think)????
+
+
+# email ouptut of chrontab
+Output is emailed to you by default.
+
+To not receve output you can redirect it, such as:
+0 2 * * * /root/backupdb > /tmp/db.log 2>&1
+
+
+# crontab shortcut options:
+For shortcut options see man chron for your system
+
+# crontab commands:
+crontab file   Install a new chrontab from file
+crontab -l     List your cron jobs
+crontab -e     edit your cron jobs (invokes editor in EDITOR variable)
+crontab -r     remove all of your cron jobs
+
+
+If you use "crontab filename", the contents of the file will overwrite the existing crontab contents completely.  
+This is only on a per-user basis, of course - it only overwrites the crontab for the user running the command, 
+other users still have their own separate crontabs.
+
