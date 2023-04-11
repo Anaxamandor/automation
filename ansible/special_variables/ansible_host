@@ -1,0 +1,38 @@
+ansible_host is a special variable in Ansible that allows you to define the target host that you want to manage or control. It specifies the network address or hostname of the target host that the playbook is running against.
+
+By default, Ansible uses the inventory hostname (i.e., the name specified in the inventory file) as the target host. However, in some cases, you may want to override the inventory hostname and use a different hostname or IP address for the target host. This is where ansible_host comes into play.
+
+For example, consider the following inventory file:
+
+[webservers]
+web1 ansible_host=192.168.1.101
+web2 ansible_host=192.168.1.102
+
+In this inventory file, we have defined two webservers: web1 and web2. However, we have overridden the hostname with their respective IP addresses using the ansible_host variable.
+
+This means that when we run a playbook against the webservers group, Ansible will use the IP addresses specified in ansible_host as the target hosts, instead of the inventory hostnames.
+
+You can use the ansible_host variable in various Ansible modules, such as the ping module or the ssh module.
+
+For example, to ping the webservers group with ansible_host variable set, you can run:
+
+ansible webservers -m ping
+
+
+This will use the IP addresses specified in ansible_host as the target hosts for the ping module.
+
+here are some common reasons why someone might want to use the ansible_host variable in Ansible:
+
+Dynamic inventory: When you are using a dynamic inventory, the IP addresses or hostnames of your servers might change frequently. In such cases, you can use the ansible_host variable to define the target hosts at runtime, instead of relying on static inventory files.
+
+Multiple network interfaces: If your target hosts have multiple network interfaces or multiple IP addresses, you can use the ansible_host variable to specify which network interface or IP address to use as the target host.
+
+Load balancing: If you are using a load balancer to distribute traffic across multiple servers, you can use the ansible_host variable to define the IP address or hostname of the load balancer as the target host.
+
+Hostname resolution: If your target hosts have multiple DNS entries or you want to use a different hostname than the one defined in your inventory, you can use the ansible_host variable to define the hostname that Ansible should use as the target host.
+
+Proxy or jump host: If you need to access your target hosts through a proxy or jump host, you can use the ansible_host variable to specify the address of the proxy or jump host as the target host, and then use the ansible_ssh_common_args variable to define the command line options that Ansible should use to connect to the final target host.
+
+Multi-homed servers: If your target hosts have multiple network interfaces or IP addresses on different subnets, you can use the ansible_host variable to specify which IP address to use as the target host, depending on the subnet or network that you want to target.
+
+In general, the ansible_host variable gives you more flexibility and control over how Ansible connects to your target hosts and which network addresses or hostnames it uses as the target.
