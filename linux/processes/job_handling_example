@@ -1,0 +1,19 @@
+# send a job to the background 
+sleep 600 &     
+
+# verification shows it is running in background
+jobs
+
+
+# kill the running job
+kill %1
+
+
+# create a job in the foreground
+sleep 500
+
+# send it to the background in stopped status
+control-z
+
+# start it in the background
+bg
