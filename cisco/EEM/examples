@@ -1,0 +1,58 @@
+event manager applet check-ssh-enabled
+ event timer cron cron-entry "*/30 * * * *"
+ action 1.0 cli command "enable"
+ action 2.0 cli command "show ip ssh"
+ action 3.0 regexp "SSH Enabled" "$_cli_result"
+ action 4.0 if $_regexp_result eq 0
+  action 5.0 cli command "enable"
+  action 6.0 cli command "configure terminal"
+  action 7.0 cli command "crypto key generate rsa modulus 2048"
+  action 8.0 cli command "end"
+  action 9.0 syslog msg "SSH was not enabled. Crypto key has been regenerated."
+  action 10.0 else
+  action 11.0 syslog msg "SSH is already enabled."
+  action 12.0 end if
+
+
+
+event manager applet check-ssh
+event timer cron cron-entry "*/30 * * * *"
+action 0.0 cli command "enable" sync yes
+action 1.0 cli command "show ip ssh | i SSH Enabled"
+action 2.0 if $_cli_result eq ""
+action 3.0 cli command "configure terminal"
+action 4.0 cli command "crypto key generate rsa modulus 2048"
+action 5.0 cli command "end"
+
+
+event manager applet check-ssh
+event timer cron cron-entry "*/30 * * * *"
+action 0.0 cli command "enable" sync yes
+action 0.1 wait 1
+action 1.0 cli command "show ip ssh | i SSH Enabled" sync yes
+action 1.1 wait 1
+action 2.0 if $_cli_result eq ""
+action 2.1 wait 1
+action 3.0 cli command "configure terminal" sync yes
+action 3.1 wait 1
+action 4.0 cli command "crypto key generate rsa modulus 2048" sync yes
+action 4.1 wait 5
+action 5.0 cli command "end" sync yes
+action 5.1 wait 1
+
+
+event manager applet check-ssh
+event timer cron cron-entry "*/30 * * * *"
+action 0.0 cli command "enable" sync yes
+action 1.0 cli command "show ip ssh | i SSH Enabled" sync yes
+action 2.0 if $_cli_result eq ""
+action 3.0 cli command "configure terminal" sync yes
+action 4.0 cli command "crypto key generate rsa modulus 2048" sync yes
+action 5.0 if "$_cli_result" contains "ERROR"
+action 6.0 syslog msg "Crypto key generation failed. SSH not enabled."
+action 7.0 exit 1
+action 8.0 cli command "end" sync yes
+action 9.0 syslog msg "SSH was not enabled. Crypto key has been regenerated."
+action 10.0 else
+action 11.0 syslog msg "SSH is already enabled."
+action 12.0 end if
