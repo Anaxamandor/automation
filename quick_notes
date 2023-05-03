@@ -16,7 +16,9 @@ ansible-playbook myplaybook.yml | tee output.log
 
 
 
-EEM stuff:
+EEM ideas:
 
  action 2 regexp "GigabitEthernet0/0" "$_cli_result" var1
   action 3 if string length "$var1" eq 0
+  
+  could also try defining the variable first then overwriting with the result
