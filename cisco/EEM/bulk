@@ -1,0 +1,157 @@
+Develop "EEM software applets"
+
+#TROUBLESHOOTING
+debug event manager action cli (actual actions taking place when the applet is running)
+debug event manager all (will show all the outputs for the configured actions while the applet is being executed.)
+
+
+$_cli_result keyword in the configuration, it will include the output of any CLI commands that were issued in the applet.
+
+#Triggers (events) available:
+Recurrence
+Counters -operators <,> etc
+CLI - regex
+syslog - regex
+SNMP objects
+
+event cli pattern "shutdown" (regex in quotes)
+event syslog patter "pattern"
+event snmp oid x.x.x.x.x.x
+even timer cron time 60.0  (or watchdog)
+
+#actions available
+rebot router
+write to terminal - syslog 
+send an email
+issue commands
+create SNMP traps
+
+# conifguration basics
+
+conf t
+event manager applet NAME
+event cli pattern "shutdown"
+action 1.0 syslog msg "Don't do that"
+action 1.5 snmp-trap strdata "trap description"
+action 2.0 counter name <name> value 1
+action 2.5 cli command "enable"
+action 3.0 cli command "conf t"
+action 3.5 cli command "no shut"
+action 4.0 cli command "end"
+
+
+- can only have one event per applet
+- configuration or edits are saved only after exit applet configuraiton mode
+- actions are triggered on alphanumeric ascending order
+
+
+# example 
+conf t
+event manager applet CBTApplet
+event none
+action 1.0 syslog msg "Knox is at it again"
+action 1.5 cli command "conf t" 
+action 2.0 cli command "interface gigx/x"
+action 2.5 cli commmand "desc knox was here"
+action 3.0 cli command "end"
+section 4.0 syslog msg "$_cli_result"
+
+event manager run CBTApplet
+
+It won't work as missing enable command.
+
+can edit appplet as well by adding in a new line:
+
+event manager applet CBTApplet
+action 0 cli command "enable 15"
+
+
+
+# see what applets are created:
+show event manager policy registered
+
+
+# using EEM to swan tclsh script
+you should not be using EEM to spawn a tclsh script.  That is inefficient.  It would be better to convert the tclsh script to an EEM Tcl policy, and then register that instead of the applet.  This way you are not involving an unneeded subsystem.
+
+http://www.cisco.com/c/en/us/td/docs/ios/netmgmt/configuration/guide/12_2sx/nm_12_2sx_book/nm_eem_policy_tcl.html .
+
+# important tips:
+remember to turn on terminal monitor or you won't see syslog! 
+
+if you are using AAA command authorization, you will want to include the event manager session cli username username command
+or the event manager applet NAME authorization bypass command if AAA has not connectivity.
+
+
+
+
+# example of an applet that will bring up the an interface that is brought down and send a syslog message:
+event manager applet CBTNoShut
+event syslog pattern "LoopbackX, changed state to administratively down"
+action 1.0 cli command "enable"
+action 2.0 cli command "conf t"
+action 3.0 cli command "int loX"
+action 4.0 cli command "no shut"
+action 5.0 cli command "end"
+action 6.0 syslog priority critical msg "A user has attempted to shut down LoX.  Bad User!"
+end
+show event manager policy registered
+
+# watchdog timer
+https://protocoholic.com/2020/04/10/useful-cisco-eem-scripts/
+event manager applet TEST
+event timer watchdog time 100
+action 1.0 syslog msg "EEM Triggered"
+action 1.1 cli command "enable"
+action 1.2 cli command "conf t"
+action 1.3 cli command "router bgp 100 "
+action 1.4 cli command "neigh 50.50.50.2 shut"
+action 1.5 cli command "no neigh 50.50.50.2 shut"
+action 1.6 cli command "end"
+
+
+########## RESOURCES ##########################
+
+# command reference
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/eem/command/eem-cr-book/eem-cr-e2.html
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/eem/command/eem-cr-book.pdf
+
+# cisco best practices guide
+https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-xe-16/216091-best-practices-and-useful-scripts-for-ee.html
+
+#variables:
+https://community.cisco.com/t5/networking-knowledge-base/eem-built-in-quot-action-quot-variables/ta-p/3123406
+
+#tutorials
+https://www.digitaltut.com/embedded-event-manager-eem-tutorial
+
+https://ine.com/blog/2010-01-18-eem-demystified-part-1
+https://ine.com/blog/2010-03-24-eem-revenge-of-the-applets
+
+#help
+https://community.cisco.com/t5/network-management/bd-p/5931-discussions-network-management
+
+#interesting
+https://community.cisco.com/t5/network-management/conditional-logic-based-on-command-output/m-p/2354276#M121082
+
+# the huge library (googe embedded managment configuration guide libary)
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/emb_mgmt/15-mt/emb-mgmt-15-mt-library.html
+
+
+###################
+debugging this error:  
+fh_assign_scheduler_threat: server has no available thread to service the policy class=default policy_type=applet 
+:
+
+You probably have five instances of EEM applets running, and can no longer service a new instance.  Check the output of "show event manager policy pending" and "show event manager policy active".  If the policies are stuck, you may have to reload to effectively kill them.  Else you can try "event manager scheduler clear all"
+
+Reload should fix the problem. Another possible solution would be to increase the pool of available threads for script execution.
+R1#show event manager scheduler thread detailed
+R1(config)#event manager scheduler script thread class default number 10
+
+
+
+#####################
+debug of command authorization failing in dubug output
+
+event manager session cli username <username>
