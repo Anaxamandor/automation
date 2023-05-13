@@ -1,0 +1,20 @@
+###################################################################################
+# Jina inline conditionals
+
+API = cinder{{ 'v2' if api.v2 else ''}}
+v2 is defined as True or False
+
+For this to work, api.v2 must be a Boolean True or False.
+
+example:
+
+vars:
+  api:
+    v2: true
+
+tasks:
+  - name: 
+    debug:
+      msg: "API = cinder{{ 'v2' if api.v2 else ' '}}"
+
+the message will be different depending on the value of v2.
