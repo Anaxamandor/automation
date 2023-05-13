@@ -1,0 +1,3 @@
+# overriding a variable from a jinja template with command line:
+
+ansible-playbook -i localhost, -C demo.yml -e '{feature: {"enabled": false}}'
