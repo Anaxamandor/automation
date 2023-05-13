@@ -1,0 +1,3 @@
+# software managment using RPM
+
+lower level command rpm can be used in addtion to dnf, but does not get all features of dnf such as auto-isntallation of dependencies.
