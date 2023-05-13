@@ -1,3 +1,13 @@
+#####################################################################################
+# pause module with lookup of jinja template example
+tasks:
+  - name: pause with render
+    pause: 
+      prompt: "{{ lookup('template', 'demo.j2') }}"
+
+#####################################################################################
+
+
 In Ansible, the pause module is used to pause a playbook or task for a specified amount of time. The echo parameter of the pause module is used to 
 display a message to the user while the playbook or task is paused.
 
