@@ -1,5 +1,0 @@
-jinja templates must be indented if indented in show run, when using ansible default behavior
-
-alternatively can override this default behavior in ios_config moculde by adding 
-match: "none" to the task (but then it's no longer performing the check 
-for a match against the runnign config) and will show changed but it's a lie
