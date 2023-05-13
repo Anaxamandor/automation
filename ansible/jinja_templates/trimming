@@ -1,0 +1,6 @@
+###################################################################################
+# trimming the default empty line that is printed by {% %} blocks when templated is rendered:
+
+{% for dir in data_dirs -%}
+
+###################################################################################
