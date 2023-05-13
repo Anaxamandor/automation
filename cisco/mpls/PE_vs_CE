@@ -1,0 +1,2 @@
+distniction between PEs and provider routers:
+PEs have both VRFS and MPLS configured, but provider router has just MPLS but no VRFs
