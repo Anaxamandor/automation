@@ -1,0 +1,14 @@
+# software managment using dnf/yum:
+
+dnf search <string>  (search for string, for example: dnf search nginx, and it returns available options)
+dnf info [package]   (display more info about the package to make sure it's what you want)
+dnf install [-y] <package>  (install package, need to switch to root user to use this, it also installs the dependencies)
+dnf list isntalled <package> (to prove it is installed)
+which <package>  (to see where it's installed)
+
+dnf remove <package>  (remove package)
+dnf upgrade [package]  (upgrade package)
+
+uname -m  (prints out machines architecture, so you know which package is a match)
+
+if the package is labeled .noarch, then it works with any CPU type, otherwise try to match the architecture with a package labeled x86_64 if using Intel
