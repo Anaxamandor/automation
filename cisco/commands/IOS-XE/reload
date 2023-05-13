@@ -10,3 +10,19 @@ reload in 5
 if you reload it and no NTP server, it won't know what time it is, and you have to change the clock on it manually.
 
 It might also not be able to reach the NTP server if it has an old battery that resets the clock, and a routing protocol authentication that won't let NTP pass.  SO you have to go out and fix it by console.
+
+################################################################
+
+!save the config
+!not issued from config t
+reload at 20:00
+[confirm]
+!do not save config
+reload cancel
+
+!save the config
+!not issued from config t
+reload in 10
+[confirm]
+!do not save the config
+reload cancel
