@@ -1,4 +1,5 @@
-
+distniction between PEs and provider routers:
+PEs ahve both VRFS and MPLS configured, but provider router has just MPLS but no VRFs
 +++++++++++++++++++++++++++++++SKILL: MPLS Overview+++++++++++++++++++++++++++++++++++
 
 #######################################################################################
