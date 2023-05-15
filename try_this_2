@@ -1,0 +1,17 @@
+- name: Remove VLANs based on my_var
+  hosts: my_cisco_switch
+  vars:
+    my_var:
+      - name_0: [1, 2, 3, 4]
+      - name_1: [1, 2, 3, 4]
+  tasks:
+    - name: Create list of VLANs to remove
+      set_fact:
+        vlans_to_remove: "{{ item }}"
+      loop: "{{ my_var[0]['name_0'] }}"
+      
+    - name: Remove VLANs
+      ios_config:
+        lines:
+          - "no vlan {{ item }}"
+      loop: "{{ vlans_to_remove }}"
