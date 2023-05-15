@@ -1,0 +1,26 @@
+In Ansible, I registered a variable that contains the following data as the value:
+my_var = [ { "name_0": [1,2,3,4] }, { 'name_1": [1,2,3,4] } ]
+Please create a task that loops over my_var.
+The task should use the ios_config module to print out a list of commands.
+The commands should be "no key {{  y where y iterates through each of the numbers in my_var.
+The parents: directive shoud have a command "interface loopback x", where x iterates through the two keys (name_0 and name1).
+
+
+
+- name: Example task
+  ios_config:
+    parents: "interface loopback {{ item.key }}"
+    lines:
+      - "no key {{ item.value }}"
+  loop: "{{ my_var }}"
+  loop_control:
+    label: "{{ item.key }}"
+
+In this task, we're using the ios_config module to configure IOS devices. 
+The parents parameter specifies the parent configuration mode for each command, 
+which in this case is "interface loopback x", where x iterates through the two keys (name_0 and name_1). 
+The lines parameter specifies the commands to execute, which are "no key {{ y }}" where y iterates through 
+each of the numbers in the respective lists.
+
+We're using the loop directive to iterate over my_var, and the loop_control directive to set the 
+label for each item to the key of the loop iteration.
