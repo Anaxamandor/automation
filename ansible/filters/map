@@ -1,0 +1,29 @@
+You can use the map() filter in Ansible to convert a list of strings to a list of integers. Here's an example:
+
+- name: Convert list of strings to list of ints
+  hosts: localhost
+  gather_facts: no
+  vars:
+    string_list:
+      - "1"
+      - "2"
+      - "3"
+  tasks:
+    - name: Convert list
+      set_fact:
+        int_list: "{{ string_list | map('int') | list }}"
+    - name: Debug
+      debug:
+        var: int_list
+
+n this example, we first define a list of strings called string_list.
+
+We then use the map() filter with the int function to convert each string to an integer, 
+and then use the list filter to convert the resulting map object to a list. 
+
+The resulting list of integers is stored in the int_list variable.
+
+Finally, we use the debug module to print out the value of int_list.
+
+Note that the map() filter was introduced in Ansible 2.5, so if you are using an earlier version of Ansible, 
+you will need to use a different approach, such as a loop with the to_int filter.
