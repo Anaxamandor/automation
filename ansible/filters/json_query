@@ -1,0 +1,27 @@
+I have a data set which is a list, that contains two dicts, and inside each dict is a list.  The list inside each dict contains numbers in string format.  How can I use Ansible to convert this data structure to a list that contains two dicts, and inside each dict is a list of strings, but this time in int format?
+
+You can use Ansible's json_query filter along with the map and int filters to achieve this. Here's an example playbook that demonstrates how to do this:
+
+- name: Convert list of strings to list of ints
+  hosts: localhost
+  gather_facts: no
+  vars:
+    data:
+      - {'list': ['1', '2', '3']}
+      - {'list': ['4', '5', '6']}
+  tasks:
+    - name: Convert data structure to list of ints
+      set_fact:
+        int_data: "{{ data | json_query('[].{list: list | map(''int'') }') }}"
+    - name: Debug
+      debug:
+        var: int_data
+
+
+In this example, we first define a variable called data that contains a list of two dictionaries. Each dictionary contains a key called list that points to a list of strings.
+
+We then use the json_query filter to extract the list key from each dictionary and convert the list of strings to a list of integers using the map and int filters. The resulting list of dictionaries with integer lists is stored in the int_data variable.
+
+Finally, we use the debug module to print out the value of int_data.
+
+Note that the json_query filter is available in Ansible 2.5 or later, so if you are using an earlier version of Ansible, you will need to use a different approach.
