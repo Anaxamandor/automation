@@ -1,3 +1,6 @@
+ansible all -m raw -c paramiko -a "show ip interface brief"
+
+
 ansible -m raw -a '/usr/bin/uptime' linuxhosts
 
 ansible -m shell -a 'python3 -V' linuxhosts
