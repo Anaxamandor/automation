@@ -1,3 +1,13 @@
+# convert a dictionary to a list
+
+set_fact:
+  ip_address_list: "{{ ip_address_dict | map(attribute ='a_key_name') | list }}"
+
+
+###############################################################################################################
+
+
+
 You can use the map() filter in Ansible to convert a list of strings to a list of integers. Here's an example:
 
 - name: Convert list of strings to list of ints
