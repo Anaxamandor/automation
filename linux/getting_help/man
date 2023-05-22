@@ -1,1 +1,13 @@
 
+# man pages
+g -> top of page
+shift + g -> bottom of page
+man -k SEARCH_TERM
+
+You can get more information from the manpage for find - run "man find",
+then search it by typing "/maxdepth".  Hit "n" to jump to the next search
+result and you should get to the entry for -maxdepth (it's a long manpage
+with a lot of details).
+
+
+
