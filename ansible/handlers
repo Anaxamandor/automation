@@ -1,3 +1,25 @@
+#How to have a handler trigger a role
+
+1. Define a handler in your playbook:
+
+handlers:
+  - name: Run My Role
+    import_role:
+      name: my_role
+      
+ 2. In the tasks section where you want the role to be executed after, notify the handler:
+ 
+ tasks:
+  - name: Some task
+    # Task definition...
+
+  - name: Another task
+    # Task definition...
+    notify: Run My Role
+########################################################################################
+
+
+
 Handlers notified within the roles section are automatically flushed at the end of the tasks section, but before any tasks handlers.
 
 translation: 
