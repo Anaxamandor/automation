@@ -13,3 +13,17 @@ Replace Options:
 line: As the default replace option, this allows Ansible to modify a specific line within the matching block. The line specified in the playbook replaces the exact matching line within the existing block, while keeping the rest of the block unchanged. This option provides a targeted approach to modify a specific line within a configuration block.
 
 block: With this option, Ansible replaces the entire matching configuration block with the lines specified in the playbook. The existing block is completely removed, and the lines from the playbook are added in its place. This option gives you the ability to replace an entire block of configuration, making it useful when you want to update or overwrite an existing configuration section.
+
+
+
+
+To add new configuration to the device and remove existing configurations, you can use the following match and replace options in your playbook:
+
+Match Option: none
+Replace Option: block
+
+By using none as the match option, Ansible will not attempt to match any existing blocks. This means that the playbook will only add new blocks without considering the current configuration. This is ideal for adding new configurations and not retaining any existing configurations.
+
+With block as the replace option, Ansible will replace the entire matching configuration block with the lines specified in the playbook. This ensures that any existing configurations within the block will be removed, and only the lines from the playbook will be added.
+
+Using these options will allow you to add new configuration sections while removing any conflicting or unwanted configurations that may already exist on the device.
