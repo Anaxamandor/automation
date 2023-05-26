@@ -1,0 +1,15 @@
+Match Options:
+
+line: By default, Ansible uses this option to match the entire configuration block where a specified line appears. If any line within the configuration block matches the specified line, the entire block is considered a match. This option allows you to identify and modify a block of configuration based on a single line within it.
+
+strict: With this option, Ansible ensures an exact match of the entire configuration block. In other words, both the content and order of all lines within the block must match exactly for it to be considered a successful match. This option provides a more precise way of matching and modifying configuration blocks.
+
+exact: This option, although deprecated and no longer recommended, was used in older versions of Ansible. It attempted to match the entire configuration block exactly as specified in the playbook. However, it is no longer considered a valid match option in the latest versions of Ansible.
+
+none: By selecting this option, Ansible does not match any existing blocks. Instead, it adds a new block at the end of the configuration without comparing or modifying any existing blocks. This option is useful when you want to introduce a completely new block without any consideration of the existing configuration.
+
+Replace Options:
+
+line: As the default replace option, this allows Ansible to modify a specific line within the matching block. The line specified in the playbook replaces the exact matching line within the existing block, while keeping the rest of the block unchanged. This option provides a targeted approach to modify a specific line within a configuration block.
+
+block: With this option, Ansible replaces the entire matching configuration block with the lines specified in the playbook. The existing block is completely removed, and the lines from the playbook are added in its place. This option gives you the ability to replace an entire block of configuration, making it useful when you want to update or overwrite an existing configuration section.
