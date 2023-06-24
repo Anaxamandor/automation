@@ -50,3 +50,14 @@ Config Backups
 Code upgrade
 
 A program similar to Intermapper where you have a live map of equipment with their topologies. Then use an API to integrate it with monitoring tools and backups.
+
+
+
+# more ideas:
+
+bump and reset tunnels that go down due to poor connectivity
+rebooting POE devices 
+zero touch provisioning
+rsa keys
+
+
