@@ -1,0 +1,39 @@
+jklh
+
+Cntrl-f (page down)
+Cntrl-b (page up)
+
+Forward one word:
+w (considered punctuation as a word)
+W
+
+Back one word:
+b (considered punctuation as a word)
+B
+
+Moves view up to top of page without changing curser position:
+z + enter
+
+Go to first character in the line:
+^
+
+Go to the last character in the line:
+$
+
+
+Go to line:
+2gg (places cursor to second line)
+2G (also works)
+:2 (also works)
+
+Go to top of file:
+gg
+
+Got to the end of file:
+G
+:$  (also works)
+
+Display info on the file at bottom of screen:
+cntrl + g
+g contrl g  (provides even more info)
+(does not auto update, so need to repeat the command)
