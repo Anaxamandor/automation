@@ -1,0 +1,125 @@
+- name: Configure DHCP pool on Cisco IOS
+  hosts: cisco_ios
+  gather_facts: false
+  become: yes
+
+  vars:
+    ansible_network_os: ios
+    ansible_user: ansible
+    ansible_password: ansible
+    ansible_become: yes
+    ansible_become_password: ansible
+
+  tasks:
+    - name: Set DHCP pools from group_vars
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | default([]) + [{'name': item.name, 'network': item.network | default(''), 'subnet': item.subnet | default(''), 'default_router': item.default_router | default(''), 'dns_server': item.dns_server | default('')}] }}"
+      loop: "{{ dhcp_pool_list }}"
+      loop_control:
+        loop_var: item
+
+    - name: Filter DHCP pools with empty values
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | rejectattr('network', 'equalto', '') | list }}"
+
+    - name: Configure DHCP pool
+      ios_config:
+        lines:
+          - "ip dhcp pool {{ item.name }}"
+          - "network {{ item.network }} {{ item.subnet }}"
+          - "default-router {{ item.default_router }}"
+          - "dns-server {{ item.dns_server }}"
+        match: none
+      loop: "{{ dhcp_pools }}"
+      loop_control:
+        loop_var: item
+
+
+Alternative:
+
+- name: Configure DHCP pool on Cisco IOS
+  hosts: cisco_ios
+  gather_facts: false
+  become: yes
+
+  vars:
+    ansible_network_os: ios
+    ansible_user: ansible
+    ansible_password: ansible
+    ansible_become: yes
+    ansible_become_password: ansible
+
+  tasks:
+    - name: Set DHCP pools from group_vars
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | default([]) + [{'name': item.name, 'network': item.network | default(''), 'subnet': item.subnet | default(''), 'default_router': item.default_router | default(''), 'dns_server': item.dns_server | default('')}] }}"
+      loop: "{{ dhcp_pool_list }}"
+      loop_control:
+        loop_var: item
+
+    - name: Filter DHCP pools with empty values
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | selectattr('network', 'defined') | list }}"
+
+    - name: Configure DHCP pool
+      ios_config:
+        lines:
+          - "ip dhcp pool {{ item.name }}"
+          - "network {{ item.network }} {{ item.subnet }}"
+          - "default-router {{ item.default_router }}"
+          - "dns-server {{ item.dns_server }}"
+        match: none
+      loop: "{{ dhcp_pools }}"
+      loop_control:
+        loop_var: item
+
+Alternative:
+
+
+- name: Configure DHCP pool on Cisco IOS
+  hosts: cisco_ios
+  gather_facts: false
+  become: yes
+
+  vars:
+    ansible_network_os: ios
+    ansible_user: ansible
+    ansible_password: ansible
+    ansible_become: yes
+    ansible_become_password: ansible
+
+  tasks:
+    - name: Set DHCP pools from group_vars
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | default([]) + [{'name': item.name, 'network': item.network | default(''), 'subnet': item.subnet | default(''), 'default_router': item.default_router | default(''), 'dns_server': item.dns_server | default('')}] }}"
+      loop: "{{ dhcp_pool_list }}"
+      loop_control:
+        loop_var: item
+
+    - name: Filter DHCP pools with empty values
+      set_fact:
+        dhcp_pools: "{{ dhcp_pools | select('not', 'item.network is not defined or item.network == \"\"') | list }}"
+      loop: "{{ dhcp_pools }}"
+      loop_control:
+        loop_var: item
+
+    - name: Configure DHCP pool
+      ios_config:
+        lines:
+          - "ip dhcp pool {{ item.name }}"
+          - "network {{ item.network }} {{ item.subnet }}"
+          - "default-router {{ item.default_router }}"
+          - "dns-server {{ item.dns_server }}"
+        match: none
+      loop: "{{ dhcp_pools }}"
+      loop_control:
+        loop_var: item
+
+
+In this alternative example, the select filter is used with a conditional statement to filter out DHCP pools with empty values. The condition checks if the 'network' attribute is either not defined (is not defined) or is an empty string (== "").
+
+The select('not', 'item.network is not defined or item.network == ""') expression selects the pools that do not meet the condition, effectively excluding the DHCP pools with empty 'network' values.
+
+By using this approach, you can filter out DHCP pools with empty values and ensure that only pools with valid configurations are considered for further configuration commands.
+
+Once again, ensure that you adjust the variable names and values according to your specific requirements and environment.
